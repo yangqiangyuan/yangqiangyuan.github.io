@@ -266,7 +266,7 @@
   
     <div class="article-meta">
       <a href="/2022/08/14/jenkins/" class="article-date">
-      <time datetime="2022-08-13T16:40:44.851Z" itemprop="datePublished">2022-08-14</time>
+      <time datetime="2022-08-13T16:41:32.299Z" itemprop="datePublished">2022-08-14</time>
 </a>
 
 
@@ -277,11 +277,21 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/14/jenkins/">部署jenkins</a>
+    </h1>
+  
+
+      </header>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<h2 id="title-部署jenkins"><a href="#title-部署jenkins" class="headerlink" title="title :部署jenkins"></a>title :部署jenkins</h2><h1 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h1><h2 id="代码上线发展史"><a href="#代码上线发展史" class="headerlink" title="代码上线发展史"></a>代码上线发展史</h2><p>代码发布上线是每一个 IT 企业必须要面临的，而且不管是对开发或者是运维来说，代 码上线本身就是一个件非常痛苦的事情，很多时候每一次发布都是一次考验。为了提高上线 的效率，代码上线的方式，方法，工具也不断的发展，基本上可以分为以下几个阶段。</p>
+        <h1 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h1><h2 id="代码上线发展史"><a href="#代码上线发展史" class="headerlink" title="代码上线发展史"></a>代码上线发展史</h2><p>代码发布上线是每一个 IT 企业必须要面临的，而且不管是对开发或者是运维来说，代 码上线本身就是一个件非常痛苦的事情，很多时候每一次发布都是一次考验。为了提高上线 的效率，代码上线的方式，方法，工具也不断的发展，基本上可以分为以下几个阶段。</p>
 <h3 id="没有构建服务器"><a href="#没有构建服务器" class="headerlink" title="没有构建服务器"></a>没有构建服务器</h3><p>软件在开发者的机器上通过脚本或者手动构建，源代码保存在代码服务器中，但是开发者经常要修改本地代码，因此每次发布，都需要手动合并代码，再进行手动构建，这个过程费时费力。</p>
 <h3 id="晚上进行构建"><a href="#晚上进行构建" class="headerlink" title="晚上进行构建"></a>晚上进行构建</h3><p>在这个阶段，团队有构建服务器，自动化的构建在晚上进行。构建过程只是简单的编译代码，没有可靠的和可重复的单元测试。然而，开发人员每天提交代码。如果某个开发人员 提的代码和其他人的代码冲突的话，构建服务器会在第二天通过邮件通知团队。所以又一段 时间构建是处于失败状态的。</p>
 <h3 id="晚上进行构建并进行自动化测试"><a href="#晚上进行构建并进行自动化测试" class="headerlink" title="晚上进行构建并进行自动化测试"></a>晚上进行构建并进行自动化测试</h3><p>团队对 CI 和自动化测试越来越重视。无论什么时候版本管理系统中的代码改变了都会 触发编译构建过程，团队成员可以看到是代码中的什么改变触发了这个构建。并且，构建脚本会编译应用并且会执行一系列的单元测试或集成测试。除了邮件，构建服务器还可以通过 其他方式通知团队成员，如微信，钉钉通知。</p>

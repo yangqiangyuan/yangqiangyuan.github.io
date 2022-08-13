@@ -266,7 +266,7 @@
   
     <div class="article-meta">
       <a href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/" class="article-date">
-      <time datetime="2022-08-13T16:14:13.853Z" itemprop="datePublished">2022-08-14</time>
+      <time datetime="2022-08-13T16:18:40.196Z" itemprop="datePublished">2022-08-14</time>
 </a>
 
 
@@ -291,22 +291,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl set -h # -h查看帮助</span><br><span class="line">kubectl set image deploy nginx nginx=nginx1.5.3 --record #--record可以查看版本改了那些参数</span><br><span class="line">kubectl rollout status deploy nginx #查看滚动更新的过程</span><br></pre></td></tr></table></figure>
+        <h2 id="deployment更新"><a href="#deployment更新" class="headerlink" title="deployment更新"></a>deployment更新</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">kubectl set -h # -h查看帮助</span><br><span class="line">kubectl set image deploy nginx nginx=nginx1.5.3 --record #--record可以查看版本改了那些参数</span><br><span class="line">kubectl rollout status deploy nginx #查看滚动更新的过程</span><br></pre></td></tr></table></figure>
 
-<p>###deployment回滚</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl rollout history deploy nginx #查看历史版本信息</span><br><span class="line">kubectl rollout undo deploy nginx # 回滚到上一个版本</span><br><span class="line">kubectl rollout history deploy nginx --version=5 #查看指定版本的详细信息</span><br><span class="line">kubectl rollout undo deploy nginx --to-revision=5 #回滚到指定版本</span><br></pre></td></tr></table></figure>
+<h3 id="deployment回滚"><a href="#deployment回滚" class="headerlink" title="deployment回滚"></a>deployment回滚</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kubectl rollout history deploy nginx #查看历史版本信息</span><br><span class="line">kubectl rollout undo deploy nginx # 回滚到上一个版本</span><br><span class="line">kubectl rollout history deploy nginx --version=5 #查看指定版本的详细信息</span><br><span class="line">kubectl rollout undo deploy nginx --to-revision=5 #回滚到指定版本</span><br></pre></td></tr></table></figure>
 
-<p>###deployment扩容和缩容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl scale -h #查看帮助</span><br><span class="line">kubectl scale --replicas=3 deploy nginx</span><br></pre></td></tr></table></figure>
+<h3 id="deployment扩容和缩容"><a href="#deployment扩容和缩容" class="headerlink" title="deployment扩容和缩容"></a>deployment扩容和缩容</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl scale -h #查看帮助</span><br><span class="line">kubectl scale --replicas=3 deploy nginx</span><br></pre></td></tr></table></figure>
 
-<p>###deployment暂停和恢复</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl rolout pause deployment nginx #暂停</span><br><span class="line">kubectl rollout resume deploy nginx #恢复</span><br></pre></td></tr></table></figure>
+<h3 id="deployment暂停和恢复"><a href="#deployment暂停和恢复" class="headerlink" title="deployment暂停和恢复"></a>deployment暂停和恢复</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kubectl rolout pause deployment nginx #暂停</span><br><span class="line">kubectl rollout resume deploy nginx #恢复</span><br></pre></td></tr></table></figure>
 
-<p>###更新</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl replace -f nginx.yaml</span><br></pre></td></tr></table></figure>
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kubectl replace -f nginx.yaml</span><br></pre></td></tr></table></figure>
 
-<p>###加密</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">appledeMBP:~ apple$ echo &quot;admin&quot; | base64</span><br><span class="line">YWRtaW4K</span><br><span class="line">appledeMBP:~ apple$ echo &quot;YWRtaW4K&quot; | base64 --decode</span><br><span class="line">admin</span><br></pre></td></tr></table></figure>
+<h3 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">appledeMBP:~ apple$ echo &quot;admin&quot; | base64</span><br><span class="line">YWRtaW4K</span><br><span class="line">appledeMBP:~ apple$ echo &quot;YWRtaW4K&quot; | base64 --decode</span><br><span class="line">admin</span><br></pre></td></tr></table></figure>
 
 
       

@@ -1,309 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    
-    <meta name="renderer" content="webkit"/>
-    <meta name="force-rendering" content="webkit"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
-    
-    
-        <link rel="shortcut icon" href="/images/favicon.ico">
-    
-     
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.2.30/dist/vuetify.min.css" rel="stylesheet">
-    
-<link rel="stylesheet" href="/css/main.css">
 
-    
-    
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="John Doe" />
 
 
 
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
 
 
 
 
-    
-    
-          
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
-    
-    
-    
-    
-    <title>
-          
-            Hexo
-        
-    </title>
-    
-    
+
+<title>Archives | Hexo</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: false,
+        isArchive: true,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: 
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
 <meta name="generator" content="Hexo 5.4.2"></head>
 <body>
-    <div id="app">
-        <v-app>
-            <v-content id="page">
-                <v-container fluid>
-                    <v-row>
-                        <v-col cols="2" class="d-none d-md-block">
-                            <div id="sidebar" class="float-right">
-    <a href="/" rel="home">
-        <v-avatar size=96>
-            <img id="logo" src="/images/avatar.webp">     
-        </v-avatar> 
-    </a>
-    <v-divider></v-divider>
-    <div class="mini-menu">
-        <v-btn icon href="/">
-            <v-icon>home</v-icon>
-        </v-btn>
-        <v-btn icon href="/categories/">
-            <v-icon>folder</v-icon>
-        </v-btn>
-        <v-btn icon href="/tags/">
-            <v-icon>bookmark</v-icon>
-        </v-btn>
-        <v-btn icon @click="SetNightMode">
-            <v-icon>{{ nightMode }}</v-icon>
-        </v-btn>
-    </div>
-    <v-list id="main-menu" class="font-weight-bold" flat>
-        
-            
-            <v-list-item href="/archives/" link>
-            <v-list-item-icon><v-icon>archive</v-icon></v-list-item-icon>
-            <v-list-item-content>
-                Archives
-            </v-list-item-content>
-            </v-list-item>
-        
-            
-            <v-list-item href="/about/" link>
-            <v-list-item-icon><v-icon>account_circle</v-icon></v-list-item-icon>
-            <v-list-item-content>
-                About
-            </v-list-item-content>
-            </v-list-item>
-        
-            
-            <v-list-item href="https://garybear.cn/" link>
-            <v-list-item-icon><v-icon>rss_feed</v-icon></v-list-item-icon>
-            <v-list-item-content>
-                我的博客
-            </v-list-item-content>
-            </v-list-item>
-        
-            
-            <v-list-item href="https://garybear.cn/hexo-theme-insulin/doc/#/" link>
-            <v-list-item-icon><v-icon>insert_drive_file</v-icon></v-list-item-icon>
-            <v-list-item-content>
-                说明文档
-            </v-list-item-content>
-            </v-list-item>
-        
-    </v-list>
-    <v-divider></v-divider>
-    
-        <v-list id="sub-menu" class="font-weight-medium" dense>
-            
-        </v-list>    
-    
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
 
-    <div id="footer">
-        <div class="footer-social">
-            
-                
-                <v-btn icon href="mailto:kb1000fx@gmail.com" target="_blank">
-                    <v-icon>fas fa-envelope</v-icon>
-                </v-btn>
-            
-                
-                <v-btn icon href="https://github.com/kb1000fx" target="_blank">
-                    <v-icon>fab fa-github</v-icon>
-                </v-btn>
-            
-                
-                <v-btn icon href="https://steamcommunity.com/profiles/76561198346798163" target="_blank">
-                    <v-icon>fab fa-steam</v-icon>
-                </v-btn>
-            
-                
-                <v-btn icon href="https://weibo.com/kb1000fx" target="_blank">
-                    <v-icon>fab fa-weibo</v-icon>
-                </v-btn>
-            
-        </div>
-        <v-divider></v-divider>
-        <div class="footer-content">
-            
-                <span id="busuanzi_container_site_uv" style="display: none;"> 
-                    Total Visitors <span id="busuanzi_value_site_uv"></span>
-                </span>
-                <br>
-            
-            <span>Theme: <a target="_blank" rel="noopener" href="https://github.com/kb1000fx/hexo-theme-insulin">Insulin</a></span><br>
-            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span><br>
-            <span>
-                &copy; 2015 - 2022 
-                John Doe
-            </span>
-        </div>
-    </div>
-</div>
+        
 
-                        </v-col>
-                        <v-col cols="12" md="10">
-                            <v-row>
-  <v-col cols="12" md="8" align-self="end">
-    <div id="site-header">
-      <div id="site-title">
-        <a href="/" rel="home">Hexo</a>
-      </div>
-      <div id="site-description"></div>
-      <div id="mobile-menu" class="d-block d-md-none">
-        <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-inner-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,false)"></v-text-field>
-        <div class="mobile-mini-menu">
-          <v-btn icon href="/">
-              <v-icon>home</v-icon>
-          </v-btn>
-          <v-btn icon href="/categories/">
-              <v-icon>folder</v-icon>
-          </v-btn>
-          <v-btn icon href="/tags/">
-              <v-icon>bookmark</v-icon>
-          </v-btn>
-          <v-btn icon @click="SetNightMode">
-              <v-icon>{{ nightMode }}</v-icon>
-          </v-btn>
-          
-            
-            <v-btn icon href="/archives/">
-              <v-icon>archive</v-icon>
-            </v-btn>
-          
-            
-            <v-btn icon href="/about/">
-              <v-icon>account_circle</v-icon>
-            </v-btn>
-          
-            
-            <v-btn icon href="https://garybear.cn/">
-              <v-icon>rss_feed</v-icon>
-            </v-btn>
-          
-            
-            <v-btn icon href="https://garybear.cn/hexo-theme-insulin/doc/#/">
-              <v-icon>insert_drive_file</v-icon>
-            </v-btn>
-          
-        </div>
-      </div>    
-    </div>
-  </v-col>  
-  <v-col cols="4" align-self="end" class="d-none d-md-block">
-    <v-col align-self="end">
-      <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,false)"></v-text-field>
-    </v-col> 
-  </v-col>
-</v-row>
+        
 
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        <li>Friends</li>
+                        
+                        
+                        <li>About Me</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
                             
-<v-card class="elevation-2 index-card">
-    <v-timeline class="timeline" dense>
-        
-            
-            
-                <v-timeline-item class="timeline-header" color="secondary lighten-2">
-                    <a href="/archives/2022" class="timeline-title">2022</a>
-                    <span class="timeline-subtitle">Archives</span>
-                </v-timeline-item>
+                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
                 
-            
-            <v-timeline-item fill-dot small color="secondary lighten-2">
-                <div class="timeline-item-post d-none d-md-block">
-                    <span class="timeline-item-time">2022.08.14</span>
-                    <a href="/2022/08/14/jenkins/" class="timeline-item-title">部署jenkins</a>
-                </div>
-                <div class="timeline-item-post-mobile d-block d-md-none">
-                    <span class="timeline-item-time">2022.08.14</span><br>
-                    <a href="/2022/08/14/jenkins/" class="timeline-item-title">部署jenkins</a>
-                </div>
-                <v-divider></v-divider>
-            </v-timeline-item>
-        
-            
-            
-            <v-timeline-item fill-dot small color="secondary lighten-2">
-                <div class="timeline-item-post d-none d-md-block">
-                    <span class="timeline-item-time">2022.08.14</span>
-                    <a href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/" class="timeline-item-title">deployment更新</a>
-                </div>
-                <div class="timeline-item-post-mobile d-block d-md-none">
-                    <span class="timeline-item-time">2022.08.14</span><br>
-                    <a href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/" class="timeline-item-title">deployment更新</a>
-                </div>
-                <v-divider></v-divider>
-            </v-timeline-item>
-        
-            
-            
-            <v-timeline-item fill-dot small color="secondary lighten-2">
-                <div class="timeline-item-post d-none d-md-block">
-                    <span class="timeline-item-time">2022.08.13</span>
-                    <a href="/2022/08/13/hello-world/" class="timeline-item-title">Hello World</a>
-                </div>
-                <div class="timeline-item-post-mobile d-block d-md-none">
-                    <span class="timeline-item-time">2022.08.13</span><br>
-                    <a href="/2022/08/13/hello-world/" class="timeline-item-title">Hello World</a>
-                </div>
-                <v-divider></v-divider>
-            </v-timeline-item>
-        
-    </v-timeline>
-</v-card>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
 
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap">
+  
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2022/08/14/jenkins/" class="archive-article-date">
+      <time datetime="2022-08-13T16:41:32.299Z" itemprop="datePublished">08-14</time>
+</a>
+
+
+        </div>
          
-                            <div id="mobile-footer" class="d-block d-md-none">
-                                <v-divider></v-divider>
-                                <div id="mobile-footer-content">
-                                    <span>Theme: <a target="_blank" rel="noopener" href="https://github.com/kb1000fx/hexo-theme-insulin">Insulin</a> &nbsp; Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span><br>
-                                    <span> &copy; 2015 - 2022 John Doe</span>
-                                </div>
-                            </div>                   
-                        </v-col>                                            
-                    </v-row>
-                </v-container>
-            </v-content>
-        </v-app>
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/08/14/jenkins/">部署jenkins</a>
+    </h1>
+  
+
+        <div class="article-info info-on-archive">
+          
+
+          
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/" class="archive-article-date">
+      <time datetime="2022-08-13T16:18:40.196Z" itemprop="datePublished">08-14</time>
+</a>
+
+
+        </div>
+         
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/">deployment更新</a>
+    </h1>
+  
+
+        <div class="article-info info-on-archive">
+          
+
+          
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+          <div class="article-meta">
+              <a href="/2022/08/13/hello-world/" class="archive-article-date">
+      <time datetime="2022-08-13T09:20:42.932Z" itemprop="datePublished">08-13</time>
+</a>
+
+
+        </div>
+         
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/08/13/hello-world/">Hello World</a>
+    </h1>
+  
+
+        <div class="article-info info-on-archive">
+          
+
+          
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016-2022 John Doe
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
     </div>
     
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
-<script src="https://cdn.jsdelivr.net/npm/vuetify@2.2.30"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-base64@3.5.2/base64.min.js"></script>
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
 
-<script src="/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
 
 
 
 
-    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
 
-
-
-
-
-
-
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
 </body>
 </html>

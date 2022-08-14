@@ -1,450 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+     
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.2.30/dist/vuetify.min.css" rel="stylesheet">
+    
+<link rel="stylesheet" href="/css/main.css">
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no" />
-<meta name="author" content="John Doe" />
-
-
-
-<meta name="description" content="jenkins代码上线发展史代码发布上线是每一个 IT 企业必须要面临的，而且不管是对开发或者是运维来说，代 码上线本身就是一个件非常痛苦的事情，很多时候每一次发布都是一次考验。为了提高上线 的效率，代码上线的方式，方法，工具也不断的发展，基本上可以分为以下几个阶段。 没有构建服务器软件在开发者的机器上通过脚本或者手动构建，源代码保存在代码服务器中，但是开发者经常要修改本地代码，因此每次发布，都需">
-<meta property="og:type" content="article">
-<meta property="og:title" content="部署jenkins">
-<meta property="og:url" content="http://example.com/2022/08/14/jenkins/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jenkins代码上线发展史代码发布上线是每一个 IT 企业必须要面临的，而且不管是对开发或者是运维来说，代 码上线本身就是一个件非常痛苦的事情，很多时候每一次发布都是一次考验。为了提高上线 的效率，代码上线的方式，方法，工具也不断的发展，基本上可以分为以下几个阶段。 没有构建服务器软件在开发者的机器上通过脚本或者手动构建，源代码保存在代码服务器中，但是开发者经常要修改本地代码，因此每次发布，都需">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326114330567.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326111717087.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326111739187.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326121053474.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326121129653.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326171455788.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326171513829.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326172057229.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326172813498.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326172847784.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326173740074.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327165046301.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709173420208.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709173734617.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709174146102.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709175921012.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326215214570.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709180211044.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709180349918.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326223329631.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326223420825.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326223420825-163653701349622.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326223606562.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326224547980.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713101418634.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713101447827.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713110201084.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713110238290.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713110619886.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713111021726.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713111340479.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713112353725.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713112434353.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713112640931.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713112846851.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713113715916.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713113802579.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713114023778.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706111309218.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706111723922.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706113538981.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706133434092.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706134430359.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706140045980.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706140059421.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706141239759.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706142149787.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706142200211.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706142213781.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706142259460.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706142336822.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706142430538.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706142441716.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706142457030.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706152248954.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706162526177.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706162827184.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706174126694.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706174453642.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200706174930054.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210126140640216.png">
-<meta property="og:image" content="http://book.luffycity.com/linux-book/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/pic/image-20210126140718543.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200707104340624.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200707155533602.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200707160203811.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200707160844018.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200707163049139.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200707163644903.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708091136140.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708091154862.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708091226949.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708091356915.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708113651522.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708114126644.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708135625100.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708120027011.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708133644978.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708161738625.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708162002494.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708162239124.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708181845539.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708181930838.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708182134042.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708182238410.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708182821452.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708182913239.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708183433377.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200708183514770.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709135211798.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709142244529.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200709143003169.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327151337010.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327151424531.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327151757966.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327152240118.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327152754628.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327155023773.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327153353487.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327153812915.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327154239865.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327154328221.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327155304387.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327160232307.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327162226259.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327162258267.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327162431704.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327162541623.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327165149754.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327165218802.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327165300057.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327234142476.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327234509953.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327234541641.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200327233802639.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330222258599.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330222035365.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330222119025.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330222527814.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330222425761.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330224508121.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330224823493.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330230826625.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330231333059.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330231359729.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330231456032.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330231517159.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330231743780.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330233258208.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330233324672.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330233337857.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200330233419753.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713131416418.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713131917123.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713133345574.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713133531091.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713133842268.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210223175157914.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713135417302.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713141342272.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713142021713.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200713170128757.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210225100028272.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210225101225848.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210225104821365.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210225105020205.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210225105546628.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210225105917932.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210225110141072.png">
-<meta property="og:image" content="http://example.com/2022/08/14/jenkins/pic/image-20210225110314469.png">
-<meta property="article:published_time" content="2022-08-13T16:41:32.299Z">
-<meta property="article:modified_time" content="2022-08-13T16:41:32.300Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/08/14/jenkins/pic/image-20200326114330567.png">
-
-<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
-
-
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-
-
-
-    <link rel="shortcut icon" href="/favicon.png">
-
-
-
-    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
-
-
-
-<link rel="stylesheet" href="/css/style.css">
-
-
-
-
-<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>部署jenkins | Hexo</title>
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
-    }
-</script>
-
-
-    <script> yiliaConfig.jquery_ui = [false]; </script>
-
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
+    
+    
 
 
 
 
 
 
+
+    
+    
+          
+
+    
+    
+    
+    
+    <title>
+        
+            部署jenkins | Hexo
+        
+    </title>
+    
+    
 <meta name="generator" content="Hexo 5.4.2"></head>
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/"></a></h1>
-        </hgroup>
-
+    <div id="app">
+        <v-app>
+            <v-content id="page">
+                <v-container fluid>
+                    <v-row>
+                        <v-col cols="2" class="d-none d-md-block">
+                            <div id="sidebar" class="float-right">
+    <a href="/" rel="home">
+        <v-avatar size=96>
+            <img id="logo" src="/images/avatar.webp">     
+        </v-avatar> 
+    </a>
+    <v-divider></v-divider>
+    <div class="mini-menu">
+        <v-btn icon href="/">
+            <v-icon>home</v-icon>
+        </v-btn>
+        <v-btn icon href="/categories/">
+            <v-icon>folder</v-icon>
+        </v-btn>
+        <v-btn icon href="/tags/">
+            <v-icon>bookmark</v-icon>
+        </v-btn>
+        <v-btn icon @click="SetNightMode">
+            <v-icon>{{ nightMode }}</v-icon>
+        </v-btn>
+    </div>
+    <v-list id="main-menu" class="font-weight-bold" flat>
         
-
+            
+            <v-list-item href="/archives/" link>
+            <v-list-item-icon><v-icon>archive</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                Archives
+            </v-list-item-content>
+            </v-list-item>
         
-
-
+            
+            <v-list-item href="/about/" link>
+            <v-list-item-icon><v-icon>account_circle</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                About
+            </v-list-item-content>
+            </v-list-item>
         
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
-                        
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
-                        
-                        
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>Menu</li>
-                        <li>Tags</li>
-                        
-                        <li>Friends</li>
-                        
-                        
-                        <li>About Me</li>
-                        
-                    </ul>
-                </div>
-            </div>
+            
+            <v-list-item href="https://garybear.cn/" link>
+            <v-list-item-icon><v-icon>rss_feed</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                我的博客
+            </v-list-item-content>
+            </v-list-item>
         
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签云</a></li>
-                        
-                            <li><a href="/about/">关于我</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" href="mailto:123@123.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" href="#" title="GitHub"></a>
-                            
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        
-                    </div>
-                </section>
-                
-                
-                
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
-                    
-                    </div>
-                </section>
-                
-
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">专注于前端</div>
-                </section>
-                
+            
+            <v-list-item href="https://garybear.cn/hexo-theme-insulin/doc/#/" link>
+            <v-list-item-icon><v-icon>insert_drive_file</v-icon></v-list-item-icon>
+            <v-list-item-content>
+                说明文档
+            </v-list-item-content>
+            </v-list-item>
+        
+    </v-list>
+    <v-divider></v-divider>
+    
+        <div class="post-toc">
+            <a href="/2022/08/14/jenkins/" class="toc-header">Table of Contents</a>
+            <div class="toc-content">
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins"><span class="toc-number">1.</span> <span class="toc-text">jenkins</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%B8%8A%E7%BA%BF%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">代码上线发展史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E6%9E%84%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">没有构建服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%9A%E4%B8%8A%E8%BF%9B%E8%A1%8C%E6%9E%84%E5%BB%BA"><span class="toc-number">1.1.2.</span> <span class="toc-text">晚上进行构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%9A%E4%B8%8A%E8%BF%9B%E8%A1%8C%E6%9E%84%E5%BB%BA%E5%B9%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">晚上进行构建并进行自动化测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E5%BA%A6%E9%87%8F"><span class="toc-number">1.1.4.</span> <span class="toc-text">代码质量度量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%8A%A0%E8%AE%A4%E7%9C%9F%E7%9A%84%E5%AF%B9%E5%BE%85%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.5.</span> <span class="toc-text">更加认真的对待测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">1.1.6.</span> <span class="toc-text">验收测试与自动化部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#centos7%E5%AE%89%E8%A3%85jenkins"><span class="toc-number">1.2.</span> <span class="toc-text">centos7安装jenkins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjdk%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.</span> <span class="toc-text">配置jdk环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85jenkins"><span class="toc-number">1.4.</span> <span class="toc-text">安装jenkins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8jenkins"><span class="toc-number">1.5.</span> <span class="toc-text">启动jenkins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jenkins%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">jenkins配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jenkins%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.7.</span> <span class="toc-text">jenkins初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%94%81jenkins"><span class="toc-number">1.7.1.</span> <span class="toc-text">解锁jenkins</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89jenkins%E6%8F%92%E4%BB%B6"><span class="toc-number">1.7.2.</span> <span class="toc-text">自定义jenkins插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9jenkins%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="toc-number">1.7.3.</span> <span class="toc-text">修改jenkins用户密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">1.8.</span> <span class="toc-text">插件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9Ajenkins%E4%BB%A3%E7%90%86%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">1.8.1.</span> <span class="toc-text">指定jenkins代理下载插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B8%85%E5%8D%8E%E9%95%9C%E5%83%8F%E7%AB%99%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">1.8.2.</span> <span class="toc-text">使用清华镜像站下载插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9jenkins%E9%BB%98%E8%AE%A4%E5%8D%87%E7%BA%A7%E6%8F%92%E4%BB%B6%E6%BA%90"><span class="toc-number">1.8.3.</span> <span class="toc-text">修改jenkins默认升级插件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jenkins%E6%8F%92%E4%BB%B6%E8%BF%81%E7%A7%BB"><span class="toc-number">1.8.4.</span> <span class="toc-text">jenkins插件迁移</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%92%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="toc-number">1.9.</span> <span class="toc-text">查看插件列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%8A%9F%E8%83%BD%E9%A2%84%E8%A7%88"><span class="toc-number">1.9.1.</span> <span class="toc-text">新功能预览</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins%E4%B8%BB%E7%9B%AE%E5%BD%95%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.10.</span> <span class="toc-text">Jenkins主目录学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%88%87%E7%9A%86%E6%96%87%E4%BB%B6%E4%B9%8B%E7%94%A8%E6%88%B7%E7%9B%AE%E5%BD%95"><span class="toc-number">1.10.1.</span> <span class="toc-text">一切皆文件之用户目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB"><span class="toc-number">1.10.2.</span> <span class="toc-text">主配置文件解读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9jenkins%E6%97%B6%E5%8C%BA"><span class="toc-number">1.11.</span> <span class="toc-text">修改jenkins时区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins%E5%88%9B%E5%BB%BAjob"><span class="toc-number">1.12.</span> <span class="toc-text">Jenkins创建job</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#freestyle-job%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.12.1.</span> <span class="toc-text">freestyle-job介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins%E5%88%9B%E5%BB%BAfreestyle%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.12.2.</span> <span class="toc-text">Jenkins创建freestyle项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Execute-shell%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E3%80%81%E8%84%9A%E6%9C%AC"><span class="toc-number">1.12.3.</span> <span class="toc-text">Execute shell执行命令、脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Cjob%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA"><span class="toc-number">1.12.3.1.</span> <span class="toc-text">执行job立即构建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E7%BB%93%E6%9E%9C%E6%97%A5%E5%BF%97"><span class="toc-number">1.12.3.2.</span> <span class="toc-text">构建结果日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%9E%84%E5%BB%BA%E5%8A%A8%E4%BD%9C"><span class="toc-number">1.12.3.3.</span> <span class="toc-text">增加一个构建动作</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jenkins%E8%BF%9E%E6%8E%A5gitlab%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">Jenkins连接gitlab获取代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8B%E6%83%85%E6%8F%90%E9%86%92"><span class="toc-number">2.1.</span> <span class="toc-text">友情提醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">2.2.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjenkins%E7%BB%93%E5%90%88gitlab"><span class="toc-number">2.3.</span> <span class="toc-text">配置jenkins结合gitlab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jenkins%E6%B7%BB%E5%8A%A0gitlab%E8%AE%A4%E8%AF%81"><span class="toc-number">2.4.</span> <span class="toc-text">jenkins添加gitlab认证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E8%AF%A5job%EF%BC%8C%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA"><span class="toc-number">2.5.</span> <span class="toc-text">启动该job，立即构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%9F%A5%E7%9C%8B%E8%AF%A6%E7%BB%86%E6%97%A5%E5%BF%97"><span class="toc-number">2.6.</span> <span class="toc-text">控制台查看详细日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96gitlab%E5%88%86%E6%94%AF%E4%BB%A3%E7%A0%81"><span class="toc-number">2.7.</span> <span class="toc-text">获取gitlab分支代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">持续集成介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%EF%BC%88CD%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">持续交付（CD）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%AE%9E%E6%96%BD%E6%B5%81%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">持续集成实施流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">3.3.</span> <span class="toc-text">关于版本控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E5%B7%A5%E5%85%B7"><span class="toc-number">3.4.</span> <span class="toc-text">Git工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%B7%A5%E5%85%B7-1"><span class="toc-number">4.</span> <span class="toc-text">Git工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8Cgit%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.</span> <span class="toc-text">运行git前的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.1.</span> <span class="toc-text">用户信息配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-number">4.1.2.</span> <span class="toc-text">Git配置相关命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">Git工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E5%9B%9B%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="toc-number">5.1.</span> <span class="toc-text">Git四个区域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E5%AE%9E%E8%B7%B5"><span class="toc-number">5.2.</span> <span class="toc-text">Git实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%9C%BA%E6%99%AF%E9%9C%80%E6%B1%82%EF%BC%9A"><span class="toc-number">5.2.1.</span> <span class="toc-text">三种场景需求：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%8A%8A%E5%B7%B2%E6%9C%89%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%EF%BC%8C%E7%BA%B3%E5%85%A5git%E7%AE%A1%E7%90%86"><span class="toc-number">5.2.1.1.</span> <span class="toc-text">1.把已有的项目代码，纳入git管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%EF%BC%8C%E7%9B%B4%E6%8E%A5%E7%94%A8git%E7%AE%A1%E7%90%86"><span class="toc-number">5.2.1.2.</span> <span class="toc-text">2.新建一个项目，直接用git管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PS-git%E5%8E%9F%E7%90%86"><span class="toc-number">5.2.1.3.</span> <span class="toc-text">PS:git原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%8E%B7%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81"><span class="toc-number">5.2.1.4.</span> <span class="toc-text">3.获取远程代码仓库代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%BC%94%E7%BB%83"><span class="toc-number">5.3.</span> <span class="toc-text">Git生命周期演练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">5.3.1.</span> <span class="toc-text">git工作区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E4%BB%93%E5%BA%93"><span class="toc-number">5.3.2.</span> <span class="toc-text">git仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5git%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">5.3.3.</span> <span class="toc-text">检查git文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E6%96%87%E4%BB%B6%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-number">5.3.4.</span> <span class="toc-text">给文件重命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E7%89%88%E6%9C%AC%E5%8E%86%E5%8F%B2"><span class="toc-number">5.3.5.</span> <span class="toc-text">git版本历史</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-log"><span class="toc-number">5.3.5.1.</span> <span class="toc-text">git log</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%96%87%E4%BB%B6%E5%AF%B9%E6%AF%94"><span class="toc-number">5.3.6.</span> <span class="toc-text">git文件对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E5%AE%9E%E8%B7%B5"><span class="toc-number">5.3.6.1.</span> <span class="toc-text">命令实践</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%BB%93%E5%BA%93%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">5.4.</span> <span class="toc-text">git仓库文件管理生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="toc-number">5.5.</span> <span class="toc-text">Git版本回退</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80%E5%8E%9F%E7%90%86"><span class="toc-number">5.5.1.</span> <span class="toc-text">版本回退原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E7%A9%BF%E6%A2%AD%E6%9C%AA%E6%9D%A5"><span class="toc-number">5.6.</span> <span class="toc-text">git穿梭未来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash"><span class="toc-number">5.7.</span> <span class="toc-text">git stash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-stash%E5%AE%9E%E9%99%85%E7%94%A8%E6%B3%95"><span class="toc-number">5.7.1.</span> <span class="toc-text">git stash实际用法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%88%86%E6%94%AF"><span class="toc-number">6.</span> <span class="toc-text">Git分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="toc-number">6.1.</span> <span class="toc-text">git分支命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E5%86%B2%E7%AA%81"><span class="toc-number">6.2.</span> <span class="toc-text">git合并分支冲突</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E6%A0%87%E7%AD%BE"><span class="toc-number">7.</span> <span class="toc-text">Git标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E6%A0%87%E7%AD%BE%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="toc-number">7.1.</span> <span class="toc-text">git标签有什么用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E5%95%A5%E7%94%A8git%E6%A0%87%E7%AD%BE"><span class="toc-number">7.2.</span> <span class="toc-text">为啥用git标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E6%A0%87%E7%AD%BE%E4%BD%BF%E7%94%A8"><span class="toc-number">7.3.</span> <span class="toc-text">git标签使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gitee%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">8.</span> <span class="toc-text">gitee远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%A9%BA%E4%BB%93%E5%BA%93"><span class="toc-number">8.1.</span> <span class="toc-text">创建空仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5gitee%E4%BB%93%E5%BA%93-HTTPS"><span class="toc-number">8.2.</span> <span class="toc-text">配置客户端连接gitee仓库(HTTPS)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="toc-number">8.2.1.</span> <span class="toc-text">推送本地仓库到远程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8D%E5%AF%86%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%EF%BC%88SSH%EF%BC%89"><span class="toc-number">8.3.</span> <span class="toc-text">免密推送代码（SSH）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">8.3.1.</span> <span class="toc-text">克隆远程仓库到本地</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-fetch%E4%BD%BF%E7%94%A8"><span class="toc-number">8.4.</span> <span class="toc-text">git fetch使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Gitlab"><span class="toc-number">9.</span> <span class="toc-text">Gitlab</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab%E4%BB%8B%E7%BB%8D"><span class="toc-number">9.1.</span> <span class="toc-text">Gitlab介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">9.2.</span> <span class="toc-text">Gitlab安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gitlab%E6%B1%89%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">9.2.1.</span> <span class="toc-text">gitlab汉化配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gitlab%E5%85%B3%E9%97%AD%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C"><span class="toc-number">9.2.2.</span> <span class="toc-text">Gitlab关闭用户注册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86"><span class="toc-number">9.3.</span> <span class="toc-text">Gitlab仓库管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E3%80%81%E7%BB%84%E3%80%81%E9%A1%B9%E7%9B%AE%E8%81%94%E7%B3%BB"><span class="toc-number">9.3.1.</span> <span class="toc-text">用户、组、项目联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%BB%84"><span class="toc-number">9.3.2.</span> <span class="toc-text">创建组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">9.3.3.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-number">9.3.4.</span> <span class="toc-text">创建用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%94%B6%E5%88%B0%E9%82%AE%E4%BB%B6"><span class="toc-number">9.3.4.1.</span> <span class="toc-text">用户收到邮件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95gitlab"><span class="toc-number">9.3.4.2.</span> <span class="toc-text">用户登录gitlab</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7"><span class="toc-number">9.3.4.3.</span> <span class="toc-text">再创建一个普通用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%A5%E5%88%86%E9%85%8D%E7%BB%84%E6%9D%83%E9%99%90"><span class="toc-number">9.3.4.4.</span> <span class="toc-text">root管理员来分配组权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%88%AB%E7%94%A8%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%9F%A5%E7%9C%8B"><span class="toc-number">9.3.4.5.</span> <span class="toc-text">分别用普通用户登录查看</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH-KEY"><span class="toc-number">9.4.</span> <span class="toc-text">配置SSH KEY</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E5%88%B0gitlab"><span class="toc-number">9.4.1.</span> <span class="toc-text">推送代码到gitlab</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8A%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="toc-number">9.4.2.</span> <span class="toc-text">在客户端上执行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%88%86%E6%94%AF%E4%BB%A3%E7%A0%81"><span class="toc-number">9.4.3.</span> <span class="toc-text">推送分支代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E4%B8%94%E6%8E%A8%E9%80%81gitlab"><span class="toc-number">9.4.3.1.</span> <span class="toc-text">合并分支且推送gitlab</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81tag"><span class="toc-number">9.4.4.</span> <span class="toc-text">推送tag</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab%E5%A4%87%E4%BB%BD%E3%80%81%E6%81%A2%E5%A4%8D%E3%80%81%E5%8D%87%E7%BA%A7"><span class="toc-number">9.5.</span> <span class="toc-text">Gitlab备份、恢复、升级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%A4%87%E4%BB%BD%E9%85%8D%E7%BD%AE"><span class="toc-number">9.5.1.</span> <span class="toc-text">修改备份配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD"><span class="toc-number">9.5.2.</span> <span class="toc-text">定时备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D"><span class="toc-number">9.5.3.</span> <span class="toc-text">数据恢复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E6%93%8D%E4%BD%9C"><span class="toc-number">9.5.4.</span> <span class="toc-text">升级操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins%E7%BB%93%E5%90%88gitlab"><span class="toc-number">10.</span> <span class="toc-text">jenkins结合gitlab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9gitlab%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-number">10.0.1.</span> <span class="toc-text">选择gitlab代码仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85gitlab%E7%9A%84%E7%AC%94%E8%AE%B0"><span class="toc-number">10.0.2.</span> <span class="toc-text">安装gitlab的笔记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAgitlab%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-number">10.0.3.</span> <span class="toc-text">创建gitlab代码仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%A0%81%E4%BA%91%E5%AF%BC%E5%85%A5%E4%BB%A3%E7%A0%81%E9%A1%B9%E7%9B%AE"><span class="toc-number">10.0.4.</span> <span class="toc-text">从码云导入代码项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8EURL%E5%AF%BC%E5%85%A5%E4%BB%93%E5%BA%93"><span class="toc-number">10.0.4.1.</span> <span class="toc-text">从URL导入仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAgitlab%E4%BB%93%E5%BA%93"><span class="toc-number">10.0.4.2.</span> <span class="toc-text">创建gitlab仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gitlab%E5%AF%BC%E5%85%A5URL%E4%BB%93%E5%BA%93%E5%AE%8C%E6%AF%95"><span class="toc-number">10.0.4.3.</span> <span class="toc-text">gitlab导入URL仓库完毕</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8jenkins%E4%B8%AD%E6%B7%BB%E5%8A%A0git%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86"><span class="toc-number">10.0.4.4.</span> <span class="toc-text">在jenkins中添加git代码管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root%E7%94%A8%E6%88%B7%E5%92%8Cgitlab%E7%9A%84%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AE"><span class="toc-number">10.0.4.5.</span> <span class="toc-text">root用户和gitlab的认证配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95jenkins%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AC%E5%9C%B0%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">10.0.4.6.</span> <span class="toc-text">测试jenkins服务器本地拉取代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95jenkins%E5%92%8Cgitlab%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%80%A7"><span class="toc-number">10.0.4.7.</span> <span class="toc-text">再次测试jenkins和gitlab的连接性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9jenkins%E5%90%AF%E5%8A%A8%E7%94%A8%E6%88%B7-%E7%A6%81%E6%AD%A2%E8%AF%A5%E6%93%8D%E4%BD%9C%EF%BC%8C%E6%9C%89%E8%BF%B7%E4%B9%8Bbug"><span class="toc-number">10.0.4.8.</span> <span class="toc-text">修改jenkins启动用户(禁止该操作，有迷之bug)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E7%A7%81%E9%92%A5%E6%B7%BB%E5%8A%A0%E4%BB%93%E5%BA%93%E8%AE%A4%E8%AF%81"><span class="toc-number">10.0.4.9.</span> <span class="toc-text">用私钥添加仓库认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">10.0.4.10.</span> <span class="toc-text">点击立即构建拉取代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jenkins%E9%83%A8%E7%BD%B2html%E7%BD%91%E7%AB%99"><span class="toc-number">10.1.</span> <span class="toc-text">jenkins部署html网站</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E4%B8%80%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AFlinux"><span class="toc-number">10.1.1.</span> <span class="toc-text">准备一个客户端linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8jenkins%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC"><span class="toc-number">10.1.2.</span> <span class="toc-text">在jenkins服务端编写脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjenkins%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-number">10.1.3.</span> <span class="toc-text">配置jenkins和客户端免密登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjenkins%E8%A7%A6%E5%8F%91%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C"><span class="toc-number">10.1.4.</span> <span class="toc-text">配置jenkins触发脚本执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA"><span class="toc-number">10.1.5.</span> <span class="toc-text">点击立即构建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E6%9E%84%E5%BB%BA%E7%BB%93%E6%9E%9C"><span class="toc-number">10.2.</span> <span class="toc-text">检查构建结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AE%E8%84%9A%E6%9C%AC%E9%83%A8%E7%BD%B2%E7%9A%84%E7%AB%99%E7%82%B9%E9%A1%B5%E9%9D%A2"><span class="toc-number">10.2.1.</span> <span class="toc-text">测试访问脚本部署的站点页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">10.3.</span> <span class="toc-text">构建触发器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jenkins%E8%AE%BE%E7%BD%AE"><span class="toc-number">10.3.1.</span> <span class="toc-text">jenkins设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitlab%E8%AE%BE%E7%BD%AE"><span class="toc-number">10.3.2.</span> <span class="toc-text">gitlab设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5"><span class="toc-number">10.3.3.</span> <span class="toc-text">实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA"><span class="toc-number">10.3.4.</span> <span class="toc-text">手动发送post请求触发构建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E7%BB%93%E6%9E%9C"><span class="toc-number">10.3.4.1.</span> <span class="toc-text">自动构建结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins%E8%BF%94%E5%9B%9E%E6%9E%84%E5%BB%BA%E7%8A%B6%E6%80%81"><span class="toc-number">10.4.</span> <span class="toc-text">Jenkins返回构建状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90gitlab%E7%9A%84token"><span class="toc-number">10.4.1.</span> <span class="toc-text">生成gitlab的token</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjob"><span class="toc-number">10.4.2.</span> <span class="toc-text">配置job</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%9E%84%E5%BB%BA%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6"><span class="toc-number">10.5.</span> <span class="toc-text">配置构建发送邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E7%BB%AD%E9%85%8D%E7%BD%AEjob"><span class="toc-number">10.5.1.</span> <span class="toc-text">继续配置job</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99"><span class="toc-number">11.</span> <span class="toc-text">jenkins部署静态网站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">11.1.</span> <span class="toc-text">自动化部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins%E9%83%A8%E7%BD%B2Django"><span class="toc-number">12.</span> <span class="toc-text">jenkins部署Django</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%BC%80%E5%8F%91django%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2"><span class="toc-number">12.1.</span> <span class="toc-text">手动开发django欢迎页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E7%9A%84%E4%B8%8A%E7%BA%BFdjango%E4%BB%A3%E7%A0%81"><span class="toc-number">12.2.</span> <span class="toc-text">如何通过jenkins自动化的上线django代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jenkins%E5%88%9B%E5%BB%BAmaven%E9%A1%B9%E7%9B%AE"><span class="toc-number">13.</span> <span class="toc-text">Jenkins创建maven项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%A6%82%E8%BF%B0"><span class="toc-number">13.1.</span> <span class="toc-text">Java项目部署概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFJava%E9%A1%B9%E7%9B%AE"><span class="toc-number">13.1.1.</span> <span class="toc-text">什么是Java项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88java%E9%A1%B9%E7%9B%AE%E9%9C%80%E8%A6%81%E7%BC%96%E8%AF%91"><span class="toc-number">13.1.2.</span> <span class="toc-text">为什么java项目需要编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8vs%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91"><span class="toc-number">13.1.3.</span> <span class="toc-text">手动vs自动编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven%E4%BA%86%E8%A7%A3"><span class="toc-number">13.1.4.</span> <span class="toc-text">maven了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">13.1.5.</span> <span class="toc-text">Maven项目结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2maven"><span class="toc-number">13.2.</span> <span class="toc-text">部署maven</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86maven"><span class="toc-number">13.3.</span> <span class="toc-text">认识maven</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#maven%E5%91%BD%E4%BB%A4"><span class="toc-number">13.3.1.</span> <span class="toc-text">maven命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%88%B0gitlab"><span class="toc-number">13.4.</span> <span class="toc-text">开发人员提交代码到gitlab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9maven%E9%85%8D%E7%BD%AE"><span class="toc-number">13.4.1.</span> <span class="toc-text">修改maven配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins%E6%B5%81%E6%B0%B4%E7%BA%BFPipeline"><span class="toc-number">14.</span> <span class="toc-text">jenkins流水线Pipeline</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%9F"><span class="toc-number">14.1.</span> <span class="toc-text">什么是流水线？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">14.2.</span> <span class="toc-text">Jenkins为什么用流水线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pipeline%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8CJenkins-file"><span class="toc-number">14.2.1.</span> <span class="toc-text">Pipeline的基本概念和Jenkins-file</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95pipeline%E6%A1%88%E4%BE%8B"><span class="toc-number">14.3.</span> <span class="toc-text">简单pipeline案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0stage%E8%84%9A%E6%9C%AC"><span class="toc-number">14.4.</span> <span class="toc-text">添加stage脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Blue-Ocean%E6%8F%92%E4%BB%B6"><span class="toc-number">14.5.</span> <span class="toc-text">安装Blue Ocean插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Cshell%E5%91%BD%E4%BB%A4"><span class="toc-number">14.6.</span> <span class="toc-text">执行shell命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Clinux%E7%9A%84bash%E8%84%9A%E6%9C%AC"><span class="toc-number">14.6.1.</span> <span class="toc-text">执行linux的bash脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pipeline%E8%8E%B7%E5%8F%96gitlab%E4%BB%A3%E7%A0%81"><span class="toc-number">14.7.</span> <span class="toc-text">pipeline获取gitlab代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pipeline%E9%83%A8%E7%BD%B2django%E7%A8%8B%E5%BA%8F"><span class="toc-number">14.8.</span> <span class="toc-text">pipeline部署django程序</span></a></li></ol></li></ol>
             </div>
         </div>
-    </header>                
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
-            </hgroup>
+    
+
+    <div id="footer">
+        <div class="footer-social">
             
-            <nav class="header-menu">
-                <ul>
                 
-                    <li><a href="/">主页</a></li>
+                <v-btn icon href="mailto:kb1000fx@gmail.com" target="_blank">
+                    <v-icon>fas fa-envelope</v-icon>
+                </v-btn>
+            
                 
-                    <li><a href="/archives/">所有文章</a></li>
+                <v-btn icon href="https://github.com/kb1000fx" target="_blank">
+                    <v-icon>fab fa-github</v-icon>
+                </v-btn>
+            
                 
-                    <li><a href="/tags/">标签云</a></li>
+                <v-btn icon href="https://steamcommunity.com/profiles/76561198346798163" target="_blank">
+                    <v-icon>fab fa-steam</v-icon>
+                </v-btn>
+            
                 
-                    <li><a href="/about/">关于我</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa Email" target="_blank" href="mailto:123@123.com" title="Email"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="#" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
+                <v-btn icon href="https://weibo.com/kb1000fx" target="_blank">
+                    <v-icon>fab fa-weibo</v-icon>
+                </v-btn>
+            
+        </div>
+        <v-divider></v-divider>
+        <div class="footer-content">
+            
+                <span id="busuanzi_container_site_uv" style="display: none;"> 
+                    Total Visitors <span id="busuanzi_value_site_uv"></span>
+                </span>
+                <br>
+            
+            <span>Theme: <a target="_blank" rel="noopener" href="https://github.com/kb1000fx/hexo-theme-insulin">Insulin</a></span><br>
+            <span>Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span><br>
+            <span>
+                &copy; 2015 - 2022 
+                John Doe
+            </span>
+        </div>
     </div>
-    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
-</nav>
-      <div class="body-wrap"><article id="post-jenkins" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2022/08/14/jenkins/" class="article-date">
-      <time datetime="2022-08-13T16:41:32.299Z" itemprop="datePublished">2022-08-14</time>
-</a>
+</div>
 
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      部署jenkins
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-
-        
-        <div class="clearfix"></div>
+                        </v-col>
+                        <v-col cols="12" md="10">
+                            <v-row>
+  <v-col cols="12" md="8" align-self="end">
+    <div id="site-header">
+      <div id="site-title">
+        <a href="/" rel="home">Hexo</a>
       </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
+      <div id="site-description"></div>
+      <div id="mobile-menu" class="d-block d-md-none">
+        <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-inner-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,false)"></v-text-field>
+        <div class="mobile-mini-menu">
+          <v-btn icon href="/">
+              <v-icon>home</v-icon>
+          </v-btn>
+          <v-btn icon href="/categories/">
+              <v-icon>folder</v-icon>
+          </v-btn>
+          <v-btn icon href="/tags/">
+              <v-icon>bookmark</v-icon>
+          </v-btn>
+          <v-btn icon @click="SetNightMode">
+              <v-icon>{{ nightMode }}</v-icon>
+          </v-btn>
           
+            
+            <v-btn icon href="/archives/">
+              <v-icon>archive</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="/about/">
+              <v-icon>account_circle</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="https://garybear.cn/">
+              <v-icon>rss_feed</v-icon>
+            </v-btn>
+          
+            
+            <v-btn icon href="https://garybear.cn/hexo-theme-insulin/doc/#/">
+              <v-icon>insert_drive_file</v-icon>
+            </v-btn>
+          
+        </div>
+      </div>    
+    </div>
+  </v-col>  
+  <v-col cols="4" align-self="end" class="d-none d-md-block">
+    <v-col align-self="end">
+      <v-text-field label="请输入关键字" data-src="search.xml" v-model="searchHeaderValue" prepend-icon="search" clearable clear-icon="clear" @keydown.enter="EnterSearch(searchHeaderValue,false)"></v-text-field>
+    </v-col> 
+  </v-col>
+</v-row>
+
+                            <v-card class="elevation-2 post-card">
+    
+    
+        <div class="post-header">
+  <a class="post-header-title font-weight-medium" href="/2022/08/14/jenkins/">部署jenkins</a>
+  <div class="post-header-meta">   
+    <span>
+      <v-icon color="">event</v-icon>
+      Posted on:&nbsp;2022-08-14
+    </span>
+    <span>
+      <v-icon color="">event_available</v-icon>
+      Edited on:&nbsp;2022-08-14
+    </span>
+    <span>
+      <v-icon color="">folder</v-icon>
+      In:&nbsp;Uncategorized
+    </span>
+    
+    <span>
+      <v-icon color="">visibility</v-icon>
+      Views:&nbsp;<span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+    </span>
+    
+  </div>
+</div>
+
+    
+    
+    
+    
+    <div class="post-content typo">
         <h1 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h1><h2 id="代码上线发展史"><a href="#代码上线发展史" class="headerlink" title="代码上线发展史"></a>代码上线发展史</h2><p>代码发布上线是每一个 IT 企业必须要面临的，而且不管是对开发或者是运维来说，代 码上线本身就是一个件非常痛苦的事情，很多时候每一次发布都是一次考验。为了提高上线 的效率，代码上线的方式，方法，工具也不断的发展，基本上可以分为以下几个阶段。</p>
 <h3 id="没有构建服务器"><a href="#没有构建服务器" class="headerlink" title="没有构建服务器"></a>没有构建服务器</h3><p>软件在开发者的机器上通过脚本或者手动构建，源代码保存在代码服务器中，但是开发者经常要修改本地代码，因此每次发布，都需要手动合并代码，再进行手动构建，这个过程费时费力。</p>
 <h3 id="晚上进行构建"><a href="#晚上进行构建" class="headerlink" title="晚上进行构建"></a>晚上进行构建</h3><p>在这个阶段，团队有构建服务器，自动化的构建在晚上进行。构建过程只是简单的编译代码，没有可靠的和可重复的单元测试。然而，开发人员每天提交代码。如果某个开发人员 提的代码和其他人的代码冲突的话，构建服务器会在第二天通过邮件通知团队。所以又一段 时间构建是处于失败状态的。</p>
@@ -1506,208 +1312,69 @@
 <p>部署脚本</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[root@jenkins01 opt]# cat /opt/django_deploy.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1.进入代码目录，打包传输</span></span><br><span class="line">DATE=$(date +%Y-%m-%d-%H-%M-%S)</span><br><span class="line">web_server=&quot;10.211.55.12&quot;</span><br><span class="line"></span><br><span class="line">get_code()&#123;</span><br><span class="line">    cd $WORKSPACE &amp;&amp; \</span><br><span class="line">    tar czf /opt/django-$&#123;DATE&#125;.tar.gz ./*</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2.代码发送给web集群组</span></span><br><span class="line">deploy_django_server()&#123;</span><br><span class="line">for hosts in $web_server</span><br><span class="line">do</span><br><span class="line">    scp /opt/django-$&#123;DATE&#125;.tar.gz root@$hosts:/opt/</span><br><span class="line">    ssh root@$hosts &quot;mkdir -p /code/django-$&#123;DATE&#125; &amp;&amp; \</span><br><span class="line">                  tar -zxf /opt/django-$&#123;DATE&#125;.tar.gz -C /code/django-$&#123;DATE&#125;</span><br><span class="line">                  rm -rf /code/django &amp;&amp; \</span><br><span class="line">                  ln -s /code/django-$&#123;DATE&#125; /code/django &amp;&amp; \</span><br><span class="line">                  supervisorctl -c /etc/supervisor.conf restart all</span><br><span class="line">                  &quot;</span><br><span class="line">done</span><br><span class="line">&#125;</span><br><span class="line">deploy()&#123;</span><br><span class="line">        get_code</span><br><span class="line">        deploy_django_server</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行入口</span></span><br><span class="line">deploy</span><br><span class="line">执行过程</span><br><span class="line">1.开发推送新代码，到gitlab仓库</span><br><span class="line">2.运维执行pipeline脚本</span><br><span class="line">3.最后一步，访问django的地址</span><br></pre></td></tr></table></figure>
 
-      
     </div>
+    <!--文末结束语-->
     
-  </div>
-  
+        <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="fas fa-heart"></i> The End --- </div>
     
-    <div class="copyright">
-        <p><span>Title:</span><a href="/2022/08/14/jenkins/">部署jenkins</a></p>
-        <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
-        <p><span>Created:</span>2022-08-14, 00:41:32</p>
-        <p><span>Updated:</span>2022-08-14, 00:41:32</p>
-        <p>
-            <span>Full URL:</span><a class="post-url" href="/2022/08/14/jenkins/" title="部署jenkins">http://example.com/2022/08/14/jenkins/</a>
-            <span class="copy-path" data-clipboard-text="From http://example.com/2022/08/14/jenkins/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
-        </p>
-    </div>
-
-
-
-    <nav id="article-nav">
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/">
+    <!--页脚广告-->
+    
+    <v-divider></v-divider>
+    
+    <div class="post-nav">             
+              
+          
+            <div class="post-nav-button float-right">
+                <a class="font-weight-bold text-right" href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/">      
                     deployment更新
                 </a>
-            </div>
-        
-    </nav>
-
-  
-</article>
-
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins"><span class="toc-number">1.</span> <span class="toc-text">jenkins</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%B8%8A%E7%BA%BF%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">代码上线发展史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E6%9E%84%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">没有构建服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%9A%E4%B8%8A%E8%BF%9B%E8%A1%8C%E6%9E%84%E5%BB%BA"><span class="toc-number">1.1.2.</span> <span class="toc-text">晚上进行构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%9A%E4%B8%8A%E8%BF%9B%E8%A1%8C%E6%9E%84%E5%BB%BA%E5%B9%B6%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">晚上进行构建并进行自动化测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E5%BA%A6%E9%87%8F"><span class="toc-number">1.1.4.</span> <span class="toc-text">代码质量度量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%8A%A0%E8%AE%A4%E7%9C%9F%E7%9A%84%E5%AF%B9%E5%BE%85%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.5.</span> <span class="toc-text">更加认真的对待测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95%E4%B8%8E%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">1.1.6.</span> <span class="toc-text">验收测试与自动化部署</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#centos7%E5%AE%89%E8%A3%85jenkins"><span class="toc-number">1.2.</span> <span class="toc-text">centos7安装jenkins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjdk%E7%8E%AF%E5%A2%83"><span class="toc-number">1.3.</span> <span class="toc-text">配置jdk环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85jenkins"><span class="toc-number">1.4.</span> <span class="toc-text">安装jenkins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8jenkins"><span class="toc-number">1.5.</span> <span class="toc-text">启动jenkins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jenkins%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">jenkins配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jenkins%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.7.</span> <span class="toc-text">jenkins初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%94%81jenkins"><span class="toc-number">1.7.1.</span> <span class="toc-text">解锁jenkins</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89jenkins%E6%8F%92%E4%BB%B6"><span class="toc-number">1.7.2.</span> <span class="toc-text">自定义jenkins插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9jenkins%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="toc-number">1.7.3.</span> <span class="toc-text">修改jenkins用户密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">1.8.</span> <span class="toc-text">插件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9Ajenkins%E4%BB%A3%E7%90%86%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">1.8.1.</span> <span class="toc-text">指定jenkins代理下载插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B8%85%E5%8D%8E%E9%95%9C%E5%83%8F%E7%AB%99%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6"><span class="toc-number">1.8.2.</span> <span class="toc-text">使用清华镜像站下载插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9jenkins%E9%BB%98%E8%AE%A4%E5%8D%87%E7%BA%A7%E6%8F%92%E4%BB%B6%E6%BA%90"><span class="toc-number">1.8.3.</span> <span class="toc-text">修改jenkins默认升级插件源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jenkins%E6%8F%92%E4%BB%B6%E8%BF%81%E7%A7%BB"><span class="toc-number">1.8.4.</span> <span class="toc-text">jenkins插件迁移</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%92%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="toc-number">1.9.</span> <span class="toc-text">查看插件列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%8A%9F%E8%83%BD%E9%A2%84%E8%A7%88"><span class="toc-number">1.9.1.</span> <span class="toc-text">新功能预览</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins%E4%B8%BB%E7%9B%AE%E5%BD%95%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.10.</span> <span class="toc-text">Jenkins主目录学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E5%88%87%E7%9A%86%E6%96%87%E4%BB%B6%E4%B9%8B%E7%94%A8%E6%88%B7%E7%9B%AE%E5%BD%95"><span class="toc-number">1.10.1.</span> <span class="toc-text">一切皆文件之用户目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%A7%A3%E8%AF%BB"><span class="toc-number">1.10.2.</span> <span class="toc-text">主配置文件解读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9jenkins%E6%97%B6%E5%8C%BA"><span class="toc-number">1.11.</span> <span class="toc-text">修改jenkins时区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins%E5%88%9B%E5%BB%BAjob"><span class="toc-number">1.12.</span> <span class="toc-text">Jenkins创建job</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#freestyle-job%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.12.1.</span> <span class="toc-text">freestyle-job介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jenkins%E5%88%9B%E5%BB%BAfreestyle%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.12.2.</span> <span class="toc-text">Jenkins创建freestyle项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Execute-shell%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E3%80%81%E8%84%9A%E6%9C%AC"><span class="toc-number">1.12.3.</span> <span class="toc-text">Execute shell执行命令、脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Cjob%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA"><span class="toc-number">1.12.3.1.</span> <span class="toc-text">执行job立即构建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E7%BB%93%E6%9E%9C%E6%97%A5%E5%BF%97"><span class="toc-number">1.12.3.2.</span> <span class="toc-text">构建结果日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%9E%84%E5%BB%BA%E5%8A%A8%E4%BD%9C"><span class="toc-number">1.12.3.3.</span> <span class="toc-text">增加一个构建动作</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jenkins%E8%BF%9E%E6%8E%A5gitlab%E8%8E%B7%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">Jenkins连接gitlab获取代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8B%E6%83%85%E6%8F%90%E9%86%92"><span class="toc-number">2.1.</span> <span class="toc-text">友情提醒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="toc-number">2.2.</span> <span class="toc-text">环境准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjenkins%E7%BB%93%E5%90%88gitlab"><span class="toc-number">2.3.</span> <span class="toc-text">配置jenkins结合gitlab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jenkins%E6%B7%BB%E5%8A%A0gitlab%E8%AE%A4%E8%AF%81"><span class="toc-number">2.4.</span> <span class="toc-text">jenkins添加gitlab认证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E8%AF%A5job%EF%BC%8C%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA"><span class="toc-number">2.5.</span> <span class="toc-text">启动该job，立即构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%9F%A5%E7%9C%8B%E8%AF%A6%E7%BB%86%E6%97%A5%E5%BF%97"><span class="toc-number">2.6.</span> <span class="toc-text">控制台查看详细日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96gitlab%E5%88%86%E6%94%AF%E4%BB%A3%E7%A0%81"><span class="toc-number">2.7.</span> <span class="toc-text">获取gitlab分支代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">持续集成介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%EF%BC%88CD%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">持续交付（CD）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%AE%9E%E6%96%BD%E6%B5%81%E7%A8%8B"><span class="toc-number">3.2.</span> <span class="toc-text">持续集成实施流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6"><span class="toc-number">3.3.</span> <span class="toc-text">关于版本控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E5%B7%A5%E5%85%B7"><span class="toc-number">3.4.</span> <span class="toc-text">Git工具</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%B7%A5%E5%85%B7-1"><span class="toc-number">4.</span> <span class="toc-text">Git工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8Cgit%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.</span> <span class="toc-text">运行git前的配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.1.</span> <span class="toc-text">用户信息配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="toc-number">4.1.2.</span> <span class="toc-text">Git配置相关命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">5.</span> <span class="toc-text">Git工作流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E5%9B%9B%E4%B8%AA%E5%8C%BA%E5%9F%9F"><span class="toc-number">5.1.</span> <span class="toc-text">Git四个区域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E5%AE%9E%E8%B7%B5"><span class="toc-number">5.2.</span> <span class="toc-text">Git实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E5%9C%BA%E6%99%AF%E9%9C%80%E6%B1%82%EF%BC%9A"><span class="toc-number">5.2.1.</span> <span class="toc-text">三种场景需求：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%8A%8A%E5%B7%B2%E6%9C%89%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%EF%BC%8C%E7%BA%B3%E5%85%A5git%E7%AE%A1%E7%90%86"><span class="toc-number">5.2.1.1.</span> <span class="toc-text">1.把已有的项目代码，纳入git管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%EF%BC%8C%E7%9B%B4%E6%8E%A5%E7%94%A8git%E7%AE%A1%E7%90%86"><span class="toc-number">5.2.1.2.</span> <span class="toc-text">2.新建一个项目，直接用git管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PS-git%E5%8E%9F%E7%90%86"><span class="toc-number">5.2.1.3.</span> <span class="toc-text">PS:git原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E8%8E%B7%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81"><span class="toc-number">5.2.1.4.</span> <span class="toc-text">3.获取远程代码仓库代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%BC%94%E7%BB%83"><span class="toc-number">5.3.</span> <span class="toc-text">Git生命周期演练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E5%B7%A5%E4%BD%9C%E5%8C%BA"><span class="toc-number">5.3.1.</span> <span class="toc-text">git工作区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E4%BB%93%E5%BA%93"><span class="toc-number">5.3.2.</span> <span class="toc-text">git仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5git%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-number">5.3.3.</span> <span class="toc-text">检查git文件状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%99%E6%96%87%E4%BB%B6%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-number">5.3.4.</span> <span class="toc-text">给文件重命名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E7%89%88%E6%9C%AC%E5%8E%86%E5%8F%B2"><span class="toc-number">5.3.5.</span> <span class="toc-text">git版本历史</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-log"><span class="toc-number">5.3.5.1.</span> <span class="toc-text">git log</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%96%87%E4%BB%B6%E5%AF%B9%E6%AF%94"><span class="toc-number">5.3.6.</span> <span class="toc-text">git文件对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E5%AE%9E%E8%B7%B5"><span class="toc-number">5.3.6.1.</span> <span class="toc-text">命令实践</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E4%BB%93%E5%BA%93%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">5.4.</span> <span class="toc-text">git仓库文件管理生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="toc-number">5.5.</span> <span class="toc-text">Git版本回退</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80%E5%8E%9F%E7%90%86"><span class="toc-number">5.5.1.</span> <span class="toc-text">版本回退原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E7%A9%BF%E6%A2%AD%E6%9C%AA%E6%9D%A5"><span class="toc-number">5.6.</span> <span class="toc-text">git穿梭未来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-stash"><span class="toc-number">5.7.</span> <span class="toc-text">git stash</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-stash%E5%AE%9E%E9%99%85%E7%94%A8%E6%B3%95"><span class="toc-number">5.7.1.</span> <span class="toc-text">git stash实际用法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%88%86%E6%94%AF"><span class="toc-number">6.</span> <span class="toc-text">Git分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%88%86%E6%94%AF%E5%91%BD%E4%BB%A4"><span class="toc-number">6.1.</span> <span class="toc-text">git分支命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E5%86%B2%E7%AA%81"><span class="toc-number">6.2.</span> <span class="toc-text">git合并分支冲突</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E6%A0%87%E7%AD%BE"><span class="toc-number">7.</span> <span class="toc-text">Git标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E6%A0%87%E7%AD%BE%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="toc-number">7.1.</span> <span class="toc-text">git标签有什么用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E5%95%A5%E7%94%A8git%E6%A0%87%E7%AD%BE"><span class="toc-number">7.2.</span> <span class="toc-text">为啥用git标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E6%A0%87%E7%AD%BE%E4%BD%BF%E7%94%A8"><span class="toc-number">7.3.</span> <span class="toc-text">git标签使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#gitee%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">8.</span> <span class="toc-text">gitee远程仓库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%A9%BA%E4%BB%93%E5%BA%93"><span class="toc-number">8.1.</span> <span class="toc-text">创建空仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5gitee%E4%BB%93%E5%BA%93-HTTPS"><span class="toc-number">8.2.</span> <span class="toc-text">配置客户端连接gitee仓库(HTTPS)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="toc-number">8.2.1.</span> <span class="toc-text">推送本地仓库到远程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8D%E5%AF%86%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%EF%BC%88SSH%EF%BC%89"><span class="toc-number">8.3.</span> <span class="toc-text">免密推送代码（SSH）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-number">8.3.1.</span> <span class="toc-text">克隆远程仓库到本地</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-fetch%E4%BD%BF%E7%94%A8"><span class="toc-number">8.4.</span> <span class="toc-text">git fetch使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Gitlab"><span class="toc-number">9.</span> <span class="toc-text">Gitlab</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab%E4%BB%8B%E7%BB%8D"><span class="toc-number">9.1.</span> <span class="toc-text">Gitlab介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-number">9.2.</span> <span class="toc-text">Gitlab安装配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gitlab%E6%B1%89%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="toc-number">9.2.1.</span> <span class="toc-text">gitlab汉化配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gitlab%E5%85%B3%E9%97%AD%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C"><span class="toc-number">9.2.2.</span> <span class="toc-text">Gitlab关闭用户注册</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab%E4%BB%93%E5%BA%93%E7%AE%A1%E7%90%86"><span class="toc-number">9.3.</span> <span class="toc-text">Gitlab仓库管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E3%80%81%E7%BB%84%E3%80%81%E9%A1%B9%E7%9B%AE%E8%81%94%E7%B3%BB"><span class="toc-number">9.3.1.</span> <span class="toc-text">用户、组、项目联系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%BB%84"><span class="toc-number">9.3.2.</span> <span class="toc-text">创建组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">9.3.3.</span> <span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-number">9.3.4.</span> <span class="toc-text">创建用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%94%B6%E5%88%B0%E9%82%AE%E4%BB%B6"><span class="toc-number">9.3.4.1.</span> <span class="toc-text">用户收到邮件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95gitlab"><span class="toc-number">9.3.4.2.</span> <span class="toc-text">用户登录gitlab</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7"><span class="toc-number">9.3.4.3.</span> <span class="toc-text">再创建一个普通用户</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%A5%E5%88%86%E9%85%8D%E7%BB%84%E6%9D%83%E9%99%90"><span class="toc-number">9.3.4.4.</span> <span class="toc-text">root管理员来分配组权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%88%AB%E7%94%A8%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E6%9F%A5%E7%9C%8B"><span class="toc-number">9.3.4.5.</span> <span class="toc-text">分别用普通用户登录查看</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESSH-KEY"><span class="toc-number">9.4.</span> <span class="toc-text">配置SSH KEY</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E5%88%B0gitlab"><span class="toc-number">9.4.1.</span> <span class="toc-text">推送代码到gitlab</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%B8%8A%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="toc-number">9.4.2.</span> <span class="toc-text">在客户端上执行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E5%88%86%E6%94%AF%E4%BB%A3%E7%A0%81"><span class="toc-number">9.4.3.</span> <span class="toc-text">推送分支代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF%E4%B8%94%E6%8E%A8%E9%80%81gitlab"><span class="toc-number">9.4.3.1.</span> <span class="toc-text">合并分支且推送gitlab</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E9%80%81tag"><span class="toc-number">9.4.4.</span> <span class="toc-text">推送tag</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab%E5%A4%87%E4%BB%BD%E3%80%81%E6%81%A2%E5%A4%8D%E3%80%81%E5%8D%87%E7%BA%A7"><span class="toc-number">9.5.</span> <span class="toc-text">Gitlab备份、恢复、升级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%A4%87%E4%BB%BD%E9%85%8D%E7%BD%AE"><span class="toc-number">9.5.1.</span> <span class="toc-text">修改备份配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD"><span class="toc-number">9.5.2.</span> <span class="toc-text">定时备份</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D"><span class="toc-number">9.5.3.</span> <span class="toc-text">数据恢复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%87%E7%BA%A7%E6%93%8D%E4%BD%9C"><span class="toc-number">9.5.4.</span> <span class="toc-text">升级操作</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins%E7%BB%93%E5%90%88gitlab"><span class="toc-number">10.</span> <span class="toc-text">jenkins结合gitlab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9gitlab%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-number">10.0.1.</span> <span class="toc-text">选择gitlab代码仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85gitlab%E7%9A%84%E7%AC%94%E8%AE%B0"><span class="toc-number">10.0.2.</span> <span class="toc-text">安装gitlab的笔记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAgitlab%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-number">10.0.3.</span> <span class="toc-text">创建gitlab代码仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E7%A0%81%E4%BA%91%E5%AF%BC%E5%85%A5%E4%BB%A3%E7%A0%81%E9%A1%B9%E7%9B%AE"><span class="toc-number">10.0.4.</span> <span class="toc-text">从码云导入代码项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8EURL%E5%AF%BC%E5%85%A5%E4%BB%93%E5%BA%93"><span class="toc-number">10.0.4.1.</span> <span class="toc-text">从URL导入仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAgitlab%E4%BB%93%E5%BA%93"><span class="toc-number">10.0.4.2.</span> <span class="toc-text">创建gitlab仓库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gitlab%E5%AF%BC%E5%85%A5URL%E4%BB%93%E5%BA%93%E5%AE%8C%E6%AF%95"><span class="toc-number">10.0.4.3.</span> <span class="toc-text">gitlab导入URL仓库完毕</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8jenkins%E4%B8%AD%E6%B7%BB%E5%8A%A0git%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86"><span class="toc-number">10.0.4.4.</span> <span class="toc-text">在jenkins中添加git代码管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root%E7%94%A8%E6%88%B7%E5%92%8Cgitlab%E7%9A%84%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AE"><span class="toc-number">10.0.4.5.</span> <span class="toc-text">root用户和gitlab的认证配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95jenkins%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9C%AC%E5%9C%B0%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">10.0.4.6.</span> <span class="toc-text">测试jenkins服务器本地拉取代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%8D%E6%AC%A1%E6%B5%8B%E8%AF%95jenkins%E5%92%8Cgitlab%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%80%A7"><span class="toc-number">10.0.4.7.</span> <span class="toc-text">再次测试jenkins和gitlab的连接性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9jenkins%E5%90%AF%E5%8A%A8%E7%94%A8%E6%88%B7-%E7%A6%81%E6%AD%A2%E8%AF%A5%E6%93%8D%E4%BD%9C%EF%BC%8C%E6%9C%89%E8%BF%B7%E4%B9%8Bbug"><span class="toc-number">10.0.4.8.</span> <span class="toc-text">修改jenkins启动用户(禁止该操作，有迷之bug)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E7%A7%81%E9%92%A5%E6%B7%BB%E5%8A%A0%E4%BB%93%E5%BA%93%E8%AE%A4%E8%AF%81"><span class="toc-number">10.0.4.9.</span> <span class="toc-text">用私钥添加仓库认证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">10.0.4.10.</span> <span class="toc-text">点击立即构建拉取代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jenkins%E9%83%A8%E7%BD%B2html%E7%BD%91%E7%AB%99"><span class="toc-number">10.1.</span> <span class="toc-text">jenkins部署html网站</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E4%B8%80%E4%B8%AA%E5%AE%A2%E6%88%B7%E7%AB%AFlinux"><span class="toc-number">10.1.1.</span> <span class="toc-text">准备一个客户端linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8jenkins%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC"><span class="toc-number">10.1.2.</span> <span class="toc-text">在jenkins服务端编写脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjenkins%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-number">10.1.3.</span> <span class="toc-text">配置jenkins和客户端免密登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjenkins%E8%A7%A6%E5%8F%91%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C"><span class="toc-number">10.1.4.</span> <span class="toc-text">配置jenkins触发脚本执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E7%AB%8B%E5%8D%B3%E6%9E%84%E5%BB%BA"><span class="toc-number">10.1.5.</span> <span class="toc-text">点击立即构建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E6%9E%84%E5%BB%BA%E7%BB%93%E6%9E%9C"><span class="toc-number">10.2.</span> <span class="toc-text">检查构建结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AE%E8%84%9A%E6%9C%AC%E9%83%A8%E7%BD%B2%E7%9A%84%E7%AB%99%E7%82%B9%E9%A1%B5%E9%9D%A2"><span class="toc-number">10.2.1.</span> <span class="toc-text">测试访问脚本部署的站点页面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">10.3.</span> <span class="toc-text">构建触发器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jenkins%E8%AE%BE%E7%BD%AE"><span class="toc-number">10.3.1.</span> <span class="toc-text">jenkins设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitlab%E8%AE%BE%E7%BD%AE"><span class="toc-number">10.3.2.</span> <span class="toc-text">gitlab设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5"><span class="toc-number">10.3.3.</span> <span class="toc-text">实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%8F%91%E9%80%81post%E8%AF%B7%E6%B1%82%E8%A7%A6%E5%8F%91%E6%9E%84%E5%BB%BA"><span class="toc-number">10.3.4.</span> <span class="toc-text">手动发送post请求触发构建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E7%BB%93%E6%9E%9C"><span class="toc-number">10.3.4.1.</span> <span class="toc-text">自动构建结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins%E8%BF%94%E5%9B%9E%E6%9E%84%E5%BB%BA%E7%8A%B6%E6%80%81"><span class="toc-number">10.4.</span> <span class="toc-text">Jenkins返回构建状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90gitlab%E7%9A%84token"><span class="toc-number">10.4.1.</span> <span class="toc-text">生成gitlab的token</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEjob"><span class="toc-number">10.4.2.</span> <span class="toc-text">配置job</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%9E%84%E5%BB%BA%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6"><span class="toc-number">10.5.</span> <span class="toc-text">配置构建发送邮件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E7%BB%AD%E9%85%8D%E7%BD%AEjob"><span class="toc-number">10.5.1.</span> <span class="toc-text">继续配置job</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99"><span class="toc-number">11.</span> <span class="toc-text">jenkins部署静态网站</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">11.1.</span> <span class="toc-text">自动化部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins%E9%83%A8%E7%BD%B2Django"><span class="toc-number">12.</span> <span class="toc-text">jenkins部署Django</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%BC%80%E5%8F%91django%E6%AC%A2%E8%BF%8E%E9%A1%B5%E9%9D%A2"><span class="toc-number">12.1.</span> <span class="toc-text">手动开发django欢迎页面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87jenkins%E8%87%AA%E5%8A%A8%E5%8C%96%E7%9A%84%E4%B8%8A%E7%BA%BFdjango%E4%BB%A3%E7%A0%81"><span class="toc-number">12.2.</span> <span class="toc-text">如何通过jenkins自动化的上线django代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Jenkins%E5%88%9B%E5%BB%BAmaven%E9%A1%B9%E7%9B%AE"><span class="toc-number">13.</span> <span class="toc-text">Jenkins创建maven项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%A6%82%E8%BF%B0"><span class="toc-number">13.1.</span> <span class="toc-text">Java项目部署概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFJava%E9%A1%B9%E7%9B%AE"><span class="toc-number">13.1.1.</span> <span class="toc-text">什么是Java项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88java%E9%A1%B9%E7%9B%AE%E9%9C%80%E8%A6%81%E7%BC%96%E8%AF%91"><span class="toc-number">13.1.2.</span> <span class="toc-text">为什么java项目需要编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8vs%E8%87%AA%E5%8A%A8%E7%BC%96%E8%AF%91"><span class="toc-number">13.1.3.</span> <span class="toc-text">手动vs自动编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven%E4%BA%86%E8%A7%A3"><span class="toc-number">13.1.4.</span> <span class="toc-text">maven了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">13.1.5.</span> <span class="toc-text">Maven项目结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2maven"><span class="toc-number">13.2.</span> <span class="toc-text">部署maven</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E8%AF%86maven"><span class="toc-number">13.3.</span> <span class="toc-text">认识maven</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#maven%E5%91%BD%E4%BB%A4"><span class="toc-number">13.3.1.</span> <span class="toc-text">maven命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E5%88%B0gitlab"><span class="toc-number">13.4.</span> <span class="toc-text">开发人员提交代码到gitlab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9maven%E9%85%8D%E7%BD%AE"><span class="toc-number">13.4.1.</span> <span class="toc-text">修改maven配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#jenkins%E6%B5%81%E6%B0%B4%E7%BA%BFPipeline"><span class="toc-number">14.</span> <span class="toc-text">jenkins流水线Pipeline</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%B5%81%E6%B0%B4%E7%BA%BF%EF%BC%9F"><span class="toc-number">14.1.</span> <span class="toc-text">什么是流水线？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8%E6%B5%81%E6%B0%B4%E7%BA%BF"><span class="toc-number">14.2.</span> <span class="toc-text">Jenkins为什么用流水线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pipeline%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8CJenkins-file"><span class="toc-number">14.2.1.</span> <span class="toc-text">Pipeline的基本概念和Jenkins-file</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95pipeline%E6%A1%88%E4%BE%8B"><span class="toc-number">14.3.</span> <span class="toc-text">简单pipeline案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0stage%E8%84%9A%E6%9C%AC"><span class="toc-number">14.4.</span> <span class="toc-text">添加stage脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Blue-Ocean%E6%8F%92%E4%BB%B6"><span class="toc-number">14.5.</span> <span class="toc-text">安装Blue Ocean插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Cshell%E5%91%BD%E4%BB%A4"><span class="toc-number">14.6.</span> <span class="toc-text">执行shell命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8Clinux%E7%9A%84bash%E8%84%9A%E6%9C%AC"><span class="toc-number">14.6.1.</span> <span class="toc-text">执行linux的bash脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pipeline%E8%8E%B7%E5%8F%96gitlab%E4%BB%A3%E7%A0%81"><span class="toc-number">14.7.</span> <span class="toc-text">pipeline获取gitlab代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pipeline%E9%83%A8%E7%BD%B2django%E7%A8%8B%E5%BA%8F"><span class="toc-number">14.8.</span> <span class="toc-text">pipeline部署django程序</span></a></li></ol></li></ol>
-        
-    </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-3 i,
-        .toc-level-3 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
-
-    <script>
-        yiliaConfig.toc = ["Hide", "Show", !!"false"];
-    </script>
-
-
-
-    
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
-        </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"部署jenkins　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-    
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
-        
-
-        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/" title="Next: deployment更新">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/08/14/jenkins/">部署jenkins</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/14/deployment%E6%9B%B4%E6%96%B0/">deployment更新</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/08/13/hello-world/">Hello World</a></li></ul>
-
-
-
-
-    <script>
-        
-    </script>
-</div>
-      <footer id="footer">
-    <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2016-2022 John Doe
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
-            </div>
-        </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
+                <v-icon>chevron_right</v-icon>
             </div>
         
     </div>
-</footer>
+</v-card>
+
+
+
+        
+                            <div id="mobile-footer" class="d-block d-md-none">
+                                <v-divider></v-divider>
+                                <div id="mobile-footer-content">
+                                    <span>Theme: <a target="_blank" rel="noopener" href="https://github.com/kb1000fx/hexo-theme-insulin">Insulin</a> &nbsp; Powered by <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a></span><br>
+                                    <span> &copy; 2015 - 2022 John Doe</span>
+                                </div>
+                            </div>                   
+                        </v-col>                                            
+                    </v-row>
+                </v-container>
+            </v-content>
+        </v-app>
     </div>
     
-<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.2.30"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-base64@3.5.2/base64.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 5;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
+<script src="/js/main.js"></script>
 
 
 
 
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="scroll" id="scroll">
-    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
-</div>
-<script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-            
-            
-            
-            
-            
-            
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
-</script>
 
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+
 </body>
 </html>

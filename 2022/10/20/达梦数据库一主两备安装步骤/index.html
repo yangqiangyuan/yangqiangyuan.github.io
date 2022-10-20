@@ -18,8 +18,9 @@
 <meta property="og:description" content="主备集群规范化部署本章节主要介绍在生产环境中（Linux 系统）规范化部署主备集群。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yangqiangyuan.github.io/images/dm.png">
+<meta property="og:image" content="https://yangqiangyuan.github.io/2022/10/20/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E4%B8%BB%E4%B8%A4%E5%A4%87%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/dm.png">
 <meta property="article:published_time" content="2022-10-20T08:02:50.000Z">
-<meta property="article:modified_time" content="2022-10-20T08:25:52.237Z">
+<meta property="article:modified_time" content="2022-10-20T08:39:58.002Z">
 <meta property="article:author" content="海贼王路飞">
 <meta property="article:tag" content="达梦">
 <meta name="twitter:card" content="summary">
@@ -603,6 +604,7 @@
 
 <p>输入 show 命令查看集群状态，执行以下命令：</p>
 <p><img src="/images/dm.png" alt="dm"></p>
+<p><img src="./dm.png" alt="dm"></p>
 <p>其中守护进程状态 WSTATUS 为 OPEN，实例状态 ISTATUS 为 OPEN，归档类型 RTYPE 为 REALTIME，归档状态 RSTAT 为VALID。</p>
 <h2 id="重启集群"><a href="#重启集群" class="headerlink" title="重启集群"></a>重启集群</h2><p><strong>主备集群重启有顺序要求：</strong>（在/mnt/dmdba/dmdata/bin目录下执行）</p>
 <ol>

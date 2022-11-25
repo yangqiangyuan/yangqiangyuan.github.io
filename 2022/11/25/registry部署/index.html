@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yangqiangyuan.github.io">
-  <title>postgresql常用命令 | Hexo</title>
+  <title>registry部署 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="postgresql常用命令">
+  <meta name="description" content="registry部署背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051registry部署背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。# 创建docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="postgresql常用命令">
-<meta property="og:url" content="https://yangqiangyuan.github.io/2022/10/08/postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="registry部署">
+<meta property="og:url" content="https://yangqiangyuan.github.io/2022/11/25/registry%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="postgresql常用命令">
+<meta property="og:description" content="registry部署背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051registry部署背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。# 创建docker">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-08T06:31:21.000Z">
-<meta property="article:modified_time" content="2022-10-20T08:30:17.731Z">
+<meta property="article:published_time" content="2022-11-25T01:59:52.000Z">
+<meta property="article:modified_time" content="2022-11-25T02:04:03.752Z">
 <meta property="article:author" content="海贼王路飞">
-<meta property="article:tag" content="postgres">
+<meta property="article:tag" content="registry部署">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -182,22 +182,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-postgresql常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-registry部署" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      postgresql常用命令
+      registry部署
     </h1>
   
 
 
   
   
-<a href="/2022/10/08/postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2022-10-08T06:31:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-08</time>
+<a href="/2022/11/25/registry%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+        <time datetime="2022-11-25T01:59:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
 </a>
 
   
@@ -210,7 +210,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">281字</span>
+      <span class="post-count">276字</span>
     </span>
   </span>
 
@@ -230,9 +230,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="postgresql常用命令"><a href="#postgresql常用命令" class="headerlink" title="postgresql常用命令"></a>postgresql常用命令</h1><span id="more"></span>
-
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.修改密码</span><br><span class="line">postgres=<span class="comment"># ALTER ROLE postgres WITH PASSWORD &#x27;Ftlp_2077&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.查看已经存在的数据库</span><br><span class="line">postgres=<span class="comment"># \l</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>.查看表</span><br><span class="line">postgres=<span class="comment"># \dt</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>.查看表结构</span><br><span class="line">postgres=<span class="comment"># \d tablename</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>.使用数据库</span><br><span class="line">postgres=<span class="comment"># \c databasename</span></span><br><span class="line"></span><br><span class="line"><span class="number">6</span>.查看库大小</span><br><span class="line">postgres=<span class="comment"># select datname, pg_size_pretty (pg_database_size(datname)) AS size from pg_database;</span></span><br><span class="line"></span><br><span class="line"><span class="number">7</span>.查看表大小</span><br><span class="line">postgres=<span class="comment"># \c corehr</span></span><br><span class="line">You are now connected to database <span class="string">&quot;corehr&quot;</span> as user <span class="string">&quot;postgres&quot;</span>.</span><br><span class="line">corehr=<span class="comment"># select relname, pg_size_pretty(pg_total_relation_size(relid)) as size from pg_stat_user_tables;</span></span><br><span class="line"></span><br><span class="line"><span class="number">8</span>.备份所有的库</span><br><span class="line">pg_dumpall -U postgres -c &gt; all_backup_20211018.sql</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>.导入所有备份库</span><br><span class="line">psql -U postgres &lt; all_backup_20211018.sql</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>.备份某个库</span><br><span class="line">pg_dump -U postgres -c platform &gt; platform_backup_20211018.sql</span><br><span class="line"></span><br><span class="line"><span class="number">11</span>.导入某个备份库</span><br><span class="line">psql -U postgres platform&lt; platform_backup_20211018.sql</span><br><span class="line"></span><br><span class="line"><span class="number">12</span>.备份某个表</span><br><span class="line">pg_dump -U postgres -c platform -t sec_page_t &gt; sec_page_t.sql</span><br><span class="line"></span><br><span class="line"><span class="number">13</span>.导入sql</span><br><span class="line">psql -U postgres -d platform &lt; sec_page_t.sql</span><br><span class="line"></span><br><span class="line"><span class="number">14</span>.备份某个库的表结构不备份数据</span><br><span class="line">pg_dump -U postgres -c -s ecs_proxy &gt; uat_ecs_proxy_20211116.sql</span><br><span class="line"></span><br><span class="line"><span class="number">15</span>.导入某个库的表结构</span><br><span class="line">psql <span class="string">&quot;host=pg51pb29.postgresql.db.cloud.papub  port=3738 user=laopai password=xxx dbname=ecs_proxy&quot;</span> &lt; uat_ecs_proxy_20211116.sql</span><br><span class="line"></span><br><span class="line"><span class="number">16</span>.关闭链接</span><br><span class="line">如果删除数据库的时候提示有连接，可以先将连接的关掉，如删除platform库时。</span><br><span class="line">SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE datname=<span class="string">&#x27;platform&#x27;</span> AND pid&lt;&gt;pg_backend_pid();</span><br></pre></td></tr></table></figure>
+    <h1 id="registry部署"><a href="#registry部署" class="headerlink" title="registry部署"></a>registry部署</h1><p>背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">registry部署</span><br><span class="line">背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建docker数据目录</span><br><span class="line"># mkdir -p /data1/docker</span><br><span class="line"># ln -s /data1/docker /var/lib/docker</span><br><span class="line"></span><br><span class="line"># 安装docker</span><br><span class="line"># yum install -y vim wget net-tools gcc gcc-c++ socat conntrack nfs-utils rpcbind yum-utils device-mapper-persistent-data lvm2 docker-ce</span><br><span class="line"></span><br><span class="line"># 配置私有仓库地址</span><br><span class="line"># mkdir -p /etc/docker/</span><br><span class="line"># vi /etc/docker/daemon.json</span><br><span class="line">&#123;</span><br><span class="line">        &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span><br><span class="line">        &quot;log-driver&quot;: &quot;json-file&quot;,</span><br><span class="line">        &quot;log-opts&quot;: &#123;</span><br><span class="line">                &quot;max-size&quot;: &quot;100m&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;storage-driver&quot;: &quot;overlay2&quot;,</span><br><span class="line">        &quot;storage-opts&quot;: [</span><br><span class="line">                &quot;overlay2.override_kernel_check=true&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;insecure-registries&quot;: [&quot;192.168.0.183:8080&quot;,&quot;192.168.0.183:5000&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 启动docker</span><br><span class="line"># systemctl daemon-reload</span><br><span class="line"># systemctl restart docker</span><br><span class="line"># systemctl status docker</span><br><span class="line"># systemctl enable docker</span><br><span class="line"></span><br><span class="line"># 上传registry.tar到/usr/local/目录</span><br><span class="line"></span><br><span class="line"># 新建镜像仓库目录</span><br><span class="line"># mkdir -p /data1/registry</span><br><span class="line"></span><br><span class="line"># 导入镜像</span><br><span class="line"># docker load -i /usr/local/registry.tar</span><br><span class="line"></span><br><span class="line"># 创建registry容器</span><br><span class="line"># docker run -d --name  training-dev-registry --restart=always -v /data1/registry:/var/lib/registry -p 5000:5000 registry:2</span><br><span class="line"></span><br><span class="line"># 验证镜像仓库是否可用</span><br><span class="line"># docker tag registry:2 192.168.0.183:5000/official/registry:2</span><br><span class="line"># docker push 192.168.0.183:5000/official/registry:2</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
     
@@ -280,7 +279,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://yangqiangyuan.github.io/2022/10/08/postgresql常用命令/" title="postgresql常用命令" target="_blank">https://yangqiangyuan.github.io/2022/10/08/postgresql常用命令/</a>
+          <a href="https://yangqiangyuan.github.io/2022/11/25/registry部署/" title="registry部署" target="_blank">https://yangqiangyuan.github.io/2022/11/25/registry部署/</a>
         </li>
         
         <li>
@@ -302,7 +301,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">postgres</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">registry部署</a>
         		</li>
       		
 		</ul>
@@ -358,7 +357,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://yangqiangyuan.github.io/2022/10/08/postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://yangqiangyuan.github.io/2022/11/25/registry%E9%83%A8%E7%BD%B2/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -373,18 +372,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/10/20/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%95%E6%9C%BA%E5%AE%89%E8%A3%85/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/11/25/harbor%E9%83%A8%E7%BD%B2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          达梦数据库单机安装
+          harbor部署
         
       </div>
     </a>
   
   
-    <a href="/2022/08/22/Kubesphere%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kubesphere证书过期</div>
+    <a href="/2022/11/24/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">达梦数据库常用操作</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -411,7 +410,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">postgresql常用命令</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#registry%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">registry部署</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yangqiangyuan.github.io">
-  <title>postgresql常用命令 | Hexo</title>
+  <title>达梦数据库常用操作 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="postgresql常用命令">
+  <meta name="description" content="达梦数据库常用操作1、常用功能及命令前提，命令行登录：.&#x2F;disql SYSDBA&#x2F;SYSDBA@localhost:5236 # 管理员用户 SYSDBA 的密码为 SYSDBA ，实例端口为 5236 模式查询SQL&gt; select distinct owner from dba_objects; 获取当前模式名SQL&gt; select sys_context(‘userenv’,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="postgresql常用命令">
-<meta property="og:url" content="https://yangqiangyuan.github.io/2022/10/08/postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="达梦数据库常用操作">
+<meta property="og:url" content="https://yangqiangyuan.github.io/2022/11/24/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="postgresql常用命令">
+<meta property="og:description" content="达梦数据库常用操作1、常用功能及命令前提，命令行登录：.&#x2F;disql SYSDBA&#x2F;SYSDBA@localhost:5236 # 管理员用户 SYSDBA 的密码为 SYSDBA ，实例端口为 5236 模式查询SQL&gt; select distinct owner from dba_objects; 获取当前模式名SQL&gt; select sys_context(‘userenv’,">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-10-08T06:31:21.000Z">
-<meta property="article:modified_time" content="2022-10-20T08:30:17.731Z">
+<meta property="article:published_time" content="2022-11-24T09:34:42.000Z">
+<meta property="article:modified_time" content="2022-11-25T01:49:17.745Z">
 <meta property="article:author" content="海贼王路飞">
-<meta property="article:tag" content="postgres">
+<meta property="article:tag" content="达梦">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -182,22 +182,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-postgresql常用命令" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-达梦数据库常用操作" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      postgresql常用命令
+      达梦数据库常用操作
     </h1>
   
 
 
   
   
-<a href="/2022/10/08/postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2022-10-08T06:31:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-08</time>
+<a href="/2022/11/24/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+        <time datetime="2022-11-24T09:34:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-24</time>
 </a>
 
   
@@ -210,7 +210,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">281字</span>
+      <span class="post-count">2.1k字</span>
     </span>
   </span>
 
@@ -219,7 +219,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">9分</span>
     </span>
   </span>
 </div>
@@ -230,10 +230,102 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="postgresql常用命令"><a href="#postgresql常用命令" class="headerlink" title="postgresql常用命令"></a>postgresql常用命令</h1><span id="more"></span>
+    <h1 id="达梦数据库常用操作"><a href="#达梦数据库常用操作" class="headerlink" title="达梦数据库常用操作"></a>达梦数据库常用操作</h1><h2 id="1、常用功能及命令"><a href="#1、常用功能及命令" class="headerlink" title="1、常用功能及命令"></a>1、常用功能及命令</h2><p>前提，命令行登录：<br>./disql SYSDBA/SYSDBA@localhost:5236 # 管理员用户 SYSDBA 的密码为 SYSDBA ，实例端口为 5236</p>
+<p>模式查询<br>SQL&gt; select distinct owner from dba_objects;</p>
+<p>获取当前模式名<br>SQL&gt; select sys_context(‘userenv’, ‘current_schema’) from dual;</p>
+<p>设置当前模式<br>SQL&gt; set schema&lt;模式名&gt;; #只能设置到属于自己的模式。</p>
+<p>用户查询<br>SQL&gt; select username from dba_users;</p>
+<p>查看某个模式下的所有表<br>SQL&gt; select table_name from all_tables where owner=’模式名’; #注意大小写</p>
+<p>查看表结构<br>SQL&gt; desc DRAGON_DATA.ACTIVE_DEVICE;</p>
+<p>创建用户<br>SQL&gt; create user dragon identified by “123456” default tablespace MAIN;</p>
+<p>用户授权<br>SQL&gt; grant SYS_ADMIN to dragon ;<br>SQL&gt; grant DBA,RESOURCE,PUBLIC to dragon with admin option;<br>SQL&gt; grant EXECUTE on SYS.DBMS_XMLGEN to dragon;</p>
+<h2 id="2、直接执行语句"><a href="#2、直接执行语句" class="headerlink" title="2、直接执行语句"></a>2、直接执行语句</h2><p>使用-E 参数，将在运行 DIsql 时直接执行后续的一条或多条 SQL 语句。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]<span class="meta">#cd /opt/dmdbms/bin</span></span><br><span class="line">[root@localhost bin]#./disql SYSDBA/SYSDBA -e <span class="string">&quot;SELECT * FROM DRAGON_USER;&quot;</span></span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.修改密码</span><br><span class="line">postgres=<span class="comment"># ALTER ROLE postgres WITH PASSWORD &#x27;Ftlp_2077&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>.查看已经存在的数据库</span><br><span class="line">postgres=<span class="comment"># \l</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>.查看表</span><br><span class="line">postgres=<span class="comment"># \dt</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>.查看表结构</span><br><span class="line">postgres=<span class="comment"># \d tablename</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>.使用数据库</span><br><span class="line">postgres=<span class="comment"># \c databasename</span></span><br><span class="line"></span><br><span class="line"><span class="number">6</span>.查看库大小</span><br><span class="line">postgres=<span class="comment"># select datname, pg_size_pretty (pg_database_size(datname)) AS size from pg_database;</span></span><br><span class="line"></span><br><span class="line"><span class="number">7</span>.查看表大小</span><br><span class="line">postgres=<span class="comment"># \c corehr</span></span><br><span class="line">You are now connected to database <span class="string">&quot;corehr&quot;</span> as user <span class="string">&quot;postgres&quot;</span>.</span><br><span class="line">corehr=<span class="comment"># select relname, pg_size_pretty(pg_total_relation_size(relid)) as size from pg_stat_user_tables;</span></span><br><span class="line"></span><br><span class="line"><span class="number">8</span>.备份所有的库</span><br><span class="line">pg_dumpall -U postgres -c &gt; all_backup_20211018.sql</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>.导入所有备份库</span><br><span class="line">psql -U postgres &lt; all_backup_20211018.sql</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>.备份某个库</span><br><span class="line">pg_dump -U postgres -c platform &gt; platform_backup_20211018.sql</span><br><span class="line"></span><br><span class="line"><span class="number">11</span>.导入某个备份库</span><br><span class="line">psql -U postgres platform&lt; platform_backup_20211018.sql</span><br><span class="line"></span><br><span class="line"><span class="number">12</span>.备份某个表</span><br><span class="line">pg_dump -U postgres -c platform -t sec_page_t &gt; sec_page_t.sql</span><br><span class="line"></span><br><span class="line"><span class="number">13</span>.导入sql</span><br><span class="line">psql -U postgres -d platform &lt; sec_page_t.sql</span><br><span class="line"></span><br><span class="line"><span class="number">14</span>.备份某个库的表结构不备份数据</span><br><span class="line">pg_dump -U postgres -c -s ecs_proxy &gt; uat_ecs_proxy_20211116.sql</span><br><span class="line"></span><br><span class="line"><span class="number">15</span>.导入某个库的表结构</span><br><span class="line">psql <span class="string">&quot;host=pg51pb29.postgresql.db.cloud.papub  port=3738 user=laopai password=xxx dbname=ecs_proxy&quot;</span> &lt; uat_ecs_proxy_20211116.sql</span><br><span class="line"></span><br><span class="line"><span class="number">16</span>.关闭链接</span><br><span class="line">如果删除数据库的时候提示有连接，可以先将连接的关掉，如删除platform库时。</span><br><span class="line">SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE datname=<span class="string">&#x27;platform&#x27;</span> AND pid&lt;&gt;pg_backend_pid();</span><br></pre></td></tr></table></figure>
+<h2 id="3、修改系统用户密码"><a href="#3、修改系统用户密码" class="headerlink" title="3、修改系统用户密码"></a>3、修改系统用户密码</h2><p>方式一</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]cd /opt/dmdbms/bin/</span><br><span class="line">[root@localhost bin]./disql SYSDBA/SYSDBA@localhost:<span class="number">5236</span></span><br><span class="line">SQL&gt; alter user sysdba identified by <span class="string">&quot;123456&quot;</span> <span class="keyword">default</span> tablespace MAIN;</span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
 
+<p>方式二</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./disql userid=SYSDBA/SYSDBA@localhost:<span class="number">5236</span> -e <span class="string">&quot;alter user sysdba identified by &quot;</span><span class="number">123456</span><span class="string">&quot; default tablespace MAIN;&quot;</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4、执行sql脚本"><a href="#4、执行sql脚本" class="headerlink" title="4、执行sql脚本"></a>4、执行sql脚本</h2><p>1）进入Disql执行sql脚本<br>SQL&gt; start /data/dm/test.sql #通过start命令执行脚本<br>SQL&gt; `/data/dm/test.sql（文件名test.sql前是反撇，通常在ESC键下方)</p>
+<p>2）启动时执行sql脚本<br>如果在启动时运行，只能使用&lt;`运行脚本&gt;，同时需要加\或’进行转义。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]# ./disql SYSDBA/SYSDBA  \`/data/dm/test.sql</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5、导入导出数据"><a href="#5、导入导出数据" class="headerlink" title="5、导入导出数据"></a>5、导入导出数据</h2><h3 id="1）全量导出导入"><a href="#1）全量导出导入" class="headerlink" title="1）全量导出导入"></a>1）全量导出导入</h3><p>导出<br>将用户名和密码均为SYSDBA，端口号为5236的数据库采用FULL方式完全导出。导出文件名为db_all.dmp，导出的日志文件名为db_all_export.log， 导出文件的路径为/data/dm。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./dexp SYSDBA/SYSDBA FILE=db_all.dmp DIRECTORY=/data/dm LOG=db_all_export.log FULL=Y</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>导入<br>将逻辑备份导入到用户名和密码为SYSDBA，IP地址为192.168.1.100，端口号为60000的数据库。导入文件名为db_all.dmp， 导入的日志文件名为db_all.log，导入文件路径为/data/dm。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./dimp USERID=SYSDBA/SYSDBA@<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>:<span class="number">60000</span> FILE=db_all.dmp DIRECTORY=/data/dm_bak LOG=db_all_import.<span class="built_in">log</span> FULL=Y</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：导入之前原表已存在时，默认为直接报错，需要设置TABLE_EXISTS_ACTION参数</strong><br>语法如下：<br>TABLE_EXISTS_ACTION=[SKIP | APPEND | TRUNCATE | REPLACE]<br>SKIP：跳过此表。<br>APPEND：直接向现有表中导入数据<br>TRUNCATE：先删除现有表中的数据，再向表中导入数据<br>REPLACE：先删除现有表，再导数据</p>
+<h3 id="2）指定库导入导出"><a href="#2）指定库导入导出" class="headerlink" title="2）指定库导入导出"></a>2）指定库导入导出</h3><p>导出<br>导出时不用FULL=Y，通过SCHEMAS指定模式，导出指定模式库。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./dexp USERID=SYSDBA/SYSDBA FILE=db_vnap_user.dmp DIRECTORY=/data/dm LOG=db_vnap_user_export.log  SCHEMAS=VNAP_USER</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>导入<br>导出时可以采用FULL=Y，全部导入指定模式库，也可通过SCHEMAS指定模式，导入部分库。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./dimp USERID=SYSDBA/SYSDBA@<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>:<span class="number">60000</span> FILE=db_vnap_user.dmp DIRECTORY=/data/dm LOG=db_all_import.log  SCHEMAS=VNAP_USER</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="达梦数据库常用SQL"><a href="#达梦数据库常用SQL" class="headerlink" title="达梦数据库常用SQL"></a>达梦数据库常用SQL</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">--达梦数据库创建表</span><br><span class="line">create table TEST_TABLE(</span><br><span class="line">	scid varchar2(10) primary key,</span><br><span class="line">	scname varchar2(20),           </span><br><span class="line">	scsm number(6),                  </span><br><span class="line">	scprice number(4,2)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">---------------------当前用户--------------------------</span><br><span class="line">--达梦数据库-获取当前用户拥有的表</span><br><span class="line">select table_name from user_tables;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取当前用户所属的某个表的字段</span><br><span class="line">select * from user_tab_columns where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取当前用户某个表的注释</span><br><span class="line">select * from user_tab_comments where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取当前用户某个表某个字段的注释</span><br><span class="line">select * from user_col_comments where table_name=&#x27;表名&#x27; where column_name=&#x27;字段名&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---------------------所有用户(不包括系统表)--------------------------</span><br><span class="line">--达梦数据库-所有用户的表(单独判断某个表是否存在，要加owner条件)(不包括系统表)</span><br><span class="line">select table_name from all_tables;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户所属的某个表的字段(不包括系统表)</span><br><span class="line">select * from all_tab_columns where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户所属的某个表的注释(不包括系统表)</span><br><span class="line">select * from all_tab_comments where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户某个表某个字段的注释(不包括系统表)</span><br><span class="line">select * from all_col_comments where table_name=&#x27;表名&#x27; where column_name=&#x27;字段名&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---------------------所有用户(包括系统表)--------------------------</span><br><span class="line">--达梦数据库-所有用户的表,包括(包括系统表)(单独判断某个表是否存在，要加owner条件)</span><br><span class="line">select table_name from dba_tables;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户所属的某个表(包括系统表)的字段</span><br><span class="line">select * from dba_tab_columns where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户所属的某个表(包括系统表)的注释</span><br><span class="line">select * from dba_tab_comments where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户某个表某个字段的注释(包括系统表)</span><br><span class="line">select * from dba_col_comments where table_name=&#x27;表名&#x27; where column_name=&#x27;字段名&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--达梦数据库-添加字段</span><br><span class="line">alter table 表名 add 字段名 varchar(15);</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改字段长度</span><br><span class="line">alter table 表名 modify 字段名 varchar(60);</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改表名</span><br><span class="line">alter table 表名 rename to 新表名;</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改字段名称</span><br><span class="line">alter table 表名 rename column 字段名 to 新字段名;</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改表的注释</span><br><span class="line">comment on table 表名 is &#x27;表注释内容&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改字段的注释</span><br><span class="line">comment on column 表名.字段名 is &#x27;字段注释内容&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-删除表的字段</span><br><span class="line">ALTER TABLE 表名 DROP 字段名 CASCADE;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--达梦数据库-获取数据表所有字段，以逗号分隔--</span><br><span class="line">SELECT listagg(column_name,&#x27;,&#x27;)WITHIN GROUP(ORDER BY COLUMN_ID) FROM user_tab_cols WHERE table_name=&#x27;TEST_TABLE&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="数据库简单使用"><a href="#数据库简单使用" class="headerlink" title="数据库简单使用"></a>数据库简单使用</h1><h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>模式：是数据库中全体数据的逻辑结构和特征的描述，在关系型数据库中，模式的具体表现是一系列表及表与表之间的联系。</p>
+<p>– 创建模式，名称为dmtest</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> schema dmtest;</span><br><span class="line"># 创建模式的语句的结束标识符不是(分号;)而是回车后第二行加 <span class="operator">/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="基本表"><a href="#基本表" class="headerlink" title="基本表"></a>基本表</h2><p>基本表：基本表就是一个关系及属性的描述，如：学生（学好，姓名，性别，班级）</p>
+<p>– 创建数据表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">drop table if exists t_student_info;</span><br><span class="line"></span><br><span class="line">create table t_student_info(</span><br><span class="line"></span><br><span class="line">stu_no bigint,</span><br><span class="line"></span><br><span class="line">stu_name varchar2(30),</span><br><span class="line"></span><br><span class="line">stu_sex_code char(1),</span><br><span class="line"></span><br><span class="line">stu_class varchar2(20)</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>– 表添加注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comment on table t_student_info is &#x27;学生信息&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>– 列添加注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">comment on column t_student_info.stu_no is &#x27;学号&#x27;;</span><br><span class="line"></span><br><span class="line">comment on column t_student_info.stu_name is &#x27;姓名&#x27;;</span><br><span class="line"></span><br><span class="line">comment on column t_student_info.stu_sex_code is &#x27;性别&#x27;;</span><br><span class="line"></span><br><span class="line">comment on column t_student_info.stu_class is &#x27;班级&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>– 创建数据表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">drop table if exists tr_sex;</span><br><span class="line"></span><br><span class="line">create table tr_sex(</span><br><span class="line"></span><br><span class="line">stu_sex_code char(1),</span><br><span class="line"></span><br><span class="line">stu_sex_name char(2)</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>– 表添加注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comment on table tr_sex is &#x27;性别维表&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>– 列添加注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">comment on column tr_sex.stu_sex_code is &#x27;性别编码&#x27;;</span><br><span class="line"></span><br><span class="line">comment on column tr_sex.stu_sex_name is &#x27;性别名称&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>– 插入数据到表中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">insert into t_student_info(stu_no,stu_name,stu_sex_code,stu_class) values (10001,&#x27;张三&#x27;,&#x27;1&#x27;,&#x27;三年级2班&#x27;);</span><br><span class="line"></span><br><span class="line">insert into t_student_info(stu_no,stu_name,stu_sex_code,stu_class) values (10002,&#x27;李四&#x27;,&#x27;1&#x27;,&#x27;五年级3班&#x27;);</span><br><span class="line"></span><br><span class="line">insert into t_student_info(stu_no,stu_name,stu_sex_code,stu_class) values (10003,&#x27;王琳&#x27;,&#x27;2&#x27;,&#x27;二年级1班&#x27;);</span><br><span class="line"></span><br><span class="line">insert into tr_sex(stu_sex_code,stu_sex_name) values (&#x27;1&#x27;,&#x27;男&#x27;);</span><br><span class="line"></span><br><span class="line">insert into tr_sex(stu_sex_code,stu_sex_name) values (&#x27;2&#x27;,&#x27;女&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>– 查询表记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from t_student_info;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>视图：视图是一种外模式，是建立在基础表之上的数据查询（单表或者多表关联）</p>
+<p>– 单表创建视图</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create or replace view v_t_student_info_1 as select * from t_student_info;</span><br></pre></td></tr></table></figure>
+
+<p>– 查询视图数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from v_t_student_info_1;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>– 创建表关联视图</p>
+<p>create or replace view v_t_student_info_2 as select a.*,b.stu_sex_name from t_student_info a inner join tr_sex b on a.stu_sex_code = b.stu_sex_code;</p>
+<p>– 查询视图数据ALTER</p>
+<p>select * from v_t_student_info_2;</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引：数据库表中一列或多列的值进行排序的一种结构，使用索引可快速访问数据库表中的特定信模式的作用</p>
+<p>– 索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create index idx_t_student_info on t_student_info(stu_no);</span><br></pre></td></tr></table></figure>
+
+<p>– 查看SQL的执行计划</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select * from t_student_info where stu_no = 10102;</span><br></pre></td></tr></table></figure>
+
+<p>如下图的执行计划解析，可以看出来，已经正确使用索引，进行SQL条件过滤数据</p>
+<h1 id="达梦数据库设置登录密码不过期和解除是密码锁定时间限制"><a href="#达梦数据库设置登录密码不过期和解除是密码锁定时间限制" class="headerlink" title="达梦数据库设置登录密码不过期和解除是密码锁定时间限制"></a>达梦数据库设置登录密码不过期和解除是密码锁定时间限制</h1><p>对于已经过期的密码需要首先去修改密码<br>ALTER USER “SYSDBA” IDENTIFIED BY “password”;</p>
+<p>设置密码永不过期，在安全员内执行<br>ALTER USER SYSDBA LIMIT PASSWORD_LIFE_TIME UNLIMITED;</p>
+<p>解除锁定密码时间限制<br>ALTER USER SYSDBA LIMIT PASSWORD_LOCK_TIME UNLIMITED;</p>
 
     
 
@@ -280,7 +372,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://yangqiangyuan.github.io/2022/10/08/postgresql常用命令/" title="postgresql常用命令" target="_blank">https://yangqiangyuan.github.io/2022/10/08/postgresql常用命令/</a>
+          <a href="https://yangqiangyuan.github.io/2022/11/24/达梦数据库常用操作/" title="达梦数据库常用操作" target="_blank">https://yangqiangyuan.github.io/2022/11/24/达梦数据库常用操作/</a>
         </li>
         
         <li>
@@ -302,7 +394,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">postgres</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">达梦</a>
         		</li>
       		
 		</ul>
@@ -358,7 +450,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://yangqiangyuan.github.io/2022/10/08/postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://yangqiangyuan.github.io/2022/11/24/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -373,18 +465,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/10/20/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8D%95%E6%9C%BA%E5%AE%89%E8%A3%85/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/11/25/registry%E9%83%A8%E7%BD%B2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          达梦数据库单机安装
+          registry部署
         
       </div>
     </a>
   
   
-    <a href="/2022/08/22/Kubesphere%E8%AF%81%E4%B9%A6%E8%BF%87%E6%9C%9F/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kubesphere证书过期</div>
+    <a href="/2022/10/20/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E4%B8%BB%E4%B8%A4%E5%A4%87%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">达梦数据库一主两备安装步骤</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -411,7 +503,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#postgresql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">postgresql常用命令</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">达梦数据库常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD%E5%8F%8A%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">1、常用功能及命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%9B%B4%E6%8E%A5%E6%89%A7%E8%A1%8C%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.2.</span> <span class="toc-text">2、直接执行语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81"><span class="toc-number">1.3.</span> <span class="toc-text">3、修改系统用户密码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%89%A7%E8%A1%8Csql%E8%84%9A%E6%9C%AC"><span class="toc-number">1.4.</span> <span class="toc-text">4、执行sql脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E6%95%B0%E6%8D%AE"><span class="toc-number">1.5.</span> <span class="toc-text">5、导入导出数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E5%85%A8%E9%87%8F%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5"><span class="toc-number">1.5.1.</span> <span class="toc-text">1）全量导出导入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E6%8C%87%E5%AE%9A%E5%BA%93%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA"><span class="toc-number">1.5.2.</span> <span class="toc-text">2）指定库导入导出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8SQL"><span class="toc-number">2.</span> <span class="toc-text">达梦数据库常用SQL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">数据库简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%A1%A8"><span class="toc-number">3.2.</span> <span class="toc-text">基本表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-number">3.3.</span> <span class="toc-text">视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95"><span class="toc-number">3.4.</span> <span class="toc-text">索引</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E7%BD%AE%E7%99%BB%E5%BD%95%E5%AF%86%E7%A0%81%E4%B8%8D%E8%BF%87%E6%9C%9F%E5%92%8C%E8%A7%A3%E9%99%A4%E6%98%AF%E5%AF%86%E7%A0%81%E9%94%81%E5%AE%9A%E6%97%B6%E9%97%B4%E9%99%90%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">达梦数据库设置登录密码不过期和解除是密码锁定时间限制</span></a></li></ol>
                     </div>
                 </span>
             </div>

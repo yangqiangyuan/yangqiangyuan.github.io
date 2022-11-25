@@ -184,6 +184,362 @@
             
 
   
+    <article id="post-harbor部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/11/25/harbor%E9%83%A8%E7%BD%B2/">harbor部署</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/11/25/harbor%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+        <time datetime="2022-11-25T02:04:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="harbor部署"><a href="#harbor部署" class="headerlink" title="harbor部署"></a>harbor部署</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">harbor部署</span><br><span class="line"></span><br><span class="line"># 安装docker</span><br><span class="line"># yum install -y vim wget net-tools gcc gcc-c++ socat conntrack nfs-utils rpcbind yum-utils device-mapper-persistent-data lvm2 docker-ce</span><br><span class="line"></span><br><span class="line"># 配置私有仓库地址</span><br><span class="line"># mkdir -p /etc/docker/</span><br><span class="line"># vi /etc/docker/daemon.json</span><br><span class="line">&#123;</span><br><span class="line">        &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span><br><span class="line">        &quot;log-driver&quot;: &quot;json-file&quot;,</span><br><span class="line">        &quot;log-opts&quot;: &#123;</span><br><span class="line">                &quot;max-size&quot;: &quot;100m&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;storage-driver&quot;: &quot;overlay2&quot;,</span><br><span class="line">        &quot;storage-opts&quot;: [</span><br><span class="line">                &quot;overlay2.override_kernel_check=true&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;insecure-registries&quot;: [&quot;192.168.0.183:8080&quot;,&quot;192.168.0.183:5000&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 启动docker</span><br><span class="line"># systemctl daemon-reload</span><br><span class="line"># systemctl restart docker</span><br><span class="line"># systemctl status docker</span><br><span class="line"># systemctl enable docker</span><br><span class="line"></span><br><span class="line"># 下载docker-compose</span><br><span class="line"># wget -O /usr/local/bin/docker-compose https://github.com/docker/compose/releases/download/1.29.0/docker-compose-Linux-x86_64 </span><br><span class="line"># mv /usr/local/bin/docker-compose-Linux-x86_64 /usr/local/bin/docker-compose</span><br><span class="line"># chmod a+x /usr/local/bin/docker-compose</span><br><span class="line"># docker-compose --version</span><br><span class="line"></span><br><span class="line"># 上传harbor-offline-installer-v2.6.2.tgz registry.tar</span><br><span class="line"># tar -xf /usr/local/harbor-offline-installer-v2.6.2.tgz -C /usr/local/  </span><br><span class="line"></span><br><span class="line"># 新建数据与日志目录</span><br><span class="line"># mkdir -p /data1/harbor/&#123;logs,data&#125;</span><br><span class="line"></span><br><span class="line"># 修改配置文件</span><br><span class="line"># cd /usr/local/harbor</span><br><span class="line"># vi harbor.yml</span><br><span class="line">hostname: 192.168.0.183</span><br><span class="line"></span><br><span class="line">http:</span><br><span class="line">  port: 8080</span><br><span class="line"></span><br><span class="line">harbor_admin_password: password</span><br><span class="line"></span><br><span class="line">database:</span><br><span class="line">  password: password</span><br><span class="line">  max_idle_conns: 500</span><br><span class="line">  max_open_conns: 10000</span><br><span class="line"></span><br><span class="line">data_volume: /data1/harbor/data</span><br><span class="line"></span><br><span class="line">trivy:</span><br><span class="line">  ignore_unfixed: false</span><br><span class="line">  skip_update: false</span><br><span class="line">  insecure: false</span><br><span class="line"></span><br><span class="line">jobservice:</span><br><span class="line">  max_job_workers: 100</span><br><span class="line"></span><br><span class="line">notification:</span><br><span class="line">  webhook_job_max_retry: 100</span><br><span class="line"></span><br><span class="line">chart:</span><br><span class="line">  absolute_url: disabled</span><br><span class="line"></span><br><span class="line">log:</span><br><span class="line">  level: info</span><br><span class="line">  local:</span><br><span class="line">    rotate_count: 50</span><br><span class="line">    rotate_size: 200M</span><br><span class="line">    location: /data1/harbor/logs</span><br><span class="line">_version: 2.2.0</span><br><span class="line">proxy:</span><br><span class="line">  http_proxy:</span><br><span class="line">  https_proxy:</span><br><span class="line">  no_proxy:</span><br><span class="line">  components:</span><br><span class="line">    - core</span><br><span class="line">    - jobservice</span><br><span class="line">    - trivy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># docker load -i harbor.v2.6.2.tar.gz</span><br><span class="line"># ./prepare</span><br><span class="line"># ./install.sh --with-chartmuseum</span><br><span class="line"># netstat -tunlp|grep 8080</span><br><span class="line"></span><br><span class="line"># 登录harbor</span><br><span class="line"># docker login 192.168.0.183:8080 -u admin -p password</span><br><span class="line"></span><br><span class="line"># 浏览器登录，然后创建项目</span><br><span class="line"># http://192.168.0.183:8080/  admin password</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">harbor部署</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/11/25/harbor%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-registry部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/11/25/registry%E9%83%A8%E7%BD%B2/">registry部署</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/11/25/registry%E9%83%A8%E7%BD%B2/" class="archive-article-date">
+        <time datetime="2022-11-25T01:59:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="registry部署"><a href="#registry部署" class="headerlink" title="registry部署"></a>registry部署</h1><p>背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">registry部署</span><br><span class="line">背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建docker数据目录</span><br><span class="line"># mkdir -p /data1/docker</span><br><span class="line"># ln -s /data1/docker /var/lib/docker</span><br><span class="line"></span><br><span class="line"># 安装docker</span><br><span class="line"># yum install -y vim wget net-tools gcc gcc-c++ socat conntrack nfs-utils rpcbind yum-utils device-mapper-persistent-data lvm2 docker-ce</span><br><span class="line"></span><br><span class="line"># 配置私有仓库地址</span><br><span class="line"># mkdir -p /etc/docker/</span><br><span class="line"># vi /etc/docker/daemon.json</span><br><span class="line">&#123;</span><br><span class="line">        &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span><br><span class="line">        &quot;log-driver&quot;: &quot;json-file&quot;,</span><br><span class="line">        &quot;log-opts&quot;: &#123;</span><br><span class="line">                &quot;max-size&quot;: &quot;100m&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;storage-driver&quot;: &quot;overlay2&quot;,</span><br><span class="line">        &quot;storage-opts&quot;: [</span><br><span class="line">                &quot;overlay2.override_kernel_check=true&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;insecure-registries&quot;: [&quot;192.168.0.183:8080&quot;,&quot;192.168.0.183:5000&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 启动docker</span><br><span class="line"># systemctl daemon-reload</span><br><span class="line"># systemctl restart docker</span><br><span class="line"># systemctl status docker</span><br><span class="line"># systemctl enable docker</span><br><span class="line"></span><br><span class="line"># 上传registry.tar到/usr/local/目录</span><br><span class="line"></span><br><span class="line"># 新建镜像仓库目录</span><br><span class="line"># mkdir -p /data1/registry</span><br><span class="line"></span><br><span class="line"># 导入镜像</span><br><span class="line"># docker load -i /usr/local/registry.tar</span><br><span class="line"></span><br><span class="line"># 创建registry容器</span><br><span class="line"># docker run -d --name  training-dev-registry --restart=always -v /data1/registry:/var/lib/registry -p 5000:5000 registry:2</span><br><span class="line"></span><br><span class="line"># 验证镜像仓库是否可用</span><br><span class="line"># docker tag registry:2 192.168.0.183:5000/official/registry:2</span><br><span class="line"># docker push 192.168.0.183:5000/official/registry:2</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">registry部署</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/11/25/registry%E9%83%A8%E7%BD%B2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-达梦数据库常用操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/11/24/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">达梦数据库常用操作</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/11/24/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+        <time datetime="2022-11-24T09:34:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="达梦数据库常用操作"><a href="#达梦数据库常用操作" class="headerlink" title="达梦数据库常用操作"></a>达梦数据库常用操作</h1><h2 id="1、常用功能及命令"><a href="#1、常用功能及命令" class="headerlink" title="1、常用功能及命令"></a>1、常用功能及命令</h2><p>前提，命令行登录：<br>./disql SYSDBA/SYSDBA@localhost:5236 # 管理员用户 SYSDBA 的密码为 SYSDBA ，实例端口为 5236</p>
+<p>模式查询<br>SQL&gt; select distinct owner from dba_objects;</p>
+<p>获取当前模式名<br>SQL&gt; select sys_context(‘userenv’, ‘current_schema’) from dual;</p>
+<p>设置当前模式<br>SQL&gt; set schema&lt;模式名&gt;; #只能设置到属于自己的模式。</p>
+<p>用户查询<br>SQL&gt; select username from dba_users;</p>
+<p>查看某个模式下的所有表<br>SQL&gt; select table_name from all_tables where owner=’模式名’; #注意大小写</p>
+<p>查看表结构<br>SQL&gt; desc DRAGON_DATA.ACTIVE_DEVICE;</p>
+<p>创建用户<br>SQL&gt; create user dragon identified by “123456” default tablespace MAIN;</p>
+<p>用户授权<br>SQL&gt; grant SYS_ADMIN to dragon ;<br>SQL&gt; grant DBA,RESOURCE,PUBLIC to dragon with admin option;<br>SQL&gt; grant EXECUTE on SYS.DBMS_XMLGEN to dragon;</p>
+<h2 id="2、直接执行语句"><a href="#2、直接执行语句" class="headerlink" title="2、直接执行语句"></a>2、直接执行语句</h2><p>使用-E 参数，将在运行 DIsql 时直接执行后续的一条或多条 SQL 语句。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]<span class="meta">#cd /opt/dmdbms/bin</span></span><br><span class="line">[root@localhost bin]#./disql SYSDBA/SYSDBA -e <span class="string">&quot;SELECT * FROM DRAGON_USER;&quot;</span></span><br><span class="line"><span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、修改系统用户密码"><a href="#3、修改系统用户密码" class="headerlink" title="3、修改系统用户密码"></a>3、修改系统用户密码</h2><p>方式一</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]cd /opt/dmdbms/bin/</span><br><span class="line">[root@localhost bin]./disql SYSDBA/SYSDBA@localhost:<span class="number">5236</span></span><br><span class="line">SQL&gt; alter user sysdba identified by <span class="string">&quot;123456&quot;</span> <span class="keyword">default</span> tablespace MAIN;</span><br><span class="line"><span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+<p>方式二</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./disql userid=SYSDBA/SYSDBA@localhost:<span class="number">5236</span> -e <span class="string">&quot;alter user sysdba identified by &quot;</span><span class="number">123456</span><span class="string">&quot; default tablespace MAIN;&quot;</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4、执行sql脚本"><a href="#4、执行sql脚本" class="headerlink" title="4、执行sql脚本"></a>4、执行sql脚本</h2><p>1）进入Disql执行sql脚本<br>SQL&gt; start /data/dm/test.sql #通过start命令执行脚本<br>SQL&gt; `/data/dm/test.sql（文件名test.sql前是反撇，通常在ESC键下方)</p>
+<p>2）启动时执行sql脚本<br>如果在启动时运行，只能使用&lt;`运行脚本&gt;，同时需要加\或’进行转义。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]# ./disql SYSDBA/SYSDBA  \`/data/dm/test.sql</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5、导入导出数据"><a href="#5、导入导出数据" class="headerlink" title="5、导入导出数据"></a>5、导入导出数据</h2><h3 id="1）全量导出导入"><a href="#1）全量导出导入" class="headerlink" title="1）全量导出导入"></a>1）全量导出导入</h3><p>导出<br>将用户名和密码均为SYSDBA，端口号为5236的数据库采用FULL方式完全导出。导出文件名为db_all.dmp，导出的日志文件名为db_all_export.log， 导出文件的路径为/data/dm。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./dexp SYSDBA/SYSDBA FILE=db_all.dmp DIRECTORY=/data/dm LOG=db_all_export.log FULL=Y</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>导入<br>将逻辑备份导入到用户名和密码为SYSDBA，IP地址为192.168.1.100，端口号为60000的数据库。导入文件名为db_all.dmp， 导入的日志文件名为db_all.log，导入文件路径为/data/dm。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./dimp USERID=SYSDBA/SYSDBA@<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>:<span class="number">60000</span> FILE=db_all.dmp DIRECTORY=/data/dm_bak LOG=db_all_import.<span class="built_in">log</span> FULL=Y</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：导入之前原表已存在时，默认为直接报错，需要设置TABLE_EXISTS_ACTION参数</strong><br>语法如下：<br>TABLE_EXISTS_ACTION=[SKIP | APPEND | TRUNCATE | REPLACE]<br>SKIP：跳过此表。<br>APPEND：直接向现有表中导入数据<br>TRUNCATE：先删除现有表中的数据，再向表中导入数据<br>REPLACE：先删除现有表，再导数据</p>
+<h3 id="2）指定库导入导出"><a href="#2）指定库导入导出" class="headerlink" title="2）指定库导入导出"></a>2）指定库导入导出</h3><p>导出<br>导出时不用FULL=Y，通过SCHEMAS指定模式，导出指定模式库。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./dexp USERID=SYSDBA/SYSDBA FILE=db_vnap_user.dmp DIRECTORY=/data/dm LOG=db_vnap_user_export.log  SCHEMAS=VNAP_USER</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>导入<br>导出时可以采用FULL=Y，全部导入指定模式库，也可通过SCHEMAS指定模式，导入部分库。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./dimp USERID=SYSDBA/SYSDBA@<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>:<span class="number">60000</span> FILE=db_vnap_user.dmp DIRECTORY=/data/dm LOG=db_all_import.log  SCHEMAS=VNAP_USER</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="达梦数据库常用SQL"><a href="#达梦数据库常用SQL" class="headerlink" title="达梦数据库常用SQL"></a>达梦数据库常用SQL</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">--达梦数据库创建表</span><br><span class="line">create table TEST_TABLE(</span><br><span class="line">	scid varchar2(10) primary key,</span><br><span class="line">	scname varchar2(20),           </span><br><span class="line">	scsm number(6),                  </span><br><span class="line">	scprice number(4,2)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">---------------------当前用户--------------------------</span><br><span class="line">--达梦数据库-获取当前用户拥有的表</span><br><span class="line">select table_name from user_tables;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取当前用户所属的某个表的字段</span><br><span class="line">select * from user_tab_columns where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取当前用户某个表的注释</span><br><span class="line">select * from user_tab_comments where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取当前用户某个表某个字段的注释</span><br><span class="line">select * from user_col_comments where table_name=&#x27;表名&#x27; where column_name=&#x27;字段名&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---------------------所有用户(不包括系统表)--------------------------</span><br><span class="line">--达梦数据库-所有用户的表(单独判断某个表是否存在，要加owner条件)(不包括系统表)</span><br><span class="line">select table_name from all_tables;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户所属的某个表的字段(不包括系统表)</span><br><span class="line">select * from all_tab_columns where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户所属的某个表的注释(不包括系统表)</span><br><span class="line">select * from all_tab_comments where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户某个表某个字段的注释(不包括系统表)</span><br><span class="line">select * from all_col_comments where table_name=&#x27;表名&#x27; where column_name=&#x27;字段名&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---------------------所有用户(包括系统表)--------------------------</span><br><span class="line">--达梦数据库-所有用户的表,包括(包括系统表)(单独判断某个表是否存在，要加owner条件)</span><br><span class="line">select table_name from dba_tables;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户所属的某个表(包括系统表)的字段</span><br><span class="line">select * from dba_tab_columns where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户所属的某个表(包括系统表)的注释</span><br><span class="line">select * from dba_tab_comments where table_name=&#x27;表名&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-获取所有用户某个表某个字段的注释(包括系统表)</span><br><span class="line">select * from dba_col_comments where table_name=&#x27;表名&#x27; where column_name=&#x27;字段名&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--达梦数据库-添加字段</span><br><span class="line">alter table 表名 add 字段名 varchar(15);</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改字段长度</span><br><span class="line">alter table 表名 modify 字段名 varchar(60);</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改表名</span><br><span class="line">alter table 表名 rename to 新表名;</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改字段名称</span><br><span class="line">alter table 表名 rename column 字段名 to 新字段名;</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改表的注释</span><br><span class="line">comment on table 表名 is &#x27;表注释内容&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-修改字段的注释</span><br><span class="line">comment on column 表名.字段名 is &#x27;字段注释内容&#x27;;</span><br><span class="line"></span><br><span class="line">--达梦数据库-删除表的字段</span><br><span class="line">ALTER TABLE 表名 DROP 字段名 CASCADE;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--达梦数据库-获取数据表所有字段，以逗号分隔--</span><br><span class="line">SELECT listagg(column_name,&#x27;,&#x27;)WITHIN GROUP(ORDER BY COLUMN_ID) FROM user_tab_cols WHERE table_name=&#x27;TEST_TABLE&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="数据库简单使用"><a href="#数据库简单使用" class="headerlink" title="数据库简单使用"></a>数据库简单使用</h1><h2 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h2><p>模式：是数据库中全体数据的逻辑结构和特征的描述，在关系型数据库中，模式的具体表现是一系列表及表与表之间的联系。</p>
+<p>– 创建模式，名称为dmtest</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> schema dmtest;</span><br><span class="line"># 创建模式的语句的结束标识符不是(分号;)而是回车后第二行加 <span class="operator">/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="基本表"><a href="#基本表" class="headerlink" title="基本表"></a>基本表</h2><p>基本表：基本表就是一个关系及属性的描述，如：学生（学好，姓名，性别，班级）</p>
+<p>– 创建数据表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">drop table if exists t_student_info;</span><br><span class="line"></span><br><span class="line">create table t_student_info(</span><br><span class="line"></span><br><span class="line">stu_no bigint,</span><br><span class="line"></span><br><span class="line">stu_name varchar2(30),</span><br><span class="line"></span><br><span class="line">stu_sex_code char(1),</span><br><span class="line"></span><br><span class="line">stu_class varchar2(20)</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>– 表添加注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comment on table t_student_info is &#x27;学生信息&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>– 列添加注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">comment on column t_student_info.stu_no is &#x27;学号&#x27;;</span><br><span class="line"></span><br><span class="line">comment on column t_student_info.stu_name is &#x27;姓名&#x27;;</span><br><span class="line"></span><br><span class="line">comment on column t_student_info.stu_sex_code is &#x27;性别&#x27;;</span><br><span class="line"></span><br><span class="line">comment on column t_student_info.stu_class is &#x27;班级&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>– 创建数据表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">drop table if exists tr_sex;</span><br><span class="line"></span><br><span class="line">create table tr_sex(</span><br><span class="line"></span><br><span class="line">stu_sex_code char(1),</span><br><span class="line"></span><br><span class="line">stu_sex_name char(2)</span><br><span class="line"></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>– 表添加注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">comment on table tr_sex is &#x27;性别维表&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>– 列添加注释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">comment on column tr_sex.stu_sex_code is &#x27;性别编码&#x27;;</span><br><span class="line"></span><br><span class="line">comment on column tr_sex.stu_sex_name is &#x27;性别名称&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>– 插入数据到表中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">insert into t_student_info(stu_no,stu_name,stu_sex_code,stu_class) values (10001,&#x27;张三&#x27;,&#x27;1&#x27;,&#x27;三年级2班&#x27;);</span><br><span class="line"></span><br><span class="line">insert into t_student_info(stu_no,stu_name,stu_sex_code,stu_class) values (10002,&#x27;李四&#x27;,&#x27;1&#x27;,&#x27;五年级3班&#x27;);</span><br><span class="line"></span><br><span class="line">insert into t_student_info(stu_no,stu_name,stu_sex_code,stu_class) values (10003,&#x27;王琳&#x27;,&#x27;2&#x27;,&#x27;二年级1班&#x27;);</span><br><span class="line"></span><br><span class="line">insert into tr_sex(stu_sex_code,stu_sex_name) values (&#x27;1&#x27;,&#x27;男&#x27;);</span><br><span class="line"></span><br><span class="line">insert into tr_sex(stu_sex_code,stu_sex_name) values (&#x27;2&#x27;,&#x27;女&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>– 查询表记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from t_student_info;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>视图：视图是一种外模式，是建立在基础表之上的数据查询（单表或者多表关联）</p>
+<p>– 单表创建视图</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create or replace view v_t_student_info_1 as select * from t_student_info;</span><br></pre></td></tr></table></figure>
+
+<p>– 查询视图数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from v_t_student_info_1;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>– 创建表关联视图</p>
+<p>create or replace view v_t_student_info_2 as select a.*,b.stu_sex_name from t_student_info a inner join tr_sex b on a.stu_sex_code = b.stu_sex_code;</p>
+<p>– 查询视图数据ALTER</p>
+<p>select * from v_t_student_info_2;</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引：数据库表中一列或多列的值进行排序的一种结构，使用索引可快速访问数据库表中的特定信模式的作用</p>
+<p>– 索引</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create index idx_t_student_info on t_student_info(stu_no);</span><br></pre></td></tr></table></figure>
+
+<p>– 查看SQL的执行计划</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain select * from t_student_info where stu_no = 10102;</span><br></pre></td></tr></table></figure>
+
+<p>如下图的执行计划解析，可以看出来，已经正确使用索引，进行SQL条件过滤数据</p>
+<h1 id="达梦数据库设置登录密码不过期和解除是密码锁定时间限制"><a href="#达梦数据库设置登录密码不过期和解除是密码锁定时间限制" class="headerlink" title="达梦数据库设置登录密码不过期和解除是密码锁定时间限制"></a>达梦数据库设置登录密码不过期和解除是密码锁定时间限制</h1><p>对于已经过期的密码需要首先去修改密码<br>ALTER USER “SYSDBA” IDENTIFIED BY “password”;</p>
+<p>设置密码永不过期，在安全员内执行<br>ALTER USER SYSDBA LIMIT PASSWORD_LIFE_TIME UNLIMITED;</p>
+<p>解除锁定密码时间限制<br>ALTER USER SYSDBA LIMIT PASSWORD_LOCK_TIME UNLIMITED;</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">达梦</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/11/24/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-达梦数据库一主两备安装步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -726,15 +1082,23 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">harbor部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Kubesphere</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">postgres</a>
+                <a href="javascript:void(0)" class="js-tag color1">registry部署</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">达梦</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">postgres</a>
               </li>
             
             <div class="clearfix"></div>

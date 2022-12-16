@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yangqiangyuan.github.io">
-  <title>registry部署 | Hexo</title>
+  <title>mysql导出select语句结果 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="registry部署背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。">
+  <meta name="description" content="mysql导出select查询结果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="registry部署">
-<meta property="og:url" content="https://yangqiangyuan.github.io/2022/11/25/registry%E9%83%A8%E7%BD%B2/index.html">
+<meta property="og:title" content="mysql导出select语句结果">
+<meta property="og:url" content="https://yangqiangyuan.github.io/2022/12/16/mysql%E5%AF%BC%E5%87%BAselect%E8%AF%AD%E5%8F%A5%E7%BB%93%E6%9E%9C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="registry部署背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。">
+<meta property="og:description" content="mysql导出select查询结果">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-25T01:59:52.000Z">
-<meta property="article:modified_time" content="2022-11-25T02:45:55.764Z">
+<meta property="article:published_time" content="2022-12-16T08:13:00.000Z">
+<meta property="article:modified_time" content="2022-12-16T08:50:08.104Z">
 <meta property="article:author" content="海贼王路飞">
-<meta property="article:tag" content="registry部署">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -182,22 +182,22 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-registry部署" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mysql导出select语句结果" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      registry部署
+      mysql导出select语句结果
     </h1>
   
 
 
   
   
-<a href="/2022/11/25/registry%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-        <time datetime="2022-11-25T01:59:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
+<a href="/2022/12/16/mysql%E5%AF%BC%E5%87%BAselect%E8%AF%AD%E5%8F%A5%E7%BB%93%E6%9E%9C/" class="archive-article-date">
+        <time datetime="2022-12-16T08:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-16</time>
 </a>
 
   
@@ -210,7 +210,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">276字</span>
+      <span class="post-count">245字</span>
     </span>
   </span>
 
@@ -230,10 +230,11 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="registry部署"><a href="#registry部署" class="headerlink" title="registry部署"></a>registry部署</h1><p>背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。</p>
-<span id="more"></span>
+    <h1 id="mysql导出select查询结果"><a href="#mysql导出select查询结果" class="headerlink" title="mysql导出select查询结果"></a>mysql导出select查询结果</h1><span id="more"></span>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">registry部署</span><br><span class="line">背景：使用registry作为部署kubesphere所需要镜像的镜像仓库。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建docker数据目录</span><br><span class="line"># mkdir -p /data1/docker</span><br><span class="line"># ln -s /data1/docker /var/lib/docker</span><br><span class="line"></span><br><span class="line"># 安装docker</span><br><span class="line"># yum install -y vim wget net-tools gcc gcc-c++ socat conntrack nfs-utils rpcbind yum-utils device-mapper-persistent-data lvm2 docker-ce</span><br><span class="line"></span><br><span class="line"># 配置私有仓库地址</span><br><span class="line"># mkdir -p /etc/docker/</span><br><span class="line"># vi /etc/docker/daemon.json</span><br><span class="line">&#123;</span><br><span class="line">        &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span><br><span class="line">        &quot;log-driver&quot;: &quot;json-file&quot;,</span><br><span class="line">        &quot;log-opts&quot;: &#123;</span><br><span class="line">                &quot;max-size&quot;: &quot;100m&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;storage-driver&quot;: &quot;overlay2&quot;,</span><br><span class="line">        &quot;storage-opts&quot;: [</span><br><span class="line">                &quot;overlay2.override_kernel_check=true&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;insecure-registries&quot;: [&quot;192.168.0.183:8080&quot;,&quot;192.168.0.183:5000&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 启动docker</span><br><span class="line"># systemctl daemon-reload</span><br><span class="line"># systemctl restart docker</span><br><span class="line"># systemctl status docker</span><br><span class="line"># systemctl enable docker</span><br><span class="line"></span><br><span class="line"># 上传registry.tar到/usr/local/目录</span><br><span class="line"></span><br><span class="line"># 新建镜像仓库目录</span><br><span class="line"># mkdir -p /data1/registry</span><br><span class="line"></span><br><span class="line"># 导入镜像</span><br><span class="line"># docker load -i /usr/local/registry.tar</span><br><span class="line"></span><br><span class="line"># 创建registry容器</span><br><span class="line"># docker run -d --name  training-dev-registry --restart=always -v /data1/registry:/var/lib/registry -p 5000:5000 registry:2</span><br><span class="line"></span><br><span class="line"># 验证镜像仓库是否可用</span><br><span class="line"># docker tag registry:2 192.168.0.183:5000/official/registry:2</span><br><span class="line"># docker push 192.168.0.183:5000/official/registry:2</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">方法一：</span><br><span class="line"></span><br><span class="line">mysql -hxx -uxx -pxx -e &quot;query statement&quot; db &gt; file</span><br><span class="line"></span><br><span class="line">　　-h：后面跟的是链接的host（主机）</span><br><span class="line"></span><br><span class="line">　　-u:后面跟的是用户名</span><br><span class="line"></span><br><span class="line">　　-p:后面跟的是密码</span><br><span class="line"></span><br><span class="line">　　db:你要查询的数据库</span><br><span class="line"></span><br><span class="line">　　file:你要写入的文件，绝对路径</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line">mysql -h127.0.0.1 -uroot -p000000 -e&quot;select * from a&quot; test &gt; 1.txt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">方法二：into outfile</span><br><span class="line">mysql -hxxx -uxx -pxx </span><br><span class="line">select * from table into outfile &#x27;xxx.txt&#x27;;</span><br><span class="line"></span><br><span class="line">问题：使用into outfile报错：ERROR 1290 (HY000): The MySQL server is running with the --secure-file-priv option so it cannot execute this statement</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">解决办法：先执行命令show variables like &#x27;%secure%&#x27;;(查询数据库默认导出路径)</span><br><span class="line">mysql&gt; show variables like &#x27;%secure%&#x27;;</span><br><span class="line">+--------------------------+-----------------------+</span><br><span class="line">| Variable_name            | Value                 |</span><br><span class="line">+--------------------------+-----------------------+</span><br><span class="line">| require_secure_transport | OFF                   |</span><br><span class="line">| secure_auth              | ON                    |</span><br><span class="line">| secure_file_priv         | /var/lib/mysql-files/ |</span><br><span class="line">+--------------------------+-----------------------+</span><br><span class="line">3 rows in set (0.00 sec)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">执行into outfile导出时加上secure_file_priv的路径</span><br><span class="line">例如：</span><br><span class="line">mysql -hxxx -uxx -pxx </span><br><span class="line">select * from table into outfile &#x27;/var/lib/mysql-files/xxx.txt&#x27;;</span><br><span class="line">命令执行成功后就会在/var/lib/mysql-files/目录下生成导出的文件。</span><br></pre></td></tr></table></figure>
 
 
     
@@ -281,7 +282,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://yangqiangyuan.github.io/2022/11/25/registry部署/" title="registry部署" target="_blank">https://yangqiangyuan.github.io/2022/11/25/registry部署/</a>
+          <a href="https://yangqiangyuan.github.io/2022/12/16/mysql导出select语句结果/" title="mysql导出select语句结果" target="_blank">https://yangqiangyuan.github.io/2022/12/16/mysql导出select语句结果/</a>
         </li>
         
         <li>
@@ -303,7 +304,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">registry部署</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
         		</li>
       		
 		</ul>
@@ -359,7 +360,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://yangqiangyuan.github.io/2022/11/25/registry%E9%83%A8%E7%BD%B2/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://yangqiangyuan.github.io/2022/12/16/mysql%E5%AF%BC%E5%87%BAselect%E8%AF%AD%E5%8F%A5%E7%BB%93%E6%9E%9C/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -374,18 +375,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/11/25/harbor%E9%83%A8%E7%BD%B2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          harbor部署
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/11/24/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">达梦数据库常用操作</div>
+    <a href="/2022/11/25/ingress-nginx%E9%83%A8%E7%BD%B2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ingress-nginx部署</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -412,7 +404,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#registry%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">registry部署</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mysql%E5%AF%BC%E5%87%BAselect%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C"><span class="toc-number">1.</span> <span class="toc-text">mysql导出select查询结果</span></a></li></ol>
                     </div>
                 </span>
             </div>

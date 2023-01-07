@@ -184,6 +184,151 @@
             
 
   
+    <article id="post-iptables命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/01/07/iptables%E5%91%BD%E4%BB%A4/">iptables命令</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/01/07/iptables%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2023-01-07T02:20:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-07</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="iptables命令"><a href="#iptables命令" class="headerlink" title="iptables命令"></a>iptables命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">语法</span><br><span class="line">iptables(选项)(参数)</span><br><span class="line"></span><br><span class="line">这些选项指定执行明确的动作：若指令行下没有其他规定,该行只能指定一个选项. 对于长格式的命令和选项名,所用字母长度只要保证iptables能从其他选项中区 分出该指令就行了。</span><br><span class="line"></span><br><span class="line">-A -append</span><br><span class="line">在所选择的链末添加一条或更多规则。当源（地址）或者/与 目的（地址）转换 为多于一个(多个)地址时，这条规则会加到所有可能的地址(组合)后面。</span><br><span class="line">-D -delete</span><br><span class="line">从所选链中删除一条或更多规则。这条命令可以有两种方法：可以把被删除规则 指定为链中的序号(第一条序号为1),或者指定为要匹配的规则。</span><br><span class="line">-R -replace</span><br><span class="line">从选中的链中取代一条规则。如果源（地址）或者/与 目的（地址）被转换为多地 址，该命令会失败。规则序号从1开始。</span><br><span class="line">-I -insert</span><br><span class="line">根据给出的规则序号向所选链中插入一条或更多规则。所以，如果规则序号为1， 规则会被插入链的头部。这也是不指定规则序号时的默认方式。</span><br><span class="line">-L -list</span><br><span class="line">显示所选链的所有规则。如果没有选择链，所有链将被显示。也可以和z选项一起 使用，这时链会被自动列出和归零。精确输出受其它所给参数影响。</span><br><span class="line">-F -flush</span><br><span class="line">清空所选链。这等于把所有规则一个个的删除。</span><br><span class="line">--Z -zero</span><br><span class="line">把所有链的包及字节的计数器清空。它可以和 -L配合使用，在清空前察看计数器，请参见前文。</span><br><span class="line">-N -new-chain</span><br><span class="line">根据给出的名称建立一个新的用户定义链。这必须保证没有同名的链存在。</span><br><span class="line">-X -delete-chain</span><br><span class="line">删除指定的用户自定义链。这个链必须没有被引用，如果被引用，在删除之前你必须删 除或者替换与之有关的规则。如果没有给出参数，这条命令将试着删除每个非 内建的链。</span><br><span class="line">-P -policy</span><br><span class="line">设置链的目标规则。</span><br><span class="line">-E -rename-chain</span><br><span class="line">根据用户给出的名字对指定链进行重命名，这仅仅是修饰，对整个表的结构没有影响。 TARGETS参数给出一个合法的目标。只有非用户自定义链可以使用规则，而且内建链和用 户自定义链都不能是规则的目标。</span><br><span class="line">-h Help.</span><br><span class="line">帮助。给出当前命令语法非常简短的说明。</span><br><span class="line"></span><br><span class="line">p -protocal [!]protocol</span><br><span class="line">规则或者包检查(待检查包)的协议。指定协议可以是tcp、udp、icmp中的一个或 者全部，也可以是数值，代表这些协议中的某一个。当然也可以使用在/etc/pro tocols中定义的协议名。在协议名前加上&quot;!&quot;表示相反的规则。数字0相当于所有 all。Protocol all会匹配所有协议，而且这是缺省时的选项。在和check命令结合 时，all可以不被使用。</span><br><span class="line"></span><br><span class="line">-s -source [!] address[/mask]</span><br><span class="line">指定源地址，可以是主机名、网络名和清楚的IP地址。mask说明可以是网络掩码 或清楚的数字，在网络掩码的左边指定网络掩码左边”1”的个数，因此，mask 值为24等于255.255.255.0。在指定地址前加上&quot;!&quot;说明指定了相反的地址段。标志 </span><br><span class="line"> --src 是这个选项的简写。</span><br><span class="line"></span><br><span class="line">-d --destination [!] address[/mask]</span><br><span class="line">指定目标地址，要获取详细说明请参见 -s标志的说明。标志 --dst 是这个选项的简写。</span><br><span class="line"></span><br><span class="line">-j --jump target</span><br><span class="line">(-j 目标跳转)指定规则的目标；也就是说，如果包匹配应当做什么。目标可以是用 户自定义链（不是这条规则所在的），某个会立即决定包的命运的专用内建目标， 或者一个扩展（参见下面的EXTENSIONS）。如果规则的这个选项被忽略，那么匹 配的过程不会对包产生影响，不过规则的计数器会增加。</span><br><span class="line"></span><br><span class="line">-i -in-interface [!] [name]</span><br><span class="line">(i -进入的（网络）接口 [!][名称])这是包经由该接口接收的可选的入口名称，包通过 该接口接收（在链INPUT、FORWORD和PREROUTING中进入的包）。当在接口名 前使用&quot;!&quot;说明后，指的是相反的名称。如果接口名后面加上&quot;+&quot;，则所有以此接口名 开头的接口都会被匹配。如果这个选项被忽略，会假设为&quot;+&quot;，那么将匹配任意接口。</span><br><span class="line"></span><br><span class="line">-o --out-interface [!][name]</span><br><span class="line">(-o --输出接口[名称])这是包经由该接口送出的可选的出口名称，包通过该口输出（在 链FORWARD、OUTPUT和POSTROUTING中送出的包）。当在接口名前使用&quot;!&quot;说明 后，指的是相反的名称。如果接口名后面加上&quot;+&quot;，则所有以此接口名开头的接口都会 被匹配。如果这个选项被忽略，会假设为&quot;+&quot;，那么将匹配所有任意接口。</span><br><span class="line"></span><br><span class="line">--dport num  匹配目标端口号</span><br><span class="line">--sport num  匹配来源端口号</span><br></pre></td></tr></table></figure>
+
+<p>iptables命令顺序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -t 表名 &lt;-A/I/D/R&gt; 规则链名 [规则号] &lt;-i/o 网卡名&gt; -p 协议名 &lt;-s 源IP/源子网&gt; --sport 源端口 &lt;-d 目标IP/目标子网&gt; --dport 目标端口 -j 动作</span><br></pre></td></tr></table></figure>
+
+<p><strong>表名包括：</strong></p>
+<ul>
+<li><strong>raw</strong>：高级功能，如：网址过滤。</li>
+<li><strong>mangle</strong>：数据包修改（QOS），用于实现服务质量。</li>
+<li><strong>net</strong>：地址转换，用于网关路由器。</li>
+<li><strong>filter</strong>：包过滤，用于防火墙规则。</li>
+</ul>
+<p><strong>规则链名包括：</strong></p>
+<ul>
+<li><strong>INPUT链</strong>：处理输入数据包。</li>
+<li><strong>OUTPUT链</strong>：处理输出数据包。</li>
+<li><strong>PORWARD链</strong>：处理转发数据包。</li>
+<li><strong>PREROUTING链</strong>：用于目标地址转换（DNAT）。</li>
+<li><strong>POSTOUTING链</strong>：用于源地址转换（SNAT）。</li>
+</ul>
+<p><strong>动作包括：</strong></p>
+<ul>
+<li><strong>ACCEPT</strong>：接收数据包。</li>
+<li><strong>DROP</strong>：丢弃数据包。</li>
+<li><strong>REDIRECT</strong>：重定向、映射、透明代理。</li>
+<li><strong>SNAT</strong>：源地址转换。</li>
+<li><strong>DNAT</strong>：目标地址转换。</li>
+<li><strong>MASQUERADE</strong>：IP伪装（NAT），用于ADSL。</li>
+<li><strong>LOG</strong>：日志记录。</li>
+</ul>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p><em>1.禁止服务器被ping，服务器拒绝icmp的流量，给与响应</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#给INPUT链添加规则，指定icmp协议，指定icmp类型 是8(回显请求)，  -s指定网段范围  -j 跳转的目标，即将做什么</span><br><span class="line">iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j REJECT</span><br></pre></td></tr></table></figure>
+
+<p><em>2.服务器禁ping，请求直接丢弃</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# iptables -F</span><br><span class="line">[root@localhost ~]# iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p>3.检查防火墙规则</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# iptables -L</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">DROP       icmp --  anywhere             anywhere             icmp echo-request</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br></pre></td></tr></table></figure>
+
+<p>4.清空所有防火墙规则链</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# iptables -F</span><br><span class="line">[root@localhost ~]# iptables -L</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.注意不要轻易在云服务器上设置，默认拒绝的规则，否则ssh流量进不去，直接断开远程连接了</strong></p>
+<p>6.删除<strong>第一条</strong>规则</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# iptables -L</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">DROP       icmp --  anywhere             anywhere             icmp echo-request</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">[root@localhost ~]#</span><br><span class="line">[root@localhost ~]# iptables -D INPUT 1</span><br></pre></td></tr></table></figure>
+
+<p>7.禁止访问本机的80端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#禁止流量进入，指定tcp类型，拒绝的端口是80，动作是拒绝</span><br><span class="line">iptables -A INPUT -p tcp --dport 80 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p>8.禁止服务器的FTP端口,也就是禁止21端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#服务器禁止21端口流量</span><br><span class="line">[root@localhost ~]# iptables -A INPUT -p tcp --dport 21 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p>9.只允许指定的ip远程连接此服务器，拒绝其他主机22端口流量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#iptables自上而下匹配</span><br><span class="line">iptables -A INPUT -s 222.35.242.139/24 -p tcp --dport 22 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 22 -j REJECT</span><br><span class="line"></span><br><span class="line">[root@localhost ~]# iptables -L</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">ACCEPT     tcp  --  222.35.242.0/24      anywhere             tcp dpt:ssh</span><br><span class="line">REJECT     tcp  --  anywhere             anywhere             tcp dpt:ssh reject-with icmp-port-unreachable</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#换一台ip的机器，直接被拒绝</span><br><span class="line">[root@web01 ~]# ssh root@123.206.16.61</span><br><span class="line">ssh: connect to host 123.206.16.61 port 22: Connection refused</span><br><span class="line"></span><br><span class="line">#只要删除第二条拒绝的规则，即可</span><br><span class="line">[root@localhost ~]# iptables -D INPUT 2</span><br><span class="line"></span><br><span class="line">#又可以连接了</span><br><span class="line">[root@web01 ~]# ssh root@123.206.16.61</span><br></pre></td></tr></table></figure>
+
+<p>10.禁止指定的机器ip，访问本机的80端口策略，可以封禁某些恶意请求</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#此时的防火墙规则</span><br><span class="line">[root@localhost ~]# iptables -L</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">ACCEPT     tcp  --  222.35.242.0/24      anywhere             tcp dpt:ssh</span><br><span class="line">REJECT     tcp  --  anywhere             anywhere             tcp dpt:ssh reject-with icmp-port-unreachable</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#在规则链开头，追加一个新规则,禁止某个ip地址，访问本机的80端口</span><br><span class="line">[root@localhost ~]# iptables -I INPUT -p tcp -s 222.35.242.139/24 --dport 80 -j REJECT</span><br><span class="line">[root@localhost ~]# iptables -L</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">REJECT     tcp  --  222.35.242.0/24      anywhere             tcp dpt:http reject-with icmp-port-unreachable</span><br><span class="line">ACCEPT     tcp  --  222.35.242.0/24      anywhere             tcp dpt:ssh</span><br><span class="line">REJECT     tcp  --  anywhere             anywhere             tcp dpt:ssh reject-with icmp-port-unreachable</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">[root@localhost ~]#</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>11.禁止所有的主机网段，访问本机的8000~9000的端口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]# iptables -A INPUT -p tcp -s 0/0 --dport  8000:9000 -j REJECT</span><br><span class="line">[root@localhost ~]#</span><br><span class="line">[root@localhost ~]#</span><br><span class="line">[root@localhost ~]# iptables -A INPUT -p udp -s 0/0 --dport  8000:9000 -j REJECT</span><br></pre></td></tr></table></figure>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iptables</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/01/07/iptables%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Zookeeper单机部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -976,94 +1121,6 @@
 
 
   
-    <article id="post-达梦数据库一主两备安装步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/10/20/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E4%B8%BB%E4%B8%A4%E5%A4%87%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/">达梦数据库一主两备安装步骤</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/10/20/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E4%B8%BB%E4%B8%A4%E5%A4%87%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
-        <time datetime="2022-10-20T08:02:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="主备集群规范化部署"><a href="#主备集群规范化部署" class="headerlink" title="主备集群规范化部署"></a>主备集群规范化部署</h1><p>本章节主要介绍在生产环境中（Linux 系统）规范化部署主备集群。</p>
-    
-    <a class="article-more-a" href="/2022/10/20/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E4%B8%BB%E4%B8%A4%E5%A4%87%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">达梦</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/20/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E4%B8%BB%E4%B8%A4%E5%A4%87%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1197,6 +1254,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubesphere</a>
               </li>
              
@@ -1205,11 +1266,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">postgres</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">postgres</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">

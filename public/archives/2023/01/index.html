@@ -6,21 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yangqiangyuan.github.io">
-  <title>Zookeeper单机部署 | Hexo</title>
+  <title>Archives: 2023/1 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Zookeeper单机部署1 云硬盘挂载">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Zookeeper单机部署">
-<meta property="og:url" content="https://yangqiangyuan.github.io/2022/12/29/Zookeeper%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://yangqiangyuan.github.io/archives/2023/01/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Zookeeper单机部署1 云硬盘挂载">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-12-29T02:25:44.000Z">
-<meta property="article:modified_time" content="2022-12-29T02:27:43.708Z">
 <meta property="article:author" content="海贼王路飞">
-<meta property="article:tag" content="Zookeeper">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -182,271 +177,65 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Zookeeper单机部署" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2023/01/07/iptables%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2023-01-07T02:20:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-07</time>
+</a>
+
+        </div>
+    	 
   
-  
-    <h1 class="article-title" itemprop="name">
-      Zookeeper单机部署
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2023/01/07/iptables%E5%91%BD%E4%BB%A4/">iptables命令</a>
+	
     </h1>
   
 
 
-  
-  
-<a href="/2022/12/29/Zookeeper%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-        <time datetime="2022-12-29T02:25:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-29</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">920字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">5分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Zookeeper单机部署"><a href="#Zookeeper单机部署" class="headerlink" title="Zookeeper单机部署"></a>Zookeeper单机部署</h1><h2 id="1-云硬盘挂载"><a href="#1-云硬盘挂载" class="headerlink" title="1 云硬盘挂载"></a>1 云硬盘挂载</h2><span id="more"></span>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 查看挂盘名称</span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"># 创建物理卷</span><br><span class="line">pvcreate /dev/vdb</span><br><span class="line"></span><br><span class="line"># 创建卷组</span><br><span class="line">vgcreate data_vg /dev/vdb</span><br><span class="line"></span><br><span class="line"># 创建逻辑卷</span><br><span class="line">lvcreate -l +100%free -n data data_vg</span><br><span class="line"></span><br><span class="line"># 格式化磁盘</span><br><span class="line">mkfs.xfs /dev/data_vg/data</span><br><span class="line"></span><br><span class="line"># 创建挂载目录</span><br><span class="line">mkdir -p /data1</span><br><span class="line"></span><br><span class="line"># 挂载</span><br><span class="line">mount /dev/data_vg/data /data1</span><br><span class="line"></span><br><span class="line"># 添加挂载信息</span><br><span class="line">echo &quot;/dev/mapper/data_vg-data /data1 xfs     defaults        0 0&quot; &gt;&gt; /etc/fstab</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-安装Java"><a href="#2-安装Java" class="headerlink" title="2 安装Java"></a>2 安装Java</h2><h3 id="2-1-检查系统是否安装了JAVA"><a href="#2-1-检查系统是否安装了JAVA" class="headerlink" title="2.1 检查系统是否安装了JAVA"></a>2.1 检查系统是否安装了JAVA</h3><p>如果有以下输出，则表示已安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep java</span><br><span class="line"></span><br><span class="line">java-1.8.0-openjdk-headless-1.8.0.272.b10-1.el7_9.x86_64</span><br><span class="line">tzdata-java-2020d-2.el7.noarch</span><br><span class="line">python-javapackages-3.4.1-11.el7.noarch</span><br><span class="line">java-1.8.0-openjdk-1.8.0.272.b10-1.el7_9.x86_64</span><br><span class="line">javapackages-tools-3.4.1-11.el7.noarch</span><br></pre></td></tr></table></figure>
-
-<p>需要进行卸载操作</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -e java-1.8.0-openjdk-1.8.0.272.b10-1.el7_9.x86_64</span><br><span class="line">rpm -e java-1.8.0-openjdk-headless-1.8.0.272.b10-1.el7_9.x86_64</span><br><span class="line">rpm -e javapackages-tools-3.4.1-11.el7.noarch</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-解压JAVA安装包"><a href="#2-2-解压JAVA安装包" class="headerlink" title="2.2 解压JAVA安装包"></a>2.2 解压JAVA安装包</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf /usr/local/java-1.8.0.tar.gz -C /usr/local</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-3-配置JAVA环境变量"><a href="#2-3-配置JAVA环境变量" class="headerlink" title="2.3 配置JAVA环境变量"></a>2.3 配置JAVA环境变量</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 在/etc/profile，追加JAVA_HOME和PATH两个变量。</span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line">export JAVA_HOME=/usr/local/java-1.8.0</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-4-检查JAVA安装"><a href="#2-4-检查JAVA安装" class="headerlink" title="2.4 检查JAVA安装"></a>2.4 检查JAVA安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 使环境变量生效，然后检查Java版本</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-安装zookeeper"><a href="#3-安装zookeeper" class="headerlink" title="3 安装zookeeper"></a>3 安装zookeeper</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"># 解压安装好的包</span><br><span class="line">tar -zxf /usr/local/apache-zookeeper-3.5.8-bin.tar.gz -C /usr/local/</span><br><span class="line">mv /usr/local/apache-zookeeper-3.5.8-bin /usr/local/apache-zookeeper-3.5.8</span><br><span class="line"></span><br><span class="line"># 新建数据目录</span><br><span class="line">mkdir -p /data1/zookeeper/&#123;data,logs&#125;</span><br><span class="line"></span><br><span class="line"># 修改配置文件</span><br><span class="line">echo &quot;1&quot;&gt;/data1/zookeeper/data/myid</span><br><span class="line"></span><br><span class="line">vi /usr/local/apache-zookeeper-3.5.8/conf/zoo.cfg</span><br><span class="line"></span><br><span class="line"># The number of milliseconds of each tick</span><br><span class="line">tickTime=2000</span><br><span class="line"># The number of ticks that the initial </span><br><span class="line"># synchronization phase can take</span><br><span class="line">initLimit=10</span><br><span class="line"># The number of ticks that can pass between </span><br><span class="line"># sending a request and getting an acknowledgement</span><br><span class="line">syncLimit=5</span><br><span class="line"># the directory where the snapshot is stored.</span><br><span class="line"># do not use /tmp for storage, /tmp here is just </span><br><span class="line"># example sakes.</span><br><span class="line">dataDir=/data1/zookeeper/data</span><br><span class="line">dataLogDir=/data1/zookeeper/logs</span><br><span class="line"># the port at which the clients will connect</span><br><span class="line">clientPort=2181</span><br><span class="line"># the maximum number of client connections.</span><br><span class="line"># increase this if you need to handle more clients</span><br><span class="line">maxClientCnxns=10000</span><br><span class="line">#</span><br><span class="line"># Be sure to read the maintenance section of the </span><br><span class="line"># administrator guide before turning on autopurge.</span><br><span class="line">#</span><br><span class="line"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span><br><span class="line">#</span><br><span class="line"># The number of snapshots to retain in dataDir</span><br><span class="line">#autopurge.snapRetainCount=3</span><br><span class="line"># Purge task interval in hours</span><br><span class="line"># Set to &quot;0&quot; to disable auto purge feature</span><br><span class="line">#autopurge.purgeInterval=1</span><br><span class="line">server.1=10.8.41.21:2888:3888</span><br><span class="line"></span><br><span class="line"># 编辑启动脚本</span><br><span class="line">vi /usr/local/apache-zookeeper-3.5.8/monitor.sh</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line">cur_path=$(cd &quot;$(dirname &quot;$&#123;BASH_SOURCE[0]&#125;&quot;)&quot; &amp;&amp; pwd)</span><br><span class="line"></span><br><span class="line">function log_info()&#123;</span><br><span class="line">	echo &quot;[INFO] [$(date &quot;+%Y-%m-%d %T&quot;)] $1&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function log_error()&#123;</span><br><span class="line">	echo &quot;[ERROR] [$(date &quot;+%Y-%m-%d %T&quot;)] $1&quot;</span><br><span class="line">	exit 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function check_status()&#123;</span><br><span class="line">	pids=$(ps -ef|grep java|grep apache-zookeeper-3.5.8|awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line"></span><br><span class="line">	if [[ -n $&#123;pids&#125; ]];then</span><br><span class="line">		echo &quot;True&quot;</span><br><span class="line">	else </span><br><span class="line">		echo &quot;False&quot;</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function stop()&#123;</span><br><span class="line">	log_info &quot;$&#123;FUNCNAME[0]&#125; begin.&quot;</span><br><span class="line"></span><br><span class="line">	pids=$(ps -ef|grep java|grep apache-zookeeper-3.5.8|awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line">	</span><br><span class="line">	log_info &quot;kill pid $&#123;pids&#125; begin.&quot;</span><br><span class="line">	if [[ -n $&#123;pids&#125; ]];then</span><br><span class="line">		log_info &quot;process exist,kill it $&#123;pids&#125;!&quot;</span><br><span class="line">		for i in $&#123;pids&#125;</span><br><span class="line">		do</span><br><span class="line">			log_info &quot;kill process $i!&quot;</span><br><span class="line">			kill -9 $i</span><br><span class="line">		done</span><br><span class="line">	else</span><br><span class="line">		log_info &quot;process not exist!&quot;</span><br><span class="line"></span><br><span class="line">	fi</span><br><span class="line">	log_info &quot;kill pid $&#123;pids&#125; end.&quot;</span><br><span class="line"></span><br><span class="line">	log_info &quot;$&#123;FUNCNAME[0]&#125; end.&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function start()&#123;</span><br><span class="line">	log_info &quot;$&#123;FUNCTION[0]&#125; begin.&quot;</span><br><span class="line"></span><br><span class="line">	if [[ $(check_status $node) == &quot;True&quot; ]];then</span><br><span class="line">		log_info &quot;process is exist, not need to start!&quot;</span><br><span class="line">	else</span><br><span class="line">		log_info &quot;start zookeeper begin.&quot;</span><br><span class="line"></span><br><span class="line">		/usr/local/apache-zookeeper-3.5.8/bin/zkServer.sh start</span><br><span class="line"></span><br><span class="line">		log_info &quot;start zookeeper success.&quot;</span><br><span class="line">	fi</span><br><span class="line"></span><br><span class="line">	log_info &quot;$&#123;FUNCTION[0]&#125; complete.&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function restart()&#123;</span><br><span class="line">	log_info &quot;$&#123;FUNCTION[0]&#125; begin.&quot;</span><br><span class="line"></span><br><span class="line">	stop</span><br><span class="line"></span><br><span class="line">	sleep 5</span><br><span class="line"></span><br><span class="line">	start</span><br><span class="line"></span><br><span class="line">	log_info &quot;$&#123;FUNCTION[0]&#125; end.&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function main()&#123;</span><br><span class="line">	log_info &quot;$&#123;FUNCTION[0]&#125; begin.&quot;</span><br><span class="line"></span><br><span class="line">	ACTION=&quot;$1&quot;</span><br><span class="line"></span><br><span class="line">	case &quot;$&#123;ACTION&#125;&quot; in</span><br><span class="line">	    start)</span><br><span class="line">            start</span><br><span class="line">	    ;;</span><br><span class="line">            stop)</span><br><span class="line">            stop</span><br><span class="line">            ;;</span><br><span class="line">	    restart)</span><br><span class="line">            restart</span><br><span class="line">            ;;</span><br><span class="line">	    *)</span><br><span class="line">            usage</span><br><span class="line">            ;;</span><br><span class="line">            esac</span><br><span class="line"></span><br><span class="line">	log_info &quot;$&#123;FUNCTION[0]&#125; complete.&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main &quot;$@&quot;</span><br><span class="line"></span><br><span class="line"># 修改权限</span><br><span class="line">chmod a+x /usr/local/apache-zookeeper-3.5.8/monitor.sh</span><br><span class="line"></span><br><span class="line"># 启动</span><br><span class="line">sh /usr/local/apache-zookeeper-3.5.8/monitor.sh start</span><br><span class="line"></span><br><span class="line"># 查看进程</span><br><span class="line">jps</span><br><span class="line"></span><br><span class="line"># 将健康检查加入crontab</span><br><span class="line">vi /etc/crontab </span><br><span class="line">*/1 * * * * root /usr/local/apache-zookeeper-3.5.8/monitor.sh start &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"># 重启crontab</span><br><span class="line">systemctl restart crond</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-    <div class="page-reward">
-      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
-        <div class="tooltip tooltip-east">
-          <span class="tooltip-item">
-            赏
-          </span>
-          <span class="tooltip-content">
-            <span class="tooltip-text">
-              <span class="tooltip-inner">
-                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
-                    class="icon icon-quo-right"></i></p>
-                <div class="reward-box">
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="/img/alipay.jpg">
-                    <span class="reward-type">支付宝</span>
-                  </div>
-                  
-                  
-                  <div class="reward-box-item">
-                    <img class="reward-img" src="/img/weixin.png">
-                    <span class="reward-type">微信</span>
-                  </div>
-                  
-                </div>
-              </span>
-            </span>
-          </span>
-        </div>
-      </a>
-    </div>
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          海贼王路飞
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="https://yangqiangyuan.github.io/2022/12/29/Zookeeper单机部署/" title="Zookeeper单机部署" target="_blank">https://yangqiangyuan.github.io/2022/12/29/Zookeeper单机部署/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iptables</a>
         		</li>
       		
 		</ul>
 	</div>
 
-    
+          
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://yangqiangyuan.github.io/2022/12/29/Zookeeper%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2023/01/07/iptables%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          iptables命令
-        
-      </div>
-    </a>
   
   
-    <a href="/2022/12/29/Zookeeper%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Zookeeper集群部署</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zookeeper%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">Zookeeper单机部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BA%91%E7%A1%AC%E7%9B%98%E6%8C%82%E8%BD%BD"><span class="toc-number">1.1.</span> <span class="toc-text">1 云硬盘挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85Java"><span class="toc-number">1.2.</span> <span class="toc-text">2 安装Java</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%A3%80%E6%9F%A5%E7%B3%BB%E7%BB%9F%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E4%BA%86JAVA"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 检查系统是否安装了JAVA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%A7%A3%E5%8E%8BJAVA%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 解压JAVA安装包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E9%85%8D%E7%BD%AEJAVA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 配置JAVA环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%A3%80%E6%9F%A5JAVA%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 检查JAVA安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85zookeeper"><span class="toc-number">1.3.</span> <span class="toc-text">3 安装zookeeper</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -487,8 +276,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

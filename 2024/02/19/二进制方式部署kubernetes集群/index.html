@@ -18,7 +18,7 @@
 <meta property="og:description" content="二进制方式部署kubernetes集群1、部署k8s常见的几种方式1.1 kubeadmKubeadm 是一个 k8s 部署工具，提供 kubeadm init 和 kubeadm join，用于快速部署 Kubernetes 集群。 Kubeadm 降低部署门槛，但屏蔽了很多细节，遇到问题很难排查。如果想更容易可控，推荐使用二进制包部署。 Kubernetes集群，虽然手动部署麻烦点，期间可以学">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-19T07:48:39.000Z">
-<meta property="article:modified_time" content="2024-02-19T07:49:33.340Z">
+<meta property="article:modified_time" content="2024-02-19T07:51:02.823Z">
 <meta property="article:author" content="海贼王路飞">
 <meta property="article:tag" content="kubernetes">
 <meta name="twitter:card" content="summary">
@@ -237,6 +237,8 @@
 <p>从 github 下载发行版的二进制包，手动部署每个组件，组成 Kubernetes 集群。</p>
 <h3 id="1-3-kubespray"><a href="#1-3-kubespray" class="headerlink" title="1.3 kubespray"></a>1.3 kubespray</h3><p>kubespray 是 Kubernetes incubator 中的项目，目标是提供 Production Ready Kubernetes 部署方案，该项目基础是通过 Ansible Playbook 来定义系统与 Kubernetes 集群部署的任务。Kubernetes 需要容器运行时(Container Runtime Interface，CRI)的支持，目前官方支持的容器运行时包括：Docker、Containerd、CRI-O 和 frakti，本文以 Docker 作为容器运行环境。</p>
 <p>本文以二进制文件方式部署 Kubernetes 集群，并对每个组件的配置进行详细说明。</p>
+<span id="more"></span>
+
 <h2 id="2、二进制部署环境准备"><a href="#2、二进制部署环境准备" class="headerlink" title="2、二进制部署环境准备"></a>2、二进制部署环境准备</h2><h3 id="2-1-软硬件环境准备"><a href="#2-1-软硬件环境准备" class="headerlink" title="2.1 软硬件环境准备"></a>2.1 软硬件环境准备</h3><p>软件环境：</p>
 <table>
 <thead>
@@ -1127,15 +1129,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">fdfs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ingress-nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">harbor部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">fdfs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1143,11 +1141,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color4">ingress-nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lvm扩容</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,11 +1157,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">registry部署</a>
+                <a href="javascript:void(0)" class="js-tag color1">lvm扩容</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">达梦</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">registry部署</a>
               </li>
              
               <li class="article-tag-list-item">

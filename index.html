@@ -184,6 +184,94 @@
             
 
   
+    <article id="post-python-基本数据类型-字符串函数及用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2024/02/27/python-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95/">python-基本数据类型-字符串函数及用法</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2024/02/27/python-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95/" class="archive-article-date">
+        <time datetime="2024-02-27T08:21:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-27</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="python-基本数据类型-字符串函数及用法"><a href="#python-基本数据类型-字符串函数及用法" class="headerlink" title="python-基本数据类型-字符串函数及用法"></a>python-基本数据类型-字符串函数及用法</h1><p>在 Python 中，字符串是一个非常常见的数据类型，提供了许多内置函数和方法来操作和处理字符串。以下是一些常见的字符串函数及其用法：</p>
+    
+    <a class="article-more-a" href="/2024/02/27/python-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2024/02/27/python-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-二进制方式部署kubernetes集群" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -982,94 +1070,6 @@
 
 
   
-    <article id="post-ingress-nginx部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/11/25/ingress-nginx%E9%83%A8%E7%BD%B2/">ingress-nginx部署</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/11/25/ingress-nginx%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-        <time datetime="2022-11-25T02:59:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-25</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="ingress-nginx部署"><a href="#ingress-nginx部署" class="headerlink" title="ingress-nginx部署"></a>ingress-nginx部署</h1><p>在 Kubernetes 集群内部使用 kube-dns 实现服务发现的功能，那么我们部署在 Kubernetes 集群中的应用如何暴露给外部的用户使用呢？我们知道可以使用 <code>NodePort</code> 和 <code>LoadBlancer</code> 类型的 Service 可以把应用暴露给外部用户使用，除此之外，Kubernetes 还为我们提供了一个非常重要的资源对象可以用来暴露服务给外部用户，那就是 <code>Ingress</code>。对于小规模的应用我们使用 NodePort 或许能够满足我们的需求，但是当你的应用越来越多的时候，你就会发现对于 NodePort 的管理就非常麻烦了，这个时候使用 Ingress 就非常方便了，可以避免管理大量的端口。</p>
-    
-    <a class="article-more-a" href="/2022/11/25/ingress-nginx%E9%83%A8%E7%BD%B2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ingress-nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/11/25/ingress-nginx%E9%83%A8%E7%BD%B2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1199,15 +1199,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">harbor部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">fdfs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
+                <a href="javascript:void(0)" class="js-tag color4">harbor部署</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,11 +1211,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">kubesphere</a>
+                <a href="javascript:void(0)" class="js-tag color4">iptables</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1231,7 +1223,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">达梦</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">kubesphere</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1240,6 +1236,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">kubernetes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">达梦</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yangqiangyuan.github.io">
-  <title>Archives: 2024/1 | Hexo</title>
+  <title>python-基本数据类型-字符串函数及用法 | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://yangqiangyuan.github.io/archives/2024/01/index.html">
+  <meta name="description" content="python-基本数据类型-字符串函数及用法在 Python 中，字符串是一个非常常见的数据类型，提供了许多内置函数和方法来操作和处理字符串。以下是一些常见的字符串函数及其用法：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-基本数据类型-字符串函数及用法">
+<meta property="og:url" content="https://yangqiangyuan.github.io/2024/02/27/python-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="python-基本数据类型-字符串函数及用法在 Python 中，字符串是一个非常常见的数据类型，提供了许多内置函数和方法来操作和处理字符串。以下是一些常见的字符串函数及其用法：">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-27T08:21:42.000Z">
+<meta property="article:modified_time" content="2024-02-27T08:22:57.567Z">
 <meta property="article:author" content="海贼王路飞">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -177,65 +182,334 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-python-基本数据类型-字符串函数及用法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2024/01/18/fastdfs%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-        <time datetime="2024-01-18T06:03:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2024/01/18/fastdfs%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2/">fastdfs集群部署</a>
-	
+    <h1 class="article-title" itemprop="name">
+      python-基本数据类型-字符串函数及用法
     </h1>
   
 
 
-        <div class="article-info info-on-right">
+  
+  
+<a href="/2024/02/27/python-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95/" class="archive-article-date">
+        <time datetime="2024-02-27T08:21:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-27</time>
+</a>
+
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">7.2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">28分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="python-基本数据类型-字符串函数及用法"><a href="#python-基本数据类型-字符串函数及用法" class="headerlink" title="python-基本数据类型-字符串函数及用法"></a>python-基本数据类型-字符串函数及用法</h1><p>在 Python 中，字符串是一个非常常见的数据类型，提供了许多内置函数和方法来操作和处理字符串。以下是一些常见的字符串函数及其用法：</p>
+<span id="more"></span>
+
+<ol>
+<li><p><code>len()</code>: 返回字符串的长度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(s))  <span class="comment"># 输出: 13</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>strip([chars])</code>：去除字符串首尾指定字符（默认为空白字符）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;   hello, world!   &quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.strip())  <span class="comment"># 输出: &quot;hello, world!&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>lstrip([chars])</code>：去除字符串开头指定字符（默认为空白字符）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;   hello, world!   &quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.lstrip())  <span class="comment"># 输出: &quot;hello, world!   &quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>rstrip([chars])</code>：去除字符串末尾指定字符（默认为空白字符）。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;   hello, world!   &quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.rstrip())  <span class="comment"># 输出: &quot;   hello, world!&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>join(iterable)</code>：将可迭代对象中的字符串元素连接起来，以当前字符串为分隔符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">&quot;hello&quot;</span>, <span class="string">&quot;world&quot;</span>, <span class="string">&quot;python&quot;</span>]</span><br><span class="line">s = <span class="string">&quot;-&quot;</span>.join(words)</span><br><span class="line"><span class="built_in">print</span>(s)  <span class="comment"># 输出: &quot;hello-world-python&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>replace(old, new[, count])</code>：将字符串中的指定子串 <code>old</code> 替换为新的子串 <code>new</code>，可指定替换次数 <code>count</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line">new_s = s.replace(<span class="string">&quot;world&quot;</span>, <span class="string">&quot;Python&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(new_s)  <span class="comment"># 输出: &quot;hello, Python!&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>split(sep=None, maxsplit=-1)</code>：将字符串按指定分隔符 <code>sep</code> 分割成多个子串，返回一个列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;apple,banana,cherry&quot;</span></span><br><span class="line">fruits = s.split(<span class="string">&quot;,&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(fruits)  <span class="comment"># 输出: [&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;]</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>upper()</code>：将字符串中的所有小写字母转换为大写字母。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.upper())  <span class="comment"># 输出: &quot;HELLO, WORLD!&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>lower()</code>、<code>casefold()</code>：将字符串中的所有大写字母转换为小写字母。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;HELLO, WORLD!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.lower())  <span class="comment"># 输出: &quot;hello, world!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.casefold())  <span class="comment"># 输出: &quot;hello, world!&quot;</span></span><br><span class="line"><span class="comment"># 两个函数的区别在于，casefold() 函数会将一些特殊字符（如土耳其语中的 &quot;İ&quot;）转换为小写，而 lower() 函数不会。如果需要进行 Unicode 比较，建议使用 casefold() 函数。</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>find()</code>: 查找子串在字符串中第一次出现的位置，如果找不到返回 -1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.find(<span class="string">&quot;World&quot;</span>))  <span class="comment"># 输出: 7</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>count()</code>: 统计子串在字符串中出现的次数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;apple, banana, cherry, banana&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.count(<span class="string">&quot;banana&quot;</span>))  <span class="comment"># 输出: 2</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>isalpha()</code>: 检查字符串是否只包含字母字符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Hello&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.isalpha())  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>isdigit()</code>: 检查字符串是否只包含数字字符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;12345&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.isdigit())  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>isalnum()</code>: 检查字符串是否只包含字母和数字字符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;hello123&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.isalnum())  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>isspace()</code>: 检查字符串是否只包含空白字符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;   &quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.isspace())  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>capitalize()</code>: 将字符串的第一个字符转换为大写，其他字符转换为小写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.capitalize())  <span class="comment"># 输出: &quot;Hello, world!&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>title()</code>: 将字符串中每个单词的首字母转换为大写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;hello world&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.title())  <span class="comment"># 输出: &quot;Hello World&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>startswith(prefix[, start[, end]])</code>：检查字符串是否以指定的前缀开头。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.startswith(<span class="string">&quot;Hello&quot;</span>))  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>endswith(suffix[, start[, end]])</code>：检查字符串是否以指定的后缀结尾。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.endswith(<span class="string">&quot;World!&quot;</span>))  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>islower()</code>：检查字符串中的字母是否都为小写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.islower())  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>isupper()</code>：检查字符串中的字母是否都为大写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;HELLO, WORLD!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.isupper())  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>swapcase()</code>：将字符串中的大小写字母互相转换。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.swapcase())  <span class="comment"># 输出: &quot;hELLO, wORLD!&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>center(width[, fillchar])</code>：返回一个指定宽度的字符串，将原字符串居中，用空格（或指定字符）填充两侧。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Hello&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.center(<span class="number">10</span>, <span class="string">&#x27;*&#x27;</span>))  <span class="comment"># 输出: &quot;**Hello***&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>zfill(width)</code>：返回一个指定宽度的字符串，原字符串右对齐，左侧用 0 填充。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;42&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.zfill(<span class="number">5</span>))  <span class="comment"># 输出: &quot;00042&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>partition(sep)</code>：根据分隔符 <code>sep</code> 将字符串分割成三部分，返回一个包含三个元素的元组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;hello, world!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.partition(<span class="string">&quot;,&quot;</span>))  <span class="comment"># 输出: (&#x27;hello&#x27;, &#x27;,&#x27;, &#x27; world!&#x27;)</span></span><br></pre></td></tr></table></figure></li>
+<li><p><code>expandtabs()</code> 是一个字符串方法，用于将字符串中的制表符（<code>\t</code>）转换为指定数量的空格。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span>.expandtabs(tabsize=<span class="number">8</span>)</span><br><span class="line">其中，tabsize 参数可选，表示每个制表符占用的空格数，默认值为 <span class="number">8</span>。</span><br><span class="line"></span><br><span class="line">例如，在字符串 s 中，有两个制表符 \t，将其扩展为 <span class="number">4</span> 个空格：</span><br><span class="line"></span><br><span class="line">s = <span class="string">&quot;hello\tworld\t!&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.expandtabs(<span class="number">4</span>))</span><br><span class="line">输出：</span><br><span class="line">hello   world   !</span><br><span class="line">可以看到，制表符 \t 被扩展为了 <span class="number">4</span> 个空格。</span><br><span class="line"></span><br><span class="line">另外，如果不指定 tabsize 参数，则默认使用 <span class="number">8</span> 个空格进行扩展。例如：</span><br><span class="line">s = <span class="string">&quot;hello\tworld&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s.expandtabs())</span><br><span class="line">输出：</span><br><span class="line">hello   world</span><br></pre></td></tr></table></figure></li>
+<li><p><code>format()</code> 用于格式化字符串的方法，通过 <code>&#123;&#125;</code> 占位符和格式化参数来构建最终的字符串。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">formatted_string = template_string.<span class="built_in">format</span>(arguments)</span><br><span class="line"></span><br><span class="line">其中，template_string 是包含占位符 &#123;&#125; 的字符串模板，arguments 是传递给占位符的参数。可以根据需要在模板字符串中使用多个占位符。</span><br><span class="line"></span><br><span class="line">下面是一些示例，演示不同的 <span class="built_in">format</span>() 使用方法：</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>位置参数格式化：</span><br><span class="line">name = <span class="string">&quot;Alice&quot;</span></span><br><span class="line">age = <span class="number">30</span></span><br><span class="line">sentence = <span class="string">&quot;My name is &#123;&#125; and I am &#123;&#125; years old.&quot;</span>.<span class="built_in">format</span>(name, age)</span><br><span class="line"><span class="built_in">print</span>(sentence)</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>关键字参数格式化：</span><br><span class="line">sentence = <span class="string">&quot;My name is &#123;name&#125; and I am &#123;age&#125; years old.&quot;</span>.<span class="built_in">format</span>(name=<span class="string">&quot;Bob&quot;</span>, age=<span class="number">25</span>)</span><br><span class="line"><span class="built_in">print</span>(sentence)</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>格式化数字：</span><br><span class="line">pi = <span class="number">3.14159</span></span><br><span class="line">formatted_pi = <span class="string">&quot;The value of pi is &#123;:.2f&#125;&quot;</span>.<span class="built_in">format</span>(pi)</span><br><span class="line"><span class="built_in">print</span>(formatted_pi)</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>指定参数顺序：</span><br><span class="line">sentence = <span class="string">&quot;I like &#123;1&#125; and &#123;0&#125;&quot;</span>.<span class="built_in">format</span>(<span class="string">&quot;apples&quot;</span>, <span class="string">&quot;bananas&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(sentence)</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>使用字典作为参数：</span><br><span class="line">person = &#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;Charlie&quot;</span>, <span class="string">&quot;age&quot;</span>: <span class="number">35</span>&#125;</span><br><span class="line">sentence = <span class="string">&quot;My name is &#123;name&#125; and I am &#123;age&#125; years old.&quot;</span>.<span class="built_in">format</span>(**person)</span><br><span class="line"><span class="built_in">print</span>(sentence)</span><br></pre></td></tr></table></figure></li>
+<li><p><code>format_map()</code> 是 Python 中用于字符串格式化的方法之一。它类似于 <code>format()</code> 方法，但接受一个字典作为参数来进行格式化操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">format_map() 方法的语法如下：</span><br><span class="line">formatted_string = template_string.format_map(mapping)</span><br><span class="line"></span><br><span class="line">其中，template_string 是包含占位符 &#123;&#125; 的字符串模板，mapping 是一个字典，提供了占位符与对应值的映射关系。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 format_map() 方法：</span><br><span class="line">person = &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;Alice&#x27;</span>, <span class="string">&#x27;age&#x27;</span>: <span class="number">30</span>&#125;</span><br><span class="line">sentence = <span class="string">&quot;My name is &#123;name&#125; and I am &#123;age&#125; years old.&quot;</span>.format_map(person)</span><br><span class="line"><span class="built_in">print</span>(sentence)</span><br><span class="line">输出结果为：</span><br><span class="line">My name <span class="keyword">is</span> Alice <span class="keyword">and</span> I am <span class="number">30</span> years old.</span><br><span class="line"></span><br><span class="line">在上面的示例中，我们创建了一个字典 person，包含了占位符 &#123;name&#125; 和 &#123;age&#125; 的键值对。然后，我们使用 format_map() 方法将字典作为参数传递给字符串模板，实现了字符串的格式化。</span><br><span class="line"></span><br><span class="line">需要注意的是，如果模板字符串中包含了字典中不存在的占位符，会引发 KeyError 异常。为了避免这种情况，你可以使用 get() 方法或提供默认值来处理缺失的键。</span><br></pre></td></tr></table></figure>
+
+<p><code>format()</code> 和 <code>format_map()</code> 都是 Python 中用于字符串格式化的方法，但它们之间有一些关键的区别：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">1.参数类型：</span><br><span class="line">format() 方法接受位置参数、关键字参数或者通过索引访问参数进行字符串格式化。</span><br><span class="line">format_map() 方法接受一个字典作为参数，将字典中的键值对用于字符串格式化。</span><br><span class="line"></span><br><span class="line">2.处理缺失键：</span><br><span class="line">format() 方法在格式化字符串时，如果占位符未匹配到相应的参数，会抛出 IndexError 或 KeyError 异常。</span><br><span class="line">format_map() 方法则可以避免因为缺失键而抛出异常，因为它会使用字典中的默认值或者忽略缺失的键。</span><br><span class="line"></span><br><span class="line">3.适用场景：</span><br><span class="line">format() 方法更加灵活，适用于各种情况下的字符串格式化，支持位置参数、关键字参数等多种方式。</span><br><span class="line">format_map() 方法通常用于将一个字典中的键值对应用到模板字符串中，适合于需要动态替换多个占位符的情况。</span><br><span class="line"></span><br><span class="line">下面是一个简单的比较示例：</span><br><span class="line"># 使用 format() 方法</span><br><span class="line">name = &quot;Alice&quot;</span><br><span class="line">age = 30</span><br><span class="line">sentence_format = &quot;My name is &#123;&#125; and I am &#123;&#125; years old.&quot;</span><br><span class="line">formatted_sentence = sentence_format.format(name, age)</span><br><span class="line">print(formatted_sentence)</span><br><span class="line"></span><br><span class="line"># 使用 format_map() 方法</span><br><span class="line">person = &#123;&#x27;name&#x27;: &#x27;Bob&#x27;, &#x27;age&#x27;: 25&#125;</span><br><span class="line">sentence_map = &quot;My name is &#123;name&#125; and I am &#123;age&#125; years old.&quot;</span><br><span class="line">formatted_sentence_map = sentence_map.format_map(person)</span><br><span class="line">print(formatted_sentence_map)</span><br><span class="line">总的来说，format() 方法更加通用和灵活，而 format_map() 则更适合于使用字典来进行字符串格式化的场景。根据具体的需求选择合适的方法来进行字符串格式化。希望这个解释能够帮助你理解两者之间的区别！</span><br></pre></td></tr></table></figure></li>
+<li><p><code>index()</code> 用于查找列表中指定元素的索引位置的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">list</span>.index(element[, start[, end]])</span><br><span class="line"></span><br><span class="line">其中，element 是要查找的元素，start 和 end 是可选参数，表示查找范围的起始和结束位置。</span><br><span class="line"></span><br><span class="line">index() 方法会在列表中从前往后依次查找 element，并返回它的第一个出现位置的索引值。如果列表中不存在该元素，则会抛出 ValueError 异常。</span><br><span class="line"></span><br><span class="line">下面是一个简单的示例，演示如何使用 index() 方法：</span><br><span class="line">fruits = [<span class="string">&quot;apple&quot;</span>, <span class="string">&quot;banana&quot;</span>, <span class="string">&quot;orange&quot;</span>, <span class="string">&quot;kiwi&quot;</span>]</span><br><span class="line">index = fruits.index(<span class="string">&quot;banana&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(index)  <span class="comment"># 输出结果为：1</span></span><br><span class="line"></span><br><span class="line">在上面的代码中，我们创建了一个水果列表 fruits，然后使用 index() 方法查找 <span class="string">&quot;banana&quot;</span> 的索引位置，并将结果赋值给变量 index。</span><br><span class="line"></span><br><span class="line">需要注意的是，如果指定的元素在列表中出现了多次，index() 方法只会返回第一个出现位置的索引值。如果需要查找所有出现位置的索引值，则可以使用列表解析或者循环等方式实现。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>isdecimal()</code> 用于判断字符串是否只包含十进制数字的方法。该方法只能用于 Unicode 对象，如果字符串中包含除了 0-9 的其他字符，或者为空字符串，则返回 False，否则返回 True。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">下面是一个示例，演示如何使用 isdecimal() 方法：</span><br><span class="line"></span><br><span class="line">python</span><br><span class="line">num1 = &quot;12345&quot;</span><br><span class="line">num2 = &quot;3.14&quot;</span><br><span class="line">num3 = &quot;&quot;</span><br><span class="line">num4 = &quot;①&quot;  # 全角数字 1</span><br><span class="line"></span><br><span class="line">print(num1.isdecimal())  # 输出结果为：True</span><br><span class="line">print(num2.isdecimal())  # 输出结果为：False</span><br><span class="line">print(num3.isdecimal())  # 输出结果为：False</span><br><span class="line">print(num4.isdecimal())  # 输出结果为：True</span><br><span class="line"></span><br><span class="line">在上面的代码中，我们分别定义了四个变量 num1、num2、num3 和 num4，然后使用 isdecimal() 方法来判断它们是否只包含十进制数字。其中，num1 和 num4 只包含数字，因此返回 True；而 num2 包含小数点，num3 为空字符串，因此都返回 False。</span><br><span class="line"></span><br><span class="line">需要注意的是，isdecimal() 方法只能用于 Unicode 字符串。如果要判断普通字符串是否只包含数字，可以使用正则表达式或者 isdigit() 方法。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>isidentifier()</code> 用于判断字符串是否为合法的标识符（identifier）的方法。标识符指的是用于表示变量、函数、类等命名实体的字符串，例如变量名、函数名、属性名等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">isidentifier() 方法会对给定的字符串进行以下几项检查：</span><br><span class="line"></span><br><span class="line">字符串中只能包含字母、数字和下划线（_）。</span><br><span class="line">字符串的第一个字符必须是字母或下划线。</span><br><span class="line">字符串不能是 Python 中的保留字。</span><br><span class="line">如果给定的字符串满足以上三个条件，则返回 <span class="literal">True</span>；否则返回 <span class="literal">False</span>。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 isidentifier() 方法：</span><br><span class="line">name1 = <span class="string">&quot;my_variable&quot;</span></span><br><span class="line">name2 = <span class="string">&quot;3variable&quot;</span></span><br><span class="line">name3 = <span class="string">&quot;if&quot;</span></span><br><span class="line">name4 = <span class="string">&quot;&quot;</span></span><br><span class="line">name5 = <span class="string">&quot;my-variable&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(name1.isidentifier())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"><span class="built_in">print</span>(name2.isidentifier())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"><span class="built_in">print</span>(name3.isidentifier())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"><span class="built_in">print</span>(name4.isidentifier())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"><span class="built_in">print</span>(name5.isidentifier())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"></span><br><span class="line">在上面的代码中，我们定义了五个字符串变量 name1 到 name5，然后使用 isidentifier() 方法来判断它们是否为合法的标识符。其中，name1 是合法的标识符，因此返回 <span class="literal">True</span>；而 name2 以数字开头，不符合要求，返回 <span class="literal">False</span>；name3 是 Python 中的保留字，也不符合要求，返回 <span class="literal">False</span>；name4 为空字符串，也不符合要求，返回 <span class="literal">False</span>；name5 中包含连字符，也不符合要求，返回 <span class="literal">False</span>。</span><br><span class="line"></span><br><span class="line">需要注意的是，在 Python <span class="number">3.7</span> 之前的版本中，isidentifier() 方法的实现可能会有所不同。在 Python <span class="number">3.7</span> 及其以后的版本中，该方法的实现已经比较稳定，并且符合 PEP <span class="number">3131</span> 的规范。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>isnumeric()</code> 是 Python 中用于判断字符串是否只包含数字字符的方法。与 <code>isdecimal()</code> 不同的是，<code>isnumeric()</code> 方法不仅可以判断十进制数字，还可以判断其他类型的数字，比如汉字数字、罗马数字等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">下面是一个示例，演示如何使用 isnumeric() 方法：</span><br><span class="line">num1 = <span class="string">&quot;12345&quot;</span></span><br><span class="line">num2 = <span class="string">&quot;3.14&quot;</span></span><br><span class="line">num3 = <span class="string">&quot;&quot;</span></span><br><span class="line">num4 = <span class="string">&quot;①&quot;</span>  <span class="comment"># 全角数字 1</span></span><br><span class="line">num5 = <span class="string">&quot;一二三&quot;</span>  <span class="comment"># 汉字数字</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(num1.isnumeric())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"><span class="built_in">print</span>(num2.isnumeric())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"><span class="built_in">print</span>(num3.isnumeric())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"><span class="built_in">print</span>(num4.isnumeric())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"><span class="built_in">print</span>(num5.isnumeric())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"></span><br><span class="line">在上面的代码中，我们分别定义了五个变量 num1 到 num5，然后使用 isnumeric() 方法来判断它们是否只包含数字字符。其中，num1 只包含阿拉伯数字，因此返回 <span class="literal">True</span>；num2 包含小数点，不符合要求，返回 <span class="literal">False</span>；num3 为空字符串，也返回 <span class="literal">False</span>；num4 包含全角数字 <span class="number">1</span>，属于数字字符，返回 <span class="literal">True</span>；num5 包含汉字数字，也返回 <span class="literal">True</span>。</span><br><span class="line"></span><br><span class="line">需要注意的是，对于不同的字符串内容，isnumeric() 的判断结果可能会有所不同。因此在实际使用时，需要根据具体情况来选择合适的方法进行判断。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>isprintable()</code> 用于判断字符串是否可打印的方法。一个字符被视为“可打印”的条件是：它是可见字符（例如字母、数字、符号等），或者是空格字符。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">下面是一个示例，演示如何使用 isprintable() 方法：</span><br><span class="line">str1 = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line">str2 = <span class="string">&quot;你好，世界！&quot;</span></span><br><span class="line">str3 = <span class="string">&quot;\t\n&quot;</span></span><br><span class="line">str4 = <span class="string">&quot;12345&quot;</span></span><br><span class="line">str5 = <span class="string">&quot;   &quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(str1.isprintable())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"><span class="built_in">print</span>(str2.isprintable())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"><span class="built_in">print</span>(str3.isprintable())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"><span class="built_in">print</span>(str4.isprintable())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"><span class="built_in">print</span>(str5.isprintable())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"></span><br><span class="line">在上面的代码中，我们定义了五个字符串变量 str1 到 str5，然后使用 isprintable() 方法来判断它们是否可打印。其中，str1 和 str2 中包含可见字符，因此返回 <span class="literal">True</span>；str3 包含不可见字符（制表符和换行符），返回 <span class="literal">False</span>；str4 和 str5 中只包含空格字符，也属于可打印字符，返回 <span class="literal">True</span>。</span><br><span class="line"></span><br><span class="line">需要注意的是，对于不同的字符串内容，isprintable() 的判断结果可能会有所不同。在实际应用中，可以利用该方法来检查字符串是否包含不可打印字符，以便进行相应的处理。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>istitle()</code> 用于判断字符串中每个单词的首字母是否都大写的方法。如果字符串中每个单词的首字母都是大写字母，并且其他字母都是小写字母，则返回 True；否则返回 False。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">下面是一个示例，演示如何使用 istitle() 方法：</span><br><span class="line">str1 = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line">str2 = <span class="string">&quot;This Is A Title&quot;</span></span><br><span class="line">str3 = <span class="string">&quot;This is not a Title&quot;</span></span><br><span class="line">str4 = <span class="string">&quot;Title With 123 Numbers&quot;</span></span><br><span class="line">str5 = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(str1.istitle())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"><span class="built_in">print</span>(str2.istitle())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"><span class="built_in">print</span>(str3.istitle())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"><span class="built_in">print</span>(str4.istitle())  <span class="comment"># 输出结果为：True</span></span><br><span class="line"><span class="built_in">print</span>(str5.istitle())  <span class="comment"># 输出结果为：False</span></span><br><span class="line"></span><br><span class="line">在上面的代码中，我们定义了五个字符串变量 str1 到 str5，然后使用 istitle() 方法来判断它们是否符合标题格式。其中，str2 和 str4 符合标题格式，因此返回 <span class="literal">True</span>；str1 和 str3 中不是每个单词的首字母都是大写字母，返回 <span class="literal">False</span>；str5 为空字符串，也返回 <span class="literal">False</span>。</span><br><span class="line"></span><br><span class="line">需要注意的是，在判断字符串是否符合标题格式时，istitle() 方法只能判断每个单词的首字母是否都是大写字母，而不能判断其他的格式要求，比如单词之间是否有空格或其他符号。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>ljust()</code> 是 Python 中用于向字符串的左侧填充指定字符，使其达到指定长度的方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">该方法的语法如下：</span><br><span class="line">string.ljust(width[, fillchar])</span><br><span class="line">其中，string 是要进行填充的字符串，width 是填充后的总长度，fillchar 是填充使用的字符，如果不指定则默认使用空格。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 ljust() 方法：</span><br><span class="line">str1 = <span class="string">&quot;hello&quot;</span></span><br><span class="line">str2 = <span class="string">&quot;world&quot;</span></span><br><span class="line">str3 = <span class="string">&quot;Python&quot;</span></span><br><span class="line">str4 = <span class="string">&quot;ljust&quot;</span></span><br><span class="line">str5 = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用默认的空格进行填充</span></span><br><span class="line"><span class="built_in">print</span>(str1.ljust(<span class="number">10</span>))  <span class="comment"># 输出结果为：&quot;hello     &quot;</span></span><br><span class="line"><span class="built_in">print</span>(str2.ljust(<span class="number">15</span>))  <span class="comment"># 输出结果为：&quot;world          &quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用指定字符进行填充</span></span><br><span class="line"><span class="built_in">print</span>(str3.ljust(<span class="number">8</span>, <span class="string">&quot;-&quot;</span>))  <span class="comment"># 输出结果为：&quot;Python--&quot;</span></span><br><span class="line"><span class="built_in">print</span>(str4.ljust(<span class="number">6</span>, <span class="string">&quot;*&quot;</span>))  <span class="comment"># 输出结果为：&quot;ljust*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对空字符串进行填充</span></span><br><span class="line"><span class="built_in">print</span>(str5.ljust(<span class="number">5</span>))  <span class="comment"># 输出结果为：&quot;     &quot;</span></span><br><span class="line"></span><br><span class="line">在上面的代码中，我们定义了五个字符串变量 str1 到 str5，然后使用 ljust() 方法对它们进行左侧填充。其中，str1 和 str2 使用默认的空格进行填充，填充后的字符串长度分别为 <span class="number">10</span> 和 <span class="number">15</span>；str3 和 str4 使用指定的字符进行填充，填充后的字符串长度分别为 <span class="number">8</span> 和 <span class="number">6</span>；str5 是空字符串，在进行填充时也会使用默认的空格进行填充。</span><br><span class="line"></span><br><span class="line">需要注意的是，如果指定的宽度小于原字符串的长度，则不进行任何填充，直接返回原字符串。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>maketrans()</code> 是 Python 中用于创建字符映射转换表的方法。它通常与 <code>translate()</code> 方法一起使用，用于对字符串中的字符进行替换或删除操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">maketrans() 方法的语法如下：</span><br><span class="line"><span class="built_in">str</span>.maketrans(x[, y[, z]])</span><br><span class="line"></span><br><span class="line">其中，x 是要被替换的字符，y 是替换成的字符，z 是要被删除的字符。这三个参数可以是字符串，也可以是字典。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 maketrans() 方法：</span><br><span class="line"><span class="comment"># 创建字符映射转换表</span></span><br><span class="line">trans_table = <span class="built_in">str</span>.maketrans(<span class="string">&quot;aeiou&quot;</span>, <span class="string">&quot;12345&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 translate() 方法进行字符替换</span></span><br><span class="line">input_str = <span class="string">&quot;This is a test string for maketrans&quot;</span></span><br><span class="line">result = input_str.translate(trans_table)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line">在上面的示例中，我们调用了 maketrans() 方法创建了一个字符映射转换表，将字符串中的元音字母（<span class="string">&quot;aeiou&quot;</span>）替换成数字（<span class="string">&quot;12345&quot;</span>）。然后，我们使用 translate() 方法将输入字符串中的字符按照转换表进行了替换，输出了替换后的结果。</span><br><span class="line"></span><br><span class="line">需要注意的是，maketrans() 方法创建的转换表可以用于多次的字符串替换操作，非常适合需要频繁进行字符替换的场景。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>rfind()</code> 是 Python 字符串对象的一个方法，用于返回指定子字符串在字符串中最后一次出现的位置（索引）。如果未找到该子字符串，则返回 -1。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">rfind() 方法的语法如下：</span><br><span class="line"><span class="built_in">str</span>.rfind(sub[, start[, end]])</span><br><span class="line"></span><br><span class="line">其中，sub 是要查找的子字符串；start 和 end 是可选参数，用于指定搜索的起始和结束位置。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 rfind() 方法：</span><br><span class="line">mystr = <span class="string">&quot;Hello, World! Welcome to Python World.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找子字符串 &quot;World&quot; 最后一次出现的位置</span></span><br><span class="line">index = mystr.rfind(<span class="string">&quot;World&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(index)  <span class="comment"># 输出结果为：27</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从索引 15 开始查找子字符串 &quot;World&quot; 最后一次出现的位置</span></span><br><span class="line">index2 = mystr.rfind(<span class="string">&quot;World&quot;</span>, <span class="number">15</span>)</span><br><span class="line"><span class="built_in">print</span>(index2)  <span class="comment"># 输出结果为：27</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在指定范围内查找子字符串 &quot;Python&quot;</span></span><br><span class="line">index3 = mystr.rfind(<span class="string">&quot;Python&quot;</span>, <span class="number">0</span>, <span class="number">20</span>)</span><br><span class="line"><span class="built_in">print</span>(index3)  <span class="comment"># 输出结果为：-1，因为在指定范围内未找到</span></span><br><span class="line"></span><br><span class="line">在上面的示例中，我们定义了一个字符串 mystr，然后使用 rfind() 方法在字符串中查找子字符串 <span class="string">&quot;World&quot;</span> 和 <span class="string">&quot;Python&quot;</span> 最后一次出现的位置。第一个例子中，找到了 <span class="string">&quot;World&quot;</span> 最后一次出现的位置为索引 <span class="number">27</span>；第二个例子中，从索引 <span class="number">15</span> 开始查找 <span class="string">&quot;World&quot;</span> 最后一次出现的位置仍为索引 <span class="number">27</span>；第三个例子中，在指定范围内（索引 <span class="number">0</span> 到 <span class="number">20</span>）未找到子字符串 <span class="string">&quot;Python&quot;</span>，因此返回 -<span class="number">1</span>。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>rindex()</code> 是 Python 字符串对象的一个方法，用于返回指定子字符串在字符串中最后一次出现的位置（索引）。与 <code>rfind()</code> 方法不同的是，如果未找到该子字符串，<code>rindex()</code> 方法会抛出一个 ValueError 异常。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">rindex() 方法的语法如下：</span><br><span class="line"><span class="built_in">str</span>.rindex(sub[, start[, end]])</span><br><span class="line"></span><br><span class="line">其中，sub 是要查找的子字符串；start 和 end 是可选参数，用于指定搜索的起始和结束位置。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 rindex() 方法：</span><br><span class="line">mystr = <span class="string">&quot;Hello, World! Welcome to Python World.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找子字符串 &quot;World&quot; 最后一次出现的位置</span></span><br><span class="line">index = mystr.rindex(<span class="string">&quot;World&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(index)  <span class="comment"># 输出结果为：27</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从索引 15 开始查找子字符串 &quot;World&quot; 最后一次出现的位置</span></span><br><span class="line">index2 = mystr.rindex(<span class="string">&quot;World&quot;</span>, <span class="number">15</span>)</span><br><span class="line"><span class="built_in">print</span>(index2)  <span class="comment"># 输出结果为：27</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在指定范围内查找子字符串 &quot;Python&quot;</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    index3 = mystr.rindex(<span class="string">&quot;Python&quot;</span>, <span class="number">0</span>, <span class="number">20</span>)</span><br><span class="line">    <span class="built_in">print</span>(index3)</span><br><span class="line"><span class="keyword">except</span> ValueError:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;子字符串未找到&quot;</span>)</span><br><span class="line">    </span><br><span class="line">在上面的示例中，我们定义了一个字符串 mystr，然后使用 rindex() 方法在字符串中查找子字符串 <span class="string">&quot;World&quot;</span> 和 <span class="string">&quot;Python&quot;</span> 最后一次出现的位置。第一个例子中，找到了 <span class="string">&quot;World&quot;</span> 最后一次出现的位置为索引 <span class="number">27</span>；第二个例子中，从索引 <span class="number">15</span> 开始查找 <span class="string">&quot;World&quot;</span> 最后一次出现的位置仍为索引 <span class="number">27</span>；第三个例子中，在指定范围内（索引 <span class="number">0</span> 到 <span class="number">20</span>）未找到子字符串 <span class="string">&quot;Python&quot;</span>，因此抛出 ValueError 异常，并输出 <span class="string">&quot;子字符串未找到&quot;</span>。</span><br><span class="line"></span><br><span class="line">需要注意的是，如果要查找的子字符串不存在于原字符串中，rindex() 方法会抛出 ValueError 异常。因此，在使用 rindex() 方法时，最好将其放在 <span class="keyword">try</span>-<span class="keyword">except</span> 块中进行异常处理。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>rjust()</code> 是 Python 字符串对象的一个方法，用于将字符串在左侧填充指定的字符，使其达到指定的宽度。如果字符串本身的长度已经大于或等于指定的宽度，则返回字符串本身。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">rjust() 方法的语法如下：</span><br><span class="line"><span class="built_in">str</span>.rjust(width[, fillchar])</span><br><span class="line"></span><br><span class="line">其中，width 是要填充后的宽度；fillchar 是可选参数，用于指定填充字符。如果不指定，默认为使用空格进行填充。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 rjust() 方法：</span><br><span class="line">mystr = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串填充到宽度为 20，使用 &quot;-&quot; 进行填充</span></span><br><span class="line">newstr = mystr.rjust(<span class="number">20</span>, <span class="string">&quot;-&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(newstr)  <span class="comment"># 输出结果为：&quot;--------Hello, World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串填充到宽度为 15，使用 &quot;*&quot; 进行填充</span></span><br><span class="line">newstr2 = mystr.rjust(<span class="number">15</span>, <span class="string">&quot;*&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(newstr2)  <span class="comment"># 输出结果为：&quot;***Hello, World!&quot;</span></span><br><span class="line"></span><br><span class="line">在上面的示例中，我们定义了一个字符串 mystr，然后使用 rjust() 方法将字符串填充到指定的宽度，并使用指定的字符进行填充。第一个例子中，将字符串填充到宽度为 <span class="number">20</span>，使用 <span class="string">&quot;-&quot;</span> 进行填充；第二个例子中，将字符串填充到宽度为 <span class="number">15</span>，使用 <span class="string">&quot;*&quot;</span> 进行填充。</span><br><span class="line"></span><br><span class="line">需要注意的是，使用 rjust() 方法填充字符串时，填充的字符会出现在左侧，而原字符串则出现在右侧。如果需要在字符串右侧填充字符，可以使用 ljust() 方法。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>rpartition()</code> 是 Python 字符串对象的一个方法，用于将字符串从右侧开始按照指定的分隔符进行分割，返回包含三个元素的元组：分隔符前面的子字符串、分隔符本身、分隔符后面的子字符串。如果未找到指定的分隔符，则返回包含三个空字符串的元组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">rpartition() 方法的语法如下：</span><br><span class="line"><span class="built_in">str</span>.rpartition(sep)</span><br><span class="line">其中，sep 是要用于分割字符串的分隔符。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 rpartition() 方法：</span><br><span class="line">mystr = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 &quot;o&quot; 分割字符串</span></span><br><span class="line">result = mystr.rpartition(<span class="string">&quot;o&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment"># 输出结果为：(&#x27;Hello, W&#x27;, &#x27;o&#x27;, &#x27;rld!&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 &quot;x&quot; 分割字符串</span></span><br><span class="line">result2 = mystr.rpartition(<span class="string">&quot;x&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(result2)  <span class="comment"># 输出结果为：(&#x27;&#x27;, &#x27;&#x27;, &#x27;Hello, World!&#x27;)</span></span><br><span class="line"></span><br><span class="line">在上面的示例中，我们定义了一个字符串 mystr，然后使用 rpartition() 方法将字符串从右侧开始按照指定的分隔符进行分割。第一个例子中，使用字符 <span class="string">&quot;o&quot;</span> 分割字符串，返回的元组中分隔符本身为字符 <span class="string">&quot;o&quot;</span>，分隔符前面的子字符串为 <span class="string">&quot;Hello, W&quot;</span>，分隔符后面的子字符串为 <span class="string">&quot;rld!&quot;</span>；第二个例子中，使用字符 <span class="string">&quot;x&quot;</span> 分割字符串，由于字符串中不存在字符 <span class="string">&quot;x&quot;</span>，因此返回包含三个空字符串的元组。</span><br><span class="line"></span><br><span class="line">需要注意的是，rpartition() 方法从右侧开始查找分隔符，并仅返回最后一个分隔符。如果需要从左侧开始查找分隔符并返回第一个分隔符，可以使用 partition() 方法。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>rsplit()</code> 是 Python 字符串对象的一个方法，用于从右侧开始按照指定的分隔符对字符串进行分割，并返回包含分割后子字符串的列表。与 <code>split()</code> 方法不同的是，<code>rsplit()</code> 是从右侧开始进行分割。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">rsplit() 方法的语法如下：</span><br><span class="line"><span class="built_in">str</span>.rsplit(sep=<span class="literal">None</span>, maxsplit=-<span class="number">1</span>)</span><br><span class="line">其中，sep 是要用于分割字符串的分隔符，默认为 <span class="literal">None</span>，表示使用空白字符（空格、制表符、换行符等）进行分割；maxsplit 是可选参数，用于指定最大分割次数，-<span class="number">1</span> 表示不限制分割次数。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 rsplit() 方法：</span><br><span class="line">mystr = <span class="string">&quot;Hello, World! Welcome to Python World.&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用空格进行分割</span></span><br><span class="line">result = mystr.rsplit()</span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment"># 输出结果为：[&#x27;Hello,&#x27;, &#x27;World!&#x27;, &#x27;Welcome&#x27;, &#x27;to&#x27;, &#x27;Python&#x27;, &#x27;World.&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 &quot;o&quot; 进行分割</span></span><br><span class="line">result2 = mystr.rsplit(<span class="string">&quot;o&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(result2)  <span class="comment"># 输出结果为：[&#x27;Hell&#x27;, &#x27;, W&#x27;, &#x27;rld! Welc&#x27;, &#x27;me t&#x27;, &#x27; Pyth&#x27;, &#x27;n W&#x27;, &#x27;rld.&#x27;]</span></span><br><span class="line"></span><br><span class="line">在上面的示例中，我们定义了一个字符串 mystr，然后使用 rsplit() 方法从右侧开始按照指定的分隔符对字符串进行分割。第一个例子中，使用默认的空白字符进行分割，返回的列表包含了字符串中的单词；第二个例子中，使用字符 <span class="string">&quot;o&quot;</span> 进行分割，返回的列表包含了按照字符 <span class="string">&quot;o&quot;</span> 分割后的子字符串。</span><br><span class="line"></span><br><span class="line">需要注意的是，与 split() 方法类似，rsplit() 方法也可以通过指定分隔符和最大分割次数来实现不同的分割效果。</span><br></pre></td></tr></table></figure></li>
+<li><p><code>splitlines()</code> 是 Python 字符串对象的一个方法，用于将字符串按照换行符（”\n”）、回车符（”\r”）、回车符和换行符的组合（”\r\n”）进行分割，并返回包含每行子字符串的列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">splitlines() 方法的语法如下：</span><br><span class="line"><span class="built_in">str</span>.splitlines([keepends])</span><br><span class="line">其中，keepends 是可选参数，用于指定是否保留换行符。如果不指定该参数或指定为 <span class="literal">False</span>，则返回的列表中不包含换行符；如果指定该参数为 <span class="literal">True</span>，则返回的列表中每行子字符串末尾会包含原始字符串中的换行符。</span><br><span class="line"></span><br><span class="line">下面是一个示例，演示如何使用 splitlines() 方法：</span><br><span class="line">mystr = <span class="string">&quot;Hello\nWorld\r\nWelcome\rto\rPython&quot;</span></span><br><span class="line"><span class="comment"># 分割字符串</span></span><br><span class="line">result = mystr.splitlines()</span><br><span class="line"><span class="built_in">print</span>(result)  <span class="comment"># 输出结果为：[&#x27;Hello&#x27;, &#x27;World&#x27;, &#x27;Welcome&#x27;, &#x27;to&#x27;, &#x27;Python&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分割字符串并保留换行符</span></span><br><span class="line">result2 = mystr.splitlines(<span class="literal">True</span>)</span><br><span class="line"><span class="built_in">print</span>(result2)  <span class="comment"># 输出结果为：[&#x27;Hello\n&#x27;, &#x27;World\r\n&#x27;, &#x27;Welcome\r&#x27;, &#x27;to\r&#x27;, &#x27;Python&#x27;]</span></span><br><span class="line"></span><br><span class="line">在上面的示例中，我们定义了一个字符串 mystr，然后使用 splitlines() 方法将字符串按照换行符、回车符和回车符和换行符的组合进行分割。第一个例子中，不指定 keepends 参数，返回的列表中不包含换行符；第二个例子中，指定 keepends 参数为 <span class="literal">True</span>，返回的列表中每行子字符串末尾会包含原始字符串中的换行符。</span><br><span class="line"></span><br><span class="line">需要注意的是，如果字符串中只包含换行符或回车符，splitlines() 方法也会将其作为一行进行分割。例如，如果字符串中只包含一个回车符，则 splitlines() 方法会将其作为一行进行分割，返回包含一个空字符串的列表。</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          海贼王路飞
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://yangqiangyuan.github.io/2024/02/27/python-基本数据类型-字符串函数及用法/" title="python-基本数据类型-字符串函数及用法" target="_blank">https://yangqiangyuan.github.io/2024/02/27/python-基本数据类型-字符串函数及用法/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">fdfs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+    
 
     
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://yangqiangyuan.github.io/2024/02/27/python-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2024/02/19/%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%96%B9%E5%BC%8F%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">二进制方式部署kubernetes集群</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">python-基本数据类型-字符串函数及用法</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -276,8 +550,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
